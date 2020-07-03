@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Stack-n-Solve Mansion</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -9,79 +9,79 @@ body, html {height: 100%}
     font-family: cursive
 }
 .bgimg {
-  background-image: url('./background.jpeg');
+  background-image: url('./images/background.jpeg');
   min-height: 100%;
   background-position: center;
   background-size: cover;
 }
 .oneimg {
-  background-image: url('./one.png');
+  background-image: url('./images/one.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .twoimg {
-  background-image: url('./two.png');
+  background-image: url('./images/two.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .threeimg {
-  background-image: url('./three.png');
+  background-image: url('./images/three.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .fourimg {
-  background-image: url('./four.png');
+  background-image: url('./images/four.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .fiveimg {
-  background-image: url('./five.png');
+  background-image: url('./images/five.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .siximg {
-  background-image: url('./six.png');
+  background-image: url('./images/six.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .sevenimg {
-  background-image: url('./seven.png');
+  background-image: url('./images/seven.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .eightimg {
-  background-image: url('./eight.png');
+  background-image: url('./images/eight.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .nineimg {
-  background-image: url('./nine.png');
+  background-image: url('./images/nine.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .tenimg {
-  background-image: url('./ten.png');
+  background-image: url('./images/ten.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .elevenimg {
-  background-image: url('./eleven.png');
+  background-image: url('./images/eleven.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
 }
 .twelveimg {
-  background-image: url('./twelve.png');
+  background-image: url('./images/twelve.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
@@ -159,16 +159,20 @@ body, html {height: 100%}
 </div>
 
 <!-- Modal One-->
-<div id="divone" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
+<div id="divone" class="w3-modal w3-black">
+  <div class="w3-modal-content w3-black w3-animate-zoom">
     <div class="w3-container w3-black">
       <span onclick="document.getElementById('divone').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Room One</h1>
+      <h1>Explore..</h1>
     </div>
-    <div class="w3-container w3-black">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-    </div>
-  </div>
+    <div class="w3-container w3-row fullheight">
+        <div class="w3-col s3 w3-black w3-center"><p>
+            <span onclick="openroom('roomonebox')" class="w3-button w3-large">
+            Enter Room...
+            </span>
+        </p></div>
+        <div id="roomonebox" class="w3-col s9 w3-black w3-center"></div>
+      </div>
 </div>
 
 <!-- Modal Two-->
