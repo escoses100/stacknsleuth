@@ -42,16 +42,16 @@ function checkans(roomandopt) {
 }
 
 function checkroomten() {
-    var makesure = confirm('Are you sure you want to answer: ' + document.getElementById('roomtenanswer').value)
+    var makesure = confirm('Are you sure you want to answer: ' + document.getElementById('roomtenanswer').value.toLowerCase())
     if (makesure == true) {
         room = 'roomtenbox'
-        roomtenanswerattempt = document.getElementById('roomtenanswer').value
+        roomtenanswerattempt = (document.getElementById('roomtenanswer').value).toLowerCase()
         explorecount = explorecount+1
         console.log(room + ' ' + roomtenanswerattempt)
         roomcontentans = ""
         for (var oneroomobj of maincontent) {
             if (oneroomobj.room == room) {
-                if (oneroomobj.roompuzzle_ans == roomtenanswerattempt) {
+                if (oneroomobj.roompuzzle_ans.toUpperCase() == roomtenanswerattempt.toUpperCase()) {
                     roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message;
                 } else {
                     roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message_wrong;
