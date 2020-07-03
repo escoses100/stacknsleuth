@@ -3,6 +3,8 @@
 <title>Stack-n-Solve Mansion</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="content.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 <style>
 body, html {height: 100%}
 .cursivefont {
@@ -98,6 +100,9 @@ body, html {height: 100%}
     height: 100%;
     width: 100%;
 }
+.floatright {
+    float: right;
+}
 .grid-item {
   border: 0px solid;
   padding: 0px;
@@ -110,212 +115,220 @@ body, html {height: 100%}
     width: 100%;  
 }
 </style>
-</style>
 <body>
 
 <div class="bgimg w3-display-container w3-text-white fullheight">
     <div class="grid-container">
         <div class="grid-item">
-            <span onclick="document.getElementById('divone').style.display='block'" class="gridspan oneimg cursivefont w3-black">1</span>
+            <span onclick="document.getElementById('divone').style.display='block'" class="gridspan oneimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divtwo').style.display='block'" class="gridspan twoimg cursivefont w3-black">2</span>
+            <span onclick="document.getElementById('divtwo').style.display='block'" class="gridspan twoimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divthree').style.display='block'" class="gridspan threeimg cursivefont w3-black">3</span>
+            <span onclick="document.getElementById('divthree').style.display='block'" class="gridspan threeimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divfour').style.display='block'" class="gridspan fourimg cursivefont w3-black">4</span>
+            <span onclick="document.getElementById('divfour').style.display='block'" class="gridspan fourimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divfive').style.display='block'" class="gridspan fiveimg cursivefont w3-black">5</span>
+            <span onclick="document.getElementById('divfive').style.display='block'" class="gridspan fiveimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divsix').style.display='block'" class="gridspan siximg cursivefont w3-black">6</span>
+            <span onclick="document.getElementById('divsix').style.display='block'" class="gridspan siximg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divseven').style.display='block'" class="gridspan sevenimg cursivefont w3-black">7</span>
+            <span onclick="document.getElementById('divseven').style.display='block'" class="gridspan sevenimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('diveight').style.display='block'" class="gridspan eightimg cursivefont w3-black">8</span>
+            <span onclick="document.getElementById('diveight').style.display='block'" class="gridspan eightimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divnine').style.display='block'" class="gridspan nineimg cursivefont w3-black">9</span>
+            <span onclick="document.getElementById('divnine').style.display='block'" class="gridspan nineimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divten').style.display='block'" class="gridspan tenimg cursivefont w3-black">10</span>
+            <span onclick="document.getElementById('divten').style.display='block'" class="gridspan tenimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('diveleven').style.display='block'" class="gridspan elevenimg cursivefont w3-black">11</span>
+            <span onclick="document.getElementById('diveleven').style.display='block'" class="gridspan elevenimg cursivefont w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divtwelve').style.display='block'" class="gridspan twelveimg cursivefont w3-black">12</span>
+            <span onclick="document.getElementById('divtwelve').style.display='block'" class="gridspan twelveimg cursivefont w3-black"></span>
         </div>
       </div>
 
-  <div class="w3-display-topright w3-container">
+  <div class="w3-display-bottomright w3-container">
     <p class="w3-small">Stack-N-Solve: By Scott Bennett</p>
   </div>
 </div>
 
 <!-- Modal One-->
-<div id="divone" class="w3-modal w3-black">
-  <div class="w3-modal-content w3-black w3-animate-zoom">
-    <div class="w3-container w3-black">
-      <span onclick="document.getElementById('divone').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Explore..</h1>
-    </div>
-    <div class="w3-container w3-row fullheight">
-        <div class="w3-col s3 w3-black w3-center"><p>
-            <span onclick="openroom('roomonebox')" class="w3-button w3-large">
-            Enter Room...
+<div id="divone" class="w3-modal w3-black fullheight">
+  <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+        <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+            <span id="roomoneboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomonebox');document.getElementById('roomoneboxenter').style.display='none'">
+                Enter Room...
             </span>
-        </p></div>
-        <div id="roomonebox" class="w3-col s9 w3-black w3-center"></div>
-      </div>
+            <span onclick="document.getElementById('divone').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+            <div id="roomonebox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+            </div>
+        </div>
+    </div>
 </div>
 
+
 <!-- Modal Two-->
-<div id="divtwo" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <div class="w3-container w3-black">
-        <span onclick="document.getElementById('divtwo').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Room Two</h1>
+<div id="divtwo" class="w3-modal w3-black fullheight">
+    <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+          <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              <span id="roomtwoboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtwobox');document.getElementById('roomtwoboxenter').style.display='none'">
+                  Enter Room...
+              </span>
+              <span onclick="document.getElementById('divtwo').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+              <div id="roomtwobox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              </div>
+          </div>
       </div>
-      <div class="w3-container w3-black">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-      </div>
-    </div>
   </div>
 
   <!-- Modal Three-->
-<div id="divthree" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <div class="w3-container w3-black">
-        <span onclick="document.getElementById('divthree').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Room Three</h1>
+  <div id="divthree" class="w3-modal w3-black fullheight">
+    <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+          <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              <span id="roomthreeboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomthreebox');document.getElementById('roomthreeboxenter').style.display='none'">
+                  Enter Room...
+              </span>
+              <span onclick="document.getElementById('divthree').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+              <div id="roomthreebox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              </div>
+          </div>
       </div>
-      <div class="w3-container w3-black">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-      </div>
-    </div>
   </div>
 
   <!-- Modal four-->
-<div id="divfour" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <div class="w3-container w3-black">
-        <span onclick="document.getElementById('divfour').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Room Four</h1>
+  <div id="divfour" class="w3-modal w3-black fullheight">
+    <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+          <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              <span id="roomfourboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfourbox');document.getElementById('roomfourboxenter').style.display='none'">
+                  Enter Room...
+              </span>
+              <span onclick="document.getElementById('divfour').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+              <div id="roomfourbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              </div>
+          </div>
       </div>
-      <div class="w3-container w3-black">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-      </div>
-    </div>
   </div>
 
   <!-- Modal Five-->
-<div id="divfive" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <div class="w3-container w3-black">
-        <span onclick="document.getElementById('divfive').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Room Five</h1>
+  <div id="divfive" class="w3-modal w3-black fullheight">
+    <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+          <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              <span id="roomfiveboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfivebox');document.getElementById('roomfiveboxenter').style.display='none'">
+                  Enter Room...
+              </span>
+              <span onclick="document.getElementById('divfive').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+              <div id="roomfivebox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+              </div>
+          </div>
       </div>
-      <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-      </div>
-    </div>
   </div>
   
-  <!-- Modal Six-->
-  <div id="divsix" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('divsix').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Six</h1>
+    <!-- Modal Six-->
+    <div id="divsix" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+            <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomsixboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomsixbox');document.getElementById('roomsixboxenter').style.display='none'">
+                    Enter Room...
+                </span>
+                <span onclick="document.getElementById('divsix').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                <div id="roomsixbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                </div>
+            </div>
         </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
-      </div>
     </div>
   
     <!-- Modal Seven-->
-  <div id="divseven" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('divseven').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Seven</h1>
-        </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
+    <div id="divseven" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+              <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                  <span id="roomsevenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomsevenbox');document.getElementById('roomsevenboxenter').style.display='none'">
+                      Enter Room...
+                  </span>
+                  <span onclick="document.getElementById('divseven').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                  <div id="roomsevenbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   
     <!-- Modal Eight-->
-  <div id="diveight" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('diveight').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Eight</h1>
-        </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
+    <div id="diveight" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+              <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                  <span id="roomeightboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomeightbox');document.getElementById('roomeightboxenter').style.display='none'">
+                      Enter Room...
+                  </span>
+                  <span onclick="document.getElementById('diveight').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                  <div id="roomeightbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
 
-  <!-- Modal Nine-->
-<div id="divnine" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-      <div class="w3-container w3-black">
-        <span onclick="document.getElementById('divnine').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-        <h1>Room Nine</h1>
-      </div>
-      <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-      </div>
+    <!-- Modal Nine-->
+    <div id="divnine" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+            <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomnineboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomninebox');document.getElementById('roomnineboxenter').style.display='none'">
+                    Enter Room...
+                </span>
+                <span onclick="document.getElementById('divnine').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                <div id="roomninebox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
   
-  <!-- Modal Ten-->
-  <div id="divten" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('divten').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Ten</h1>
+    <!-- Modal Ten-->
+    <div id="divten" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+            <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomtenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtenbox')">
+                    Enter Room...
+                </span>
+            <span onclick="document.getElementById('divten').style.display='none';if (explorecount < 11) {document.getElementById('roomtenbox').innerHTML=''}" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                <div id="roomtenbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                </div>
+            </div>
         </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
-      </div>
     </div>
   
     <!-- Modal Eleven-->
-  <div id="diveleven" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('diveleven').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Eleven</h1>
+    <div id="diveleven" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+                <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                    <span id="roomelevenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomelevenbox');document.getElementById('roomelevenboxenter').style.display='none'">
+                        Enter Room...
+                    </span>
+                    <span onclick="document.getElementById('diveleven').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                    <div id="roomelevenbox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
-      </div>
-    </div>
-  
+
     <!-- Modal twelve-->
-  <div id="divtwelve" class="w3-modal">
-      <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-          <span onclick="document.getElementById('divtwelve').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-          <h1>Room Twelve</h1>
+    <div id="divtwelve" class="w3-modal w3-black fullheight">
+        <div class="w3-panel w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
+            <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomtwelveboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtwelvebox');document.getElementById('roomtwelveboxenter').style.display='none'">
+                    Enter Room...
+                </span>
+                <span onclick="document.getElementById('divtwelve').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
+                <div id="roomtwelvebox" class="w3-panel w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                </div>
+            </div>
         </div>
-        <div class="w3-container w3-black">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum sodales diam. Pellentesque luctus laoreet blandit. Vivamus malesuada, sapien a efficitur sodales, augue sapien lobortis lectus, at semper mauris tortor eget odio. Aliquam ac purus elit. Quisque euismod nisi non justo sodales, a luctus arcu maximus.
-        </div>
-      </div>
     </div>
   
  
