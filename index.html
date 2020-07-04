@@ -116,9 +116,25 @@ body, html {
     width: 100%;  
 }
 </style>
-<body>
+<body class="w3-black">
+<div id="splashdiv" class="w3-margin bgimg w3-center w3-black">
+    <br>
+    <br>
+    <br>
+    You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front, so you decide to climb through a window.  The town folk are convinced you can find a way to free the spirit haunting the old house...
+    <br>
+    <br>
+    <span onclick="startinvestigation()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Begin investigating ...</span>
+</div>
 
-<div class="bgimg w3-display-container w3-text-white fullheight">
+<script>
+function startinvestigation() {
+    document.getElementById('splashdiv').style.display='none'
+    document.getElementById('mainmansiondiv').style.display='block'
+}
+</script>
+
+<div id="mainmansiondiv" class="bgimg w3-display-container w3-text-white fullheight">
     <div class="grid-container">
         <div class="grid-item">
             <span onclick="document.getElementById('divone').style.display='block'" class="gridspan oneimg w3-black"></span>
@@ -332,8 +348,6 @@ body, html {
             </div>
         </div>
     </div>
-  
-
 
 <style>
 /* W3.CSS 4.13 June 2019 by Jan Egil and Borge Refsnes */
