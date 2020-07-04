@@ -1,7 +1,7 @@
 var maincontent = [{
         "room": "roomonebox",
-        "roomtitle": "Room 1",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Servant Room",
+        "roomdescription": "You find a small, dark room with a solo window in front, and a chimney in back, with one small bed and a thin mattress in the corner. A chamber pot peeks from under the bed. A cloudy mirror, slightly askew, looks down on the bed. Thin and worn fabric pulled to the side of the window drapes from the hook. The window is dark with dust, cobwebs, and dead bugs. A single candle holder with a candle burnt down to the nub sits on a small table in the corner. As you move into the room, the change in light and shadow reveals a ghostly imprint of a person in the bed.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -14,8 +14,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomtwobox",
-        "roomtitle": "Room 2",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Study",
+        "roomdescription": "Three dormer windows to your left face to front of house, but they don’t lighten up the drab, yellow-brown room. Four small wooden desks, each with little chalk boards and scattered broken chalk, form a grid in the center. [something written on one of the chalkboards?] In the back, an ominous metal door, in a half circle shape, almost like a rubbish hatch, leads to the back of the house. Low shelves line one side of the room, filled with old children’s books, wooden blocks and toys, dolls with vacant, haunted eyes, and an empty aquarium.  A plain, empty desk and wooden chair observe from the front of the room.  You notice the walls are bare, devoid of the arts and crafts projects, gold stars, and seasonal décor you would expect of a schoolroom.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -28,8 +28,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomthreebox",
-        "roomtitle": "Room 3",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Courtyard Tree",
+        "roomdescription": "Withered and dead, yet apparently pulsing with life, the tree’s rigid woody entrails knock against the windows, in the absence of wind or weather.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -42,8 +42,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomfourbox",
-        "roomtitle": "Room 4",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Rectory",
+        "roomdescription": "A small, grey stone building, peaks from the back of the house. Cloaked in a purple-black aura, even during daylight, the stones appear to change in color and composition throughout the day. A priest’s silhouette floats past the window, but it doesn’t look quite human.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -56,8 +56,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomfivebox",
-        "roomtitle": "Room 5",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Bedroom",
+        "roomdescription": "A Juliet balcony with small doors opens to the back, with a view of the overgrown property below. A Large window opens to the front, lined with flower boxes, where only the woody stalks of dead plantings remain. Thick, dark, velvet curtains line both the balcony door and windows.  A vanity and mirror, with a short, delicately carved chair, is placed near a large curvy baroque wardrobe, the door slightly askew. Large red area rugs mostly cover the wood plank floor. Pillows and blankets are heaped on a large brass bed against the far wall, all covered with a layer of dust, except one pillow appears fresh and completely clean.  [something written on the mirror?], Small wood tables flank the bed, one with a hurricane lamp, the other with a picture of a young couple and five unhappy looking children, one in a wheelchair. A large fireplace adorns the wall opposite the bed; it features a carriage clock sitting on the mantle - the time is stopped at 11:59.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -70,8 +70,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomsixbox",
-        "roomtitle": "Room 6",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Library",
+        "roomdescription": "Three large windows hold up each side of the room - high-ceilinged and spacious, and spanning from the front to back of house.  The only wall not lined with books features a gallery of portraits, it must be the estate’s ancestors. Their unsettling, too-realistic stares extend out over the groups of red, overstuffed velveteen chairs and settees, dotted with handstitched pillows, and arranged in front of the portraits. Two of the paintings, upside down, seem to have eyes staring right at you and finding you wanting.  A ladder on rollers hovers over the book shelves. In the middle, a large table shelters a blue, velvet dog bed, long-vacated. On a mahogany wooden desk near the back window, a gilt trimmed globe sits next to an alert quill pen and writing mat, marred by years of spilled ink stains. Behind the desk a mahogany secretary, still locked, holds shoulders the window frame. Two, large circular light fixtures with rings of candles hang from the ceiling, with ropes attached to wood cranks on the adjacent walls to raise and lift the fixtures for each night’s candle lighting. Gas lamps illuminate cozy nooks and crannies.", 
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -84,8 +84,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomsevenbox",
-        "roomtitle": "Room 7",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Nursery",
+        "roomdescription": "You step in, and in the dark, you almost stumble into one of 4 little beds, each with an ornate brass frame. In the corner a rocking chair sits near a whicker bassinet and a locked, looming cupboard. On the wall near the beds hang four paintings of young children, compelling your attention as they look odd, as if they are elderly, jaundiced children. On the other wall is a small mirror over a low, simple, wood chest of drawers. On one end of the chest, a large pitcher nestles into a stained blue and white chipped ceramic bowl. The fabric wall covering is a gold hue, faded more in some spots than others, featuring whimsical drawings of kings and queens on parade, curving through small villages and towns. On closer inspection, you find that some of the characters’ faces have been distorted with a piece of charcoal, and many of the vignettes have been drawn over into gruesome and violent scenes.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -98,8 +98,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomeightbox",
-        "roomtitle": "Room 8",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Guest Room",
+        "roomdescription": "The long and unusually narrow guest room is entirely empty, but the velvet red carpet and matching walls still make the room feel cramped.  A small bent and tangled scultpure sits in the light near the balcony window.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -112,8 +112,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomninebox",
-        "roomtitle": "Room 9",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Parlor",
+        "roomdescription": "You feel an excited but uneasy energy as you enter into a large, gold-specked room with high ceilings. The room is littered with couches, and chairs, and small tables, arranged into seating groups around rugs that must have been imported from the Orient. Several overturned chairs create a pattern, but you can’t place it. A buffet on one wall looks to tip forward, with every drawer but one hanging open. A table in the center must have hosted thousands of breakfasts, in the morning light of the three large, arched windows. A piano with sheet music holds pride of place amongst the furniture, and the metronome is still ticking. On a side table near the window, a gramophone sits at attention, ready to amplify. The carved wood pillars shine under the years of dust and smoke.",  
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -126,16 +126,16 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomtenbox",
-        "roomtitle": "Room 10",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Main Hall",
+        "roomdescription": "The heavy wooden door opens into a large entry way. The expanse of marble floors must have been beautiful before they were cracked and stained. A grand, curved wood staircase beckons your ascent. Dark, heavy doors lead to unknown rooms in every direction. A marble statue at the staircase entry gives you a sinister grin, unsettling, but you can’t decide why.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_ans":"answer",
         "roompuzzle_ans_message":"Congratulations", 
         "roompuzzle_ans_message_wrong":"Nope"
     },{
         "room": "roomelevenbox",
-        "roomtitle": "Room 11",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Dining Room",
+        "roomdescription": "Dark and almost cozy, the room is rimmed with wood chair rail. Deep green fabric clings to the walls, were it isn’t peeling in the corners. Heavy dark drapes cloak the windows, cutting off any light. A large, shiny wood table sits in the center of a circle of fading dining chairs upholstered in silk and gold braid. On one end a large buffet props up a wine decanter, glasses, and candles under a large mirror. A scrawled message breaks the mirror’s otherwise clear expanse.", 
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -148,8 +148,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"You hear a faint howl and some laughter as the voice fades away."
     },{
         "room": "roomtwelvebox",
-        "roomtitle": "Room 12",
-        "roomdescription": "small, dark with a lone window in front, chimney in back, one small bed with a thin mattress in the corner. A chamber pot under the bed, a mirror, slightly askew. Thin and worn fabric pulled to the side of the window on a hook. The window is dark with dust, cobwebs, and dead bugs. A small table in the corner, with a single candle holder with a candle burnt down to the nub. As you move into the room, the change in light and shadow reveals the imprint of a person in the bed.",
+        "roomtitle": "Kitchen",
+        "roomdescription": "The room is spacious, but cluttered. Pots and pans hang from a rack in the ceiling. In the center stand two large wood work tables, worn down and softened with age, except for some strange carvings in a circle on one end. The walls spare no space, lined with drawers and cabinets, interspersed with large copper sinks, cast iron ovens, and filmy windows. A window into a locked room off the kitchen reveals a small cubby, packed with shelves full of silver vessels, and a spilled bottle of wine on the floor. A large dining table fills the space adjoining the kitchen. On the wall is with a series of bells mounted with ropes disappearing into the ceiling, each bell corresponding with a name, one of the bells is tilted outward, as if suspended in mid-ring.", 
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",

@@ -8,14 +8,15 @@ function openroom(room) {
         if (room == 'roomtenbox' && explorecount >= 11) {
             document.getElementById('roomtenboxenter').style.display='none'
             document.getElementById('divten').style.display='block'
+            roomcontent += oneroomobj.roomtitle + " - " + oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle
             roomcontent += "<br>" + "<input id='roomtenanswer' class='bgimg w3-sepia-max w3-center w3-black' ></input>"
-            roomcontent += "<br><br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkroomten()>Attempt Answer</span>"
+            roomcontent += "<br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-center' onclick=makesureanswer()>Attempt Answer</span>"
             document.getElementById(room).innerHTML = roomcontent
             break;
         }
         if (room != 'roomtenbox' && oneroomobj.room == room) {
-            roomcontent += oneroomobj.roomdescription
+            roomcontent += oneroomobj.roomtitle + " - " + oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle
             roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
             roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
@@ -41,9 +42,24 @@ function checkans(roomandopt) {
     document.getElementById(roomandopt.split(',')[0]).innerHTML = roomcontentans
 }
 
+function makesureanswer() {
+    document.getElementById('makesurediv').style.display = 'block'
+    document.getElementById('makesurediv').innerHTML = 'Are you sure you want to answer:<br><br>'
+    document.getElementById('makesurediv').innerHTML += document.getElementById('roomtenanswer').value.toLowerCase()
+    document.getElementById('makesurediv').innerHTML += "<br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-center' onclick=checkroomten()>Yes</span>"
+    document.getElementById('makesurediv').innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='bgimg w3-sepia-max w3-button w3-center' onclick=clearmakesure()>No</span>"
+    document.getElementById('makesurediv').innerHTML += '<br><br> **answers are not case sensitive'
+}
+
+function clearmakesure() {
+    document.getElementById('makesurediv').innerHTML = ''
+    document.getElementById('roomtenanswer').value = ''
+    document.getElementById('makesurediv').style.display = 'none'
+}
+
 function checkroomten() {
-    var makesure = confirm('Are you sure you want to answer: ' + document.getElementById('roomtenanswer').value.toLowerCase())
-    if (makesure == true) {
+        document.getElementById('makesurediv').innerHTML = ''
+        document.getElementById('makesurediv').style.display = 'none'
         room = 'roomtenbox'
         roomtenanswerattempt = (document.getElementById('roomtenanswer').value).toLowerCase()
         explorecount = explorecount+1
@@ -59,7 +75,4 @@ function checkroomten() {
             }
         }
         document.getElementById(room).innerHTML = roomcontentans
-      } else {
-        // do nothing
-      }
 }
