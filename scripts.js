@@ -1,6 +1,7 @@
 function openroom(room) {
     document.getElementById(room).innerHTML = ""
     var roomcontent = ""
+    var roomcontentname = ""
     for (var oneroomobj of maincontent) {
         if (room == 'roomtenbox' && explorecount < 11) {
             roomcontent = "A whisper leaks through the cracks before you can enter.. You have not explored enough..."
@@ -16,7 +17,8 @@ function openroom(room) {
             break;
         }
         if (room != 'roomtenbox' && oneroomobj.room == room) {
-            roomcontent += oneroomobj.roomtitle + " - " + oneroomobj.roomdescription
+            roomcontentname = oneroomobj.roomtitle
+            roomcontent += oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle
             roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
             roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
@@ -24,6 +26,7 @@ function openroom(room) {
         }
     }
     document.getElementById(room).innerHTML = roomcontent
+    document.getElementById(room + 'theroomname').innerHTML = roomcontentname
 }
 
 function checkans(roomandopt) {

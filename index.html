@@ -121,7 +121,7 @@ body, html {
     <br>
     <br>
     <br>
-    You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to climb through a window.  The town folk are convinced you can find a way to free the spirit haunting the old house...
+    You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.  The town folk are convinced you can find a way to free the spirit haunting the old house...
     <br>
     <br>
     <span onclick="startinvestigation()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Begin investigating ...</span>
@@ -183,6 +183,7 @@ function startinvestigation() {
 <div id="divone" class="w3-modal w3-black fullheight">
   <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
         <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+            <span id="roomoneboxtheroomname"></span><br>
             <span id="roomoneboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomonebox');document.getElementById('roomoneboxenter').style.display='none'">
                 Enter Room...
             </span>
@@ -198,6 +199,7 @@ function startinvestigation() {
 <div id="divtwo" class="w3-modal w3-black fullheight">
     <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
           <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+            <span id="roomtwoboxtheroomname"></span><br>
               <span id="roomtwoboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtwobox');document.getElementById('roomtwoboxenter').style.display='none'">
                   Enter Room...
               </span>
@@ -212,6 +214,7 @@ function startinvestigation() {
   <div id="divthree" class="w3-modal w3-black fullheight">
     <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
           <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+            <span id="roomthreeboxtheroomname"></span><br>
               <span id="roomthreeboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomthreebox');document.getElementById('roomthreeboxenter').style.display='none'">
                   Enter Room...
               </span>
@@ -226,7 +229,8 @@ function startinvestigation() {
   <div id="divfour" class="w3-modal w3-black fullheight">
     <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
           <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
-              <span id="roomfourboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfourbox');document.getElementById('roomfourboxenter').style.display='none'">
+            <span id="roomfourboxtheroomname"></span><br>  
+            <span id="roomfourboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfourbox');document.getElementById('roomfourboxenter').style.display='none'">
                   Enter Room...
               </span>
               <span onclick="document.getElementById('divfour').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
@@ -240,7 +244,8 @@ function startinvestigation() {
   <div id="divfive" class="w3-modal w3-black fullheight">
     <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
           <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
-              <span id="roomfiveboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfivebox');document.getElementById('roomfiveboxenter').style.display='none'">
+            <span id="roomfiveboxtheroomname"></span><br>  
+            <span id="roomfiveboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomfivebox');document.getElementById('roomfiveboxenter').style.display='none'">
                   Enter Room...
               </span>
               <span onclick="document.getElementById('divfive').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
@@ -254,6 +259,7 @@ function startinvestigation() {
     <div id="divsix" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
             <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomsixboxtheroomname"></span><br>
                 <span id="roomsixboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomsixbox');document.getElementById('roomsixboxenter').style.display='none'">
                     Enter Room...
                 </span>
@@ -268,7 +274,8 @@ function startinvestigation() {
     <div id="divseven" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
               <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
-                  <span id="roomsevenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomsevenbox');document.getElementById('roomsevenboxenter').style.display='none'">
+                <span id="roomsevenboxtheroomname"></span><br>  
+                <span id="roomsevenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomsevenbox');document.getElementById('roomsevenboxenter').style.display='none'">
                       Enter Room...
                   </span>
                   <span onclick="document.getElementById('divseven').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
@@ -282,7 +289,8 @@ function startinvestigation() {
     <div id="diveight" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
               <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
-                  <span id="roomeightboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomeightbox');document.getElementById('roomeightboxenter').style.display='none'">
+                <span id="roomeightboxtheroomname"></span><br>  
+                <span id="roomeightboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomeightbox');document.getElementById('roomeightboxenter').style.display='none'">
                       Enter Room...
                   </span>
                   <span onclick="document.getElementById('diveight').style.display='none'" class="floatright bgimg w3-sepia-max w3-round-xxlarge w3-button">x</span>
@@ -296,6 +304,7 @@ function startinvestigation() {
     <div id="divnine" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
             <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomnineboxtheroomname"></span><br>
                 <span id="roomnineboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomninebox');document.getElementById('roomnineboxenter').style.display='none'">
                     Enter Room...
                 </span>
@@ -310,6 +319,7 @@ function startinvestigation() {
     <div id="divten" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
             <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomtenboxtheroomname"></span><br>
                 <span id="roomtenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtenbox')">
                     Enter Room...
                 </span>
@@ -325,6 +335,7 @@ function startinvestigation() {
     <div id="diveleven" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
                 <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                    <span id="roomelevenboxtheroomname"></span><br>
                     <span id="roomelevenboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomelevenbox');document.getElementById('roomelevenboxenter').style.display='none'">
                         Enter Room...
                     </span>
@@ -339,6 +350,7 @@ function startinvestigation() {
     <div id="divtwelve" class="w3-modal w3-black fullheight">
         <div class="w3-panel bgimg w3-round-xlarge w3-modal-content w3-black w3-animate-zoom">
             <div class="w3-margin-right w3-panel bgimg w3-round-xlarge w3-col w3-black w3-center cursivefont">
+                <span id="roomtwelveboxtheroomname"></span><br>
                 <span id="roomtwelveboxenter" class="bgimg w3-sepia-max w3-round-xlarge w3-button" onclick="openroom('roomtwelvebox');document.getElementById('roomtwelveboxenter').style.display='none'">
                     Enter Room...
                 </span>
