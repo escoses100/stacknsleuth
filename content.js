@@ -1,7 +1,7 @@
 var maincontent = [{
         "room": "roomonebox",
         "roomtitle": "Servant Room",
-        "roomdescription": "You find a small, dark room with a solo window in front, and a chimney in back, with one small bed and a thin mattress in the corner. A chamber pot peeks from under the bed. A cloudy mirror, slightly askew, looks down on the bed. Thin and worn fabric pulled to the side of the window drapes from the hook. The window is dark with dust, cobwebs, and dead bugs. A single candle holder with a candle burnt down to the nub sits on a small table in the corner. As you move into the room, the change in light and shadow reveals a ghostly imprint of a person in the bed.",
+        "roomdescription": "You find a small, dark room with a solo window in front, and a chimney in back, with one small bed and a chamber pot underneath. A cloudy mirror, slightly askew, looks down on the bed. The window is dark with dust, cobwebs, and dead bugs.",
         "roompuzzle": "You hear a voice whisper.. what question could I never answer with a yes?",
         "roompuzzle_opt1":"Are you tired?",
         "roompuzzle_opt1_var":"1",
@@ -121,21 +121,21 @@ var maincontent = [{
         "roompuzzle_opt2_var":"2",
         "roompuzzle_opt3":"Dionysus",
         "roompuzzle_opt3_var":"3",
-        "roompuzzle_ans":"3",
+        "roompuzzle_ans":"1",
         "roompuzzle_ans_message":"As you look at the sponge and repeat the word Proteus the grammaphone back the letter H as if to answer.", 
         "roompuzzle_ans_message_wrong":"You begin to speak an answer and the room goes black, the grammaphone scratches to a halt."
     },{
         "room": "roomtenbox",
         "roomtitle": "Main Hall",
-        "roomdescription": "The heavy wooden door opens into a large entry way. The expanse of marble floors must have been beautiful before they were cracked and stained. A grand, curved wood staircase beckons your ascent. Dark, heavy doors entry doors have a message burned into the back: say my name to release the curse .. servant room .. rectory .. bedroom .. study .. parlor .. guest room .. nursery .. dining room ..",
+        "roomdescription": "The heavy wooden door opens into a large entry way. The expanse of marble floors must have been beautiful before they were cracked and stained. A grand, curved wood staircase beckons your ascent. The entry doors have a message burned into the back: say my name to release the curse .. servant room .. rectory .. bedroom .. study .. parlor .. guest room .. nursery .. dining room ..",
         "roompuzzle": "You see a box of matches and begin to burn the letters you know on the door, based on the clues from each room and see an answer forming, you may need to fill in some blanks where you failed in a room.",
-        "roompuzzle_ans":"answer",
-        "roompuzzle_ans_message":"The entire house shakes with engergy and an orchestra of creaks and groans express what you imagine is the word thank you in greek, sun breaks through the clouds and light pours in as the curtains are now pulled aside.  Everything in the house is somehow brighter, and you intuitively know the spirit is free. As you walk out the front door, you feel something in your pocket, and take out a ceramic key and look at it in your open hand.  The wrinkles on your hand reshape to read - please free my brother - and include a location you remember visiting as a child. You start down the path to your next adventure...", 
+        "roompuzzle_ans":"persephone",
+        "roompuzzle_ans_message":"The entire house shakes with engergy and an orchestra of creaks and groans express what you imagine is the word thank you in greek, sun breaks through the clouds and light pours in as the curtains are now pulled aside.  Everything in the house is somehow brighter, and you intuitively know that the spirit of Persephone is free. She had been held by Hades in the underworld, trapper there because she ate a single pomegranate seed, and needed to be called out through the ritual you just completed.  As you walk out the front door, you feel something in your pocket, and take out a ceramic key and look at it in your open hand.  The wrinkles on your hand reshape to read - please free my brother - and include a location you remember visiting as a child. You start down the path to your next adventure...", 
         "roompuzzle_ans_message_wrong":"The room darkens, you hear a fire roaring in a distant room and smell smoke. You choke, sputter, and pass out, only to wake up in the yard in front of the house.  The house has the same light in the windows as when you started your investigation, and your watch now reads an earlier time.  The window latch you had broken to enter the house is now unscathed, as if you have been given a chance to try again."
     },{
         "room": "roomelevenbox",
         "roomtitle": "Dining Room",
-        "roomdescription": "Dark and almost cozy, the room is rimmed with wood chair rail. A headless suit of armor lies on its side in the corner.  Deep green fabric clings to the walls, were it isn’t peeling in the corners. Heavy dark drapes cloak the windows, cutting off any light. A large, shiny wood table sits in the center of a circle of fading dining chairs upholstered in silk and gold braid, with a rocking chair at the head of the table. On one end a large buffet props up a wine decanter, glasses, and a cot next to it with a green pillow, as if someone lived in the corner at some point. A scrawled message breaks the mirror’s otherwise clear expanse.", 
+        "roomdescription": "Dark and almost cozy, the room is rimmed with wood chair rail. A headless suit of armor lies on its side in the corner.  Deep green fabric clings to the walls, where it isn’t peeling in the corners. A large, shiny wood table sits in the center of a circle of fading dining chairs upholstered in silk and gold braid, with a rocking chair at the head of the table. On one end a large buffet props up a wine decanter and glasses. A cot next to it with a green pillow, as if someone lived in the corner at some point. A scrawled message breaks the mirror’s otherwise clear expanse.", 
         "roompuzzle": "The message on the mirror reads: what loses its head at sunrise and gets it back at sunset",
         "roompuzzle_opt1":"a suit of armor",
         "roompuzzle_opt1_var":"1",
@@ -158,7 +158,7 @@ var maincontent = [{
         "roompuzzle_opt3":"ice cubes",
         "roompuzzle_opt3_var":"3",
         "roompuzzle_ans":"3",
-        "roompuzzle_ans_message":"You place the ice in the sink, and as the ice melts, the grease floats to the surface and reads - he gave me a pomegranite seed...", 
+        "roompuzzle_ans_message":"You place the ice in the sink, and as the ice melts, the grease floats to the surface and reads - he gave me a pomegranate seed...", 
         "roompuzzle_ans_message_wrong":"Your choice only causes the water to become murky, and the drain suspiciously unclogs, causing all evidence to be sucked away."
     }
 ]
