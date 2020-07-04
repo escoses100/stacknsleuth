@@ -5,7 +5,7 @@ function openroom(room) {
         if (room == 'roomtenbox' && explorecount < 11) {
             roomcontent = "A whisper leaks through the cracks before you can enter.. You have not explored enough..."
         }
-        if (room == 'roomtenbox' && explorecount >= 11) {
+        if (oneroomobj.room == room && room == 'roomtenbox' && explorecount >= 11) {
             document.getElementById('roomtenboxenter').style.display='none'
             document.getElementById('divten').style.display='block'
             roomcontent += oneroomobj.roomtitle + " - " + oneroomobj.roomdescription
@@ -74,5 +74,9 @@ function checkroomten() {
                 }
             }
         }
-        document.getElementById(room).innerHTML = roomcontentans
+        document.getElementById('divten').style.display='none'
+        document.getElementById('mainmansiondiv').style.display = "none"
+        document.getElementById('splashdiv').style.display = "block"
+        document.getElementById('splashdiv').innerHTML = "<br><br><br><br>" + roomcontentans
+        document.getElementById('splashdiv').innerHTML += "<br><br><br><br>" + "<span onclick='location.reload()' class='bgimg w3-sepia-max w3-round-xxlarge w3-button'> Start Over...</span>"
 }
