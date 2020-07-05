@@ -1,3 +1,12 @@
+
+var explorecount = 0
+
+var gamebeginning = [{
+    "intro": "1",
+    "introstatement": "You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.",
+    "introchallenge": "The town folk are convinced you can find a way to free the spirit haunting the old house..."
+}]
+
 var maincontent = [{
         "room": "roomonebox",
         "roomtitle": "Servant Room",
@@ -122,7 +131,7 @@ var maincontent = [{
         "roompuzzle_opt3":"Dionysus",
         "roompuzzle_opt3_var":"3",
         "roompuzzle_ans":"1",
-        "roompuzzle_ans_message":"As you look at the sponge and repeat the word Proteus the grammaphone back the letter H as if to answer.", 
+        "roompuzzle_ans_message":"As you look at the sponge and repeat the word Proteus the grammaphone repeats back the letter H as if to answer.", 
         "roompuzzle_ans_message_wrong":"You begin to speak an answer and the room goes black, the grammaphone scratches to a halt."
     },{
         "room": "roomtenbox",
@@ -144,7 +153,7 @@ var maincontent = [{
         "roompuzzle_opt3":"a rocking chair",
         "roompuzzle_opt3_var":"3",
         "roompuzzle_ans":"2",
-        "roompuzzle_ans_message":"You lift the green pillow to find a nest of glistning spiders, oddly arranged in the letter E", 
+        "roompuzzle_ans_message":"You lift the green pillow to find a nest of glistening spiders, oddly arranged in the letter E", 
         "roompuzzle_ans_message_wrong":"You sit in the rocking chair and point to the suit of armor, which appears to slump its shoulders in dissapointment."
     },{
         "room": "roomtwelvebox",
@@ -162,6 +171,8 @@ var maincontent = [{
         "roompuzzle_ans_message_wrong":"Your choice only causes the water to become murky, and the drain suspiciously unclogs, causing all evidence to be sucked away."
     }
 ]
+
+// for a potential murder mystery add on at some point
 
 var mainpeople = [{
     "person": "1",
@@ -212,19 +223,3 @@ var mainpeople = [{
     "Personguilty_message":"Guilty Message", 
     "Personthankyou_message":"Person Thankyou"
 }]
-
-var beginandend = [{
-    "intro": "1",
-    "introstatement": "Introduction to the story.",
-    "introchallenge": "This is the challenge.",
-    "endchallenge": "The challenge was.",
-    "challengeoption1":"Option 1",
-    "challengeoption2":"Option 2",
-    "challengeoption3":"Option 3",
-    "challengeoption4":"Option 4",
-    "challengeanswer":"Option 3",
-    "end_correct_message":"Correct Message", 
-    "end_incorrect_message":"Incorrect Message"
-}]
-
-var explorecount = 0

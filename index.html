@@ -121,13 +121,24 @@ body, html {
     <br>
     <br>
     <br>
-    You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.  The town folk are convinced you can find a way to free the spirit haunting the old house...
-    <br>
-    <br>
-    <span onclick="startinvestigation()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Begin investigating ...</span>
+    <div id="entrydiv">
+        <span onclick="startgame()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Start Game ... </span>
+    </div>
+    <div style="display:none" id="gamestartdiv">
+        <div id="gameintrodiv">
+        </div>
+        <br>
+        <br>
+        <span onclick="startinvestigation()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Begin investigating ...</span>
+    </div>
 </div>
 
 <script>
+function startgame() {
+    document.getElementById('entrydiv').style.display='none'
+    document.getElementById('gamestartdiv').style.display='block'
+    document.getElementById('gameintrodiv').innerHTML = gamebeginning[0].introstatement + "<br><br>" + gamebeginning[0].introchallenge
+}
 function startinvestigation() {
     document.getElementById('splashdiv').style.display='none'
     document.getElementById('mainmansiondiv').style.display='block'
