@@ -1,0 +1,5 @@
+[
+["gametitle","TEST GAME..."],
+["gameintrostatement","This is the intro statement for the game."],
+["gameintrochallenge","This is the intro challenge statement."]
+]

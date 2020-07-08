@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="content.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="configloader.js"></script>
 <style>
 body, html {
     font-size: 1em !important;
@@ -120,9 +121,38 @@ body, html {
 <div id="splashdiv" class="w3-margin bgimg w3-center w3-black">
     <br>
     <br>
-    <br>
     <div id="entrydiv">
-        <span onclick="startgame()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Start Game ... </span>
+        <span id="startgamebutton" onclick="startgame()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Start Free Spirit ... </span>
+        <br>
+        <br>
+        ... Or load a game.
+        <br>
+        <br>
+        <input class="bgimg w3-sepia-max w3-round-xxlarge w3-button" type="file" name="inputfile"
+        id="inputfile"> 
+        <br> 
+
+        <pre id="output"></pre> 
+
+        <script type="text/javascript"> 
+        document.getElementById('inputfile') 
+            .addEventListener('change', function() { 
+            
+            var fr=new FileReader(); 
+            fr.onload=function(){ 
+                //parse file into an array 
+                var splitlinesfr = JSON.parse(fr.result)
+                // load new vars for content
+                configloader(splitlinesfr)
+                // load info section
+                document.getElementById('startgamebutton') 
+                        .innerHTML=" Start " + splitlinesfr[0][1]
+            } 
+            
+            fr.readAsText(this.files[0]); 
+        }) 
+        </script> 
+        <br>
     </div>
     <div style="display:none" id="gamestartdiv">
         <div id="gameintrodiv">
