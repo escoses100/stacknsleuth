@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="content.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
-<script type="text/javascript" src="configloader.js"></script>
 <style>
 body, html {
     font-size: 1em !important;
@@ -143,10 +142,10 @@ body, html {
                 //parse file into an array 
                 var splitlinesfr = JSON.parse(fr.result)
                 // load new vars for content
-                configloader(splitlinesfr)
+                maincontent = splitlinesfr
                 // load info section
                 document.getElementById('startgamebutton') 
-                        .innerHTML=" Start " + splitlinesfr[0][1]
+                        .innerHTML=" Start " + splitlinesfr[0].intro
             } 
             
             fr.readAsText(this.files[0]); 
@@ -167,7 +166,7 @@ body, html {
 function startgame() {
     document.getElementById('entrydiv').style.display='none'
     document.getElementById('gamestartdiv').style.display='block'
-    document.getElementById('gameintrodiv').innerHTML = gamebeginning[0].introstatement + "<br><br>" + gamebeginning[0].introchallenge
+    document.getElementById('gameintrodiv').innerHTML = maincontent[0].introstatement + "<br><br>" + maincontent[0].introchallenge
 }
 function startinvestigation() {
     document.getElementById('splashdiv').style.display='none'
@@ -178,40 +177,40 @@ function startinvestigation() {
 <div id="mainmansiondiv" style="display:none" class="bgimg w3-display-container w3-text-white fullheight">
     <div class="grid-container">
         <div class="grid-item">
-            <span onclick="document.getElementById('divone').style.display='block'" class="gridspan oneimg w3-black"></span>
+            <span id="roomonespan" onclick="document.getElementById('divone').style.display='block'" class="gridspan oneimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divtwo').style.display='block'" class="gridspan twoimg w3-black"></span>
+            <span id="roomtwospan" onclick="document.getElementById('divtwo').style.display='block'" class="gridspan twoimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divthree').style.display='block'" class="gridspan threeimg w3-black"></span>
+            <span id="roomthreespan" onclick="document.getElementById('divthree').style.display='block'" class="gridspan threeimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divfour').style.display='block'" class="gridspan fourimg w3-black"></span>
+            <span id="roomfourspan" onclick="document.getElementById('divfour').style.display='block'" class="gridspan fourimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divfive').style.display='block'" class="gridspan fiveimg w3-black"></span>
+            <span id="roomfivespan" onclick="document.getElementById('divfive').style.display='block'" class="gridspan fiveimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divsix').style.display='block'" class="gridspan siximg w3-black"></span>
+            <span id="roomsixspan" onclick="document.getElementById('divsix').style.display='block'" class="gridspan siximg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divseven').style.display='block'" class="gridspan sevenimg w3-black"></span>
+            <span id="roomsevenspan" onclick="document.getElementById('divseven').style.display='block'" class="gridspan sevenimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('diveight').style.display='block'" class="gridspan eightimg w3-black"></span>
+            <span id="roomeightspan" onclick="document.getElementById('diveight').style.display='block'" class="gridspan eightimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divnine').style.display='block'" class="gridspan nineimg w3-black"></span>
+            <span id="roomninespan" onclick="document.getElementById('divnine').style.display='block'" class="gridspan nineimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divten').style.display='block'" class="gridspan tenimg w3-black"></span>
+            <span id="roomtenspan" onclick="document.getElementById('divten').style.display='block'" class="gridspan tenimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('diveleven').style.display='block'" class="gridspan elevenimg w3-black"></span>
+            <span id="roomelevenspan" onclick="document.getElementById('diveleven').style.display='block'" class="gridspan elevenimg w3-black"></span>
         </div>
         <div class="grid-item">
-            <span onclick="document.getElementById('divtwelve').style.display='block'" class="gridspan twelveimg w3-black"></span>
+            <span id="roomtwelvespan" onclick="document.getElementById('divtwelve').style.display='block'" class="gridspan twelveimg w3-black"></span>
         </div>
       </div>
 

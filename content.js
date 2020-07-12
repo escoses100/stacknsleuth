@@ -1,13 +1,12 @@
 
 var explorecount = 0
 
-var gamebeginning = [{
-    "intro": "1",
-    "introstatement": "You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.",
-    "introchallenge": "The town folk are convinced you can find a way to free the spirit haunting the old house..."
-}]
-
 var maincontent = [{
+        "intro": "Free Spirit",
+        "introstatement": "You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.",
+        "introchallenge": "The town folk are convinced you can find a way to free the spirit haunting the old house..."
+    },
+    {
         "room": "roomonebox",
         "roomtitle": "Servant Room",
         "roomdescription": "You find a small, dark room with a solo window in front, and a chimney in back, with one small bed and a chamber pot underneath. A cloudy mirror, slightly askew, looks down on the bed. The window is dark with dust, cobwebs, and dead bugs.",
@@ -137,7 +136,7 @@ var maincontent = [{
         "room": "roomtenbox",
         "roomtitle": "Main Hall",
         "roomdescription": "The heavy wooden door opens into a large entry way. The expanse of marble floors must have been beautiful before they were cracked and stained. A grand, curved wood staircase beckons your ascent. The entry doors have a message burned into the back: say my name to release the curse .. servant room .. rectory .. bedroom .. study .. parlor .. guest room .. nursery .. dining room ..",
-        "roompuzzle": "You see a box of matches and begin to burn the letters you know on the door, based on the clues from each room and see an answer forming, you may need to fill in some blanks where you failed in a room.",
+        "roompuzzle": "You see a box of matches and begin to burn the letters you know on the door, based on the clues from each room and see an answer forming, you may need to fill in some blanks where you failed in a room. As you finish burning in the answer, you see all four shadows appear on the floor and know you need to stand on one to complete your answer.",
         "roompuzzle_ans":"persephone",
         "roompuzzle_ans_message":"The entire house shakes with energy and an orchestra of creaks and groans express what you imagine is the word thank you in greek, sun breaks through the clouds and light pours in as the curtains are now pulled aside.  Everything in the house is somehow brighter, and you intuitively know that the spirit of Persephone is free. She had been held by Hades in the underworld, trapped there because she ate a single pomegranate seed, and needed to be called out through the ritual you just completed.  As you walk out the front door, you feel something in your pocket, and take out a ceramic key and look at it in your open hand.  The wrinkles on your hand reshape to read - please free my brother - and include a location you remember visiting as a child. You start down the path to your next adventure...", 
         "roompuzzle_ans_message_wrong":"The room darkens, you hear a fire roaring in a distant room and smell smoke. You choke, sputter, and pass out, only to wake up in the yard in front of the house.  The house has the same light in the windows as when you started your investigation, and your watch now reads an earlier time.  The window latch you had broken to enter the house is now unscathed, as if you have been given a chance to try again."
@@ -169,57 +168,66 @@ var maincontent = [{
         "roompuzzle_ans":"3",
         "roompuzzle_ans_message":"You place the ice in the sink, and as the ice melts, the grease floats to the surface and reads - he gave me a pomegranate seed...", 
         "roompuzzle_ans_message_wrong":"Your choice only causes the water to become murky, and the drain suspiciously unclogs, causing all evidence to be sucked away."
+    },{
+        "person": "roomonebox",
+        "person_name": "Poseidon",
+        "person_entry": "appears as a shadow",
+        "person_description": "You see your shadow holding a trident, and you could swear it is waving at you.",
+        "person_info1": "The wave seems friendly as if to get your attention. You intuitively feel like this shadow might help you or stop you.",
+        "person_info2":"As you walk under an overhang, your shadow leans to the right, you mimic this lean, and avoid a falling rock"
+    },{
+        "person": "roomfivebox",
+        "person_name": "Poseidon",
+        "person_entry": "appears as a shadow",
+        "person_description": "",
+        "person_info1":"You lean down to pick up a small shiny object, but your shadow waves at you just in time to realize it is a spider.",
+        "person_info2":"The shadow begins to fade, and you hear a faint whisper - charred wood makes me helpless.", 
+        "person_end_message":"-in sign language - the charred wood prevented my help - Success comes to those who deserve it, go on to find other success."
+    },{
+        "person": "roomtwobox",
+        "person_name": "Demeter",
+        "person_entry": "appears as a shadow",
+        "person_description": "You see your shadow holding a tree branch, and pointing at the sky.",
+        "person_info1": "The motions of your shadow seem anxious.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info2":"leafy plants sprout up under your feet to soften your step."
+    },{
+        "person": "roomsixbox",
+        "person_name": "Demeter",
+        "person_entry": "appears as a shadow",
+        "person_description": "",
+        "person_info1":"Small mint plants grow around you and freshen the musty air.",
+        "person_info2":"The shadow begins to fade, and you hear a faint whisper - I am of no use near marble.",
+        "person_end_message":"-in sign language - the marlble floor prevented my help - Footprints on the sands of time are not made by sitting down, get up and go forth."
+    },{
+        "person": "roomthreebox",
+        "person_name": "Ares",
+        "person_entry": "appears as a shadow",
+        "person_description": "You see your shadow, holding a large spear, and pointing it at the ground.",
+        "person_info1": "Your shadow shakes the spear angrily.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info2":"Shadows of attackers appear beside you, and are swiped away by your shadow."
+    },{
+        "person": "roomsevenbox",
+        "person_name": "Ares",
+        "person_entry": "appears as a shadow",
+        "person_description": "",
+        "person_info1":"Your shadow throws its spear, and you see a candle light ahead of you to show a better path.",
+        "person_info2":"The shadow begins to fade, and you hear a faint whisper - sulphur removes my abilities.",
+        "person_end_message":"-in sign language - the sulphur in the match prevented my help - May today's success or failure be the beginning of tomorrow's achievements."
+    },{
+        "person": "roomfourbox",
+        "person_name": "Apollo",
+        "person_entry": "appears as a shadow",
+        "person_description": "You see your shadow, but it's center is missing in the shape of the sun.",
+        "person_info1": "Your shadow stands with a confident pose.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info2":"The sun shape on your shadow lights up the room, which you now see more clearly."
+    },{
+        "person": "roomeightbox",
+        "person_name": "Apollo",
+        "person_entry": "appears as a shadow",
+        "person_description": "",
+        "person_info1":"A loose stone almost causes you to fall, but you feel your foot steady and see the hand of the shadow at your foot, as if holding you up.",
+        "person_info2":"The shadow begins to fade, and you hear a faint whisper - I cannot assist in the presence of water.",
+        "person_end_message":"-in sign language - You chose wisely, a treasure is located nearby to finance your future - if the spirit is free you feel you deserve the treasure."
     }
 ]
 
-// for a potential murder mystery add on at some point
-
-var mainpeople = [{
-    "person": "1",
-    "person_name": "Name One",
-    "person_description": "Person description goes here.",
-    "person_motive": "Person Motive Here",
-    "Personlead1":"Lead 1",
-    "Personlead2":"Lead 2",
-    "Personlead3":"Lead 3",
-    "Personalibi":"Alibi",
-    "Personguilty":"Guilty",
-    "Personguilty_message":"Guilty Message", 
-    "Personthankyou_message":"Person Thankyou"
-},{
-    "person": "2",
-    "person_name": "Name One",
-    "person_description": "Person description goes here.",
-    "person_motive": "Person Motive Here",
-    "Personlead1":"Lead 1",
-    "Personlead2":"Lead 2",
-    "Personlead3":"Lead 3",
-    "Personalibi":"Alibi",
-    "Personguilty":"Guilty",
-    "Personguilty_message":"Guilty Message", 
-    "Personthankyou_message":"Person Thankyou"
-},{
-    "person": "3",
-    "person_name": "Name One",
-    "person_description": "Person description goes here.",
-    "person_motive": "Person Motive Here",
-    "Personlead1":"Lead 1",
-    "Personlead2":"Lead 2",
-    "Personlead3":"Lead 3",
-    "Personalibi":"Alibi",
-    "Personguilty":"Guilty",
-    "Personguilty_message":"Guilty Message", 
-    "Personthankyou_message":"Person Thankyou"
-},{
-    "person": "4",
-    "person_name": "Name One",
-    "person_description": "Person description goes here.",
-    "person_motive": "Person Motive Here",
-    "Personlead1":"Lead 1",
-    "Personlead2":"Lead 2",
-    "Personlead3":"Lead 3",
-    "Personalibi":"Alibi",
-    "Personguilty":"Guilty",
-    "Personguilty_message":"Guilty Message", 
-    "Personthankyou_message":"Person Thankyou"
-}]
