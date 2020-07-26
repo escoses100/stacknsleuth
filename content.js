@@ -2,7 +2,7 @@
 var explorecount = 0
 
 var maincontent = [{
-        "intro": "Free Spirit",
+        "intro": "Ritual And Riddles",
         "introstatement": "You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.",
         "introchallenge": "The town folk are convinced you can find a way to free the spirit haunting the old house..."
     },
@@ -173,7 +173,7 @@ var maincontent = [{
         "person_name": "Poseidon",
         "person_entry": "appears as a shadow",
         "person_description": "You see your shadow holding a trident, and you could swear it is waving at you.",
-        "person_info1": "The wave seems friendly as if to get your attention. You intuitively feel like this shadow might help you or stop you.",
+        "person_info1": "The wave seems friendly as if to get your attention.  ",
         "person_info2":"As you walk under an overhang, your shadow leans to the right, you mimic this lean, and avoid a falling rock"
     },{
         "person": "roomfivebox",
@@ -188,7 +188,7 @@ var maincontent = [{
         "person_name": "Demeter",
         "person_entry": "appears as a shadow",
         "person_description": "You see your shadow holding a tree branch, and pointing at the sky.",
-        "person_info1": "The motions of your shadow seem anxious.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info1": "The motions of your shadow seem anxious.   ",
         "person_info2":"leafy plants sprout up under your feet to soften your step."
     },{
         "person": "roomsixbox",
@@ -203,7 +203,7 @@ var maincontent = [{
         "person_name": "Ares",
         "person_entry": "appears as a shadow",
         "person_description": "You see your shadow, holding a large spear, and pointing it at the ground.",
-        "person_info1": "Your shadow shakes the spear angrily.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info1": "Your shadow shakes the spear angrily.   ",
         "person_info2":"Shadows of attackers appear beside you, and are swiped away by your shadow."
     },{
         "person": "roomsevenbox",
@@ -218,7 +218,7 @@ var maincontent = [{
         "person_name": "Apollo",
         "person_entry": "appears as a shadow",
         "person_description": "You see your shadow, but it's center is missing in the shape of the sun.",
-        "person_info1": "Your shadow stands with a confident pose.  You intuitively feel like this shadow might help you or stop you.",
+        "person_info1": "Your shadow stands with a confident pose.   ",
         "person_info2":"The sun shape on your shadow lights up the room, which you now see more clearly."
     },{
         "person": "roomeightbox",
