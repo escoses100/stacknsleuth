@@ -101,7 +101,7 @@ function checkroomten(person) {
                 }
             }
             if (oneroomobj.person_name == person && oneroomobj.person_end_message) {
-                roomcontentans += "<br></br>" + person + " tells you: <br>" + oneroomobj.person_end_message;
+                roomcontentans += "<br></br>" + person + ": <br>" + oneroomobj.person_end_message;
             }         
         }
         document.getElementById('divten').style.display='none'

@@ -11,6 +11,12 @@ body, html {
     height: 100%
     }
 
+.hrline {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
 .bgimg {
   background-image: url('./images/background.jpeg');
   min-height: 100%;
@@ -124,21 +130,26 @@ body, html {
 </style>
 <body class="w3-black">
 <div id="splashdiv" class="w3-margin bgimg w3-center w3-black">
-    - Stacknsleuth - 
+    - Stacknsleuth.com - 
     <br>
     <br>
     <br>
     <div id="entrydiv">
-        <span id="startgamebutton" onclick="startgame()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Start Ritual And Riddles ... </span>
+        <span id="startgamebutton" onclick="startgame()" class="bgimg w3-sepia-max w3-round-xxlarge w3-button"> Start Game: Ritual And Riddles ... </span>
         <br>
         <br>
-        <input class="bgimg w3-sepia-max w3-round-xxlarge w3-button" type="file" name="inputfile"
-        id="inputfile"> ... Or load a game.
+        <br>
+        <hr class="hrline">
+        <div class="bgimg w3-sepia-max w3-round-large w3-button">
+        Load a Game.
+        <hr class="hrline">
+        <input type="file" name="inputfile"
+        id="inputfile">
+        </div>
         <br> 
         <br>
         <br>
-        <br>
-        <span id="entrybottomspan" onclick="document.getElementById('editdiv').style.display='block'" class="w3-black">Create a Story</span>
+        <a href="#" id="entrybottomspan" onclick="document.getElementById('editdiv').style.display='block'" class="w3-black">Create a Story</a>
          | <a href="./StacknSleuthDescription.pdf">Game Description</a>
          | <a href="./printestateboxes.pdf">Game Printable Boxes</a>
          <br>
@@ -182,7 +193,7 @@ body, html {
                 maincontent = splitlinesfr
                 // load info section
                 document.getElementById('startgamebutton') 
-                        .innerHTML=" Start " + splitlinesfr[0].intro
+                        .innerHTML=" Start Game: " + splitlinesfr[0].intro
             } 
             
             fr.readAsText(this.files[0]); 
