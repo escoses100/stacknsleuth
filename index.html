@@ -154,6 +154,28 @@ body, html {
          | <a href="./printestateboxes.pdf">Game Printable Boxes</a>
          <br>
          <br>
+                <!--extra levels-->
+                <br>
+                <br>
+                Load Published Levels -- 
+                <br>
+                <button type="button" onclick="loadXMLDoc('StackNSleuth_story_Sculptures_and_Ciphers-29-8-20201598727054650.js')">Sculptures and Ciphers</button>
+                    
+                    <script>
+                    function loadXMLDoc(loaderfile) {
+                      var xhttp = new XMLHttpRequest();
+                      xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                          maincontent = JSON.parse(this.responseText);
+                        }
+                      };
+                      xhttp.open("GET", loaderfile, true);
+                      xhttp.send();
+                    }
+                    </script>
+        
+                <!--extra levels-->
+         <br>
          <br>
                 <!-- Begin Mailchimp Signup Form -->
                 <div id="mc_embed_signup">
@@ -180,28 +202,6 @@ body, html {
         
 
         <pre id="output"></pre> 
-
-        <!--extra levels-->
-        <br>
-        <br>
-        Load Published Levels -- 
-        <br>
-        <button type="button" onclick="loadXMLDoc('StackNSleuth_story_Sculptures_and_Ciphers-29-8-20201598727054650.js')">Sculptures and Ciphers</button>
-            
-            <script>
-            function loadXMLDoc(loaderfile) {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  maincontent = JSON.parse(this.responseText);
-                }
-              };
-              xhttp.open("GET", loaderfile, true);
-              xhttp.send();
-            }
-            </script>
-
-        <!--extra levels-->
 
         <script type="text/javascript"> 
         document.getElementById('inputfile') 
