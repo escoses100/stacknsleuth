@@ -145,6 +145,31 @@ body, html {
         <hr class="hrline">
         <input type="file" name="inputfile"
         id="inputfile">
+            <!--extra levels-->
+            <br>
+            <br>
+            Load Published Levels (clicking changes the above main game link) -- 
+            <br>
+            <br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures()">Ciphers And Statues</button>
+            <br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb()">Tomb or Treasure</button>
+                <script>
+                function loadsculptures() {
+                        maincontent = sculptureciphers
+                        // load info section
+                        document.getElementById('startgamebutton') 
+                            .innerHTML=" Start Game: " + sculptureciphers[0].intro
+                                    }
+                function loadtomb() {
+                        maincontent = tombortreasure
+                        // load info section
+                        document.getElementById('startgamebutton') 
+                            .innerHTML=" Start Game: " + tombortreasure[0].intro
+                                    }
+                </script>
+    
+            <!--extra levels-->
         </div>
         <br> 
         <br>
@@ -156,31 +181,7 @@ body, html {
          <br>
          <hr>
          <br>
-                <!--extra levels-->
-                <br>
-                <br>
-                Load Published Levels (clicking changes the above main game link) -- 
-                <br>
-                <br>
-                <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures()">Ciphers And Statues</button>
-                <br>
-                <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb()">Tomb or Treasure</button>
-                    <script>
-                    function loadsculptures() {
-                          maincontent = sculptureciphers
-                            // load info section
-                            document.getElementById('startgamebutton') 
-                                .innerHTML=" Start Game: " + sculptureciphers[0].intro
-                                        }
-                    function loadtomb() {
-                          maincontent = tombortreasure
-                            // load info section
-                            document.getElementById('startgamebutton') 
-                                .innerHTML=" Start Game: " + tombortreasure[0].intro
-                                        }
-                    </script>
-        
-                <!--extra levels-->
+
          <br>
          <br>
                 <!-- Begin Mailchimp Signup Form -->
