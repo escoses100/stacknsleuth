@@ -30,9 +30,11 @@ function openroom(room) {
             roomcontentname = oneroomobj.roomtitle
             roomcontent += oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle + "<br><br>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-right' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt3_var + "')>" + oneroomobj.roompuzzle_opt3 + "</span>"
+            roomcontent += "<span id='" + room + "anspace'>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "," + oneroomobj.roompuzzle_opt1.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "," + oneroomobj.roompuzzle_opt2.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-right' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt3_var + "," + oneroomobj.roompuzzle_opt3.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt3 + "</span>"
+            roomcontent += "</span>"
         }
     }
     document.getElementById(room).innerHTML = roomcontent
@@ -43,15 +45,18 @@ function checkans(roomandopt) {
     explorecount = explorecount+1
     console.log(explorecount)
     roomname = roomandopt.split(',')[0]
+    var selectedoption = roomandopt.split(',')[2]
     roomnamenum = roomname.substring(4, roomname.length-3)
     console.log(roomnamenum)
     roomcontentans = ""
     for (var oneroomobj of maincontent) {
         if (oneroomobj.room == roomname) {
             if (oneroomobj.roompuzzle_ans == roomandopt.split(',')[1]) {
-                roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message;
+                roomcontentans += "<br><br>" + selectedoption
+                roomcontentans += "<br><br>" + oneroomobj.roompuzzle_ans_message;
             } else {
-                roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message_wrong;
+                roomcontentans += "<br><br>" + selectedoption
+                roomcontentans += "<br><br>" + oneroomobj.roompuzzle_ans_message_wrong;
             }
         }
     }
@@ -63,7 +68,7 @@ function checkans(roomandopt) {
             roomcontentans += "<br>" + oneroomobj.person_info2; + "</span>"
         }
     }
-    document.getElementById(roomname).innerHTML = roomcontentans // set the answer as page
+    document.getElementById(roomname + 'anspace').innerHTML = roomcontentans // set the answer as page
     document.getElementById('room' + roomnamenum + 'span').classList.add('w3-grayscale-max')// set the picture for that room to grey
 }
 
