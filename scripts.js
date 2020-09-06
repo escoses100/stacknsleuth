@@ -92,17 +92,19 @@ function checkroomten(person) {
         explorecount = explorecount+1
         console.log(room + ' ' + roomtenanswerattempt + ' ' + person)
         roomcontentans = ""
-        for (var oneroomobj of maincontent) {
-            if (oneroomobj.room == room) {
-                if (oneroomobj.roompuzzle_ans.toUpperCase() == roomtenanswerattempt.toUpperCase()) {
-                    roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message;
+        for (var oneroomobj2 of maincontent) {
+            if (oneroomobj2.room == room) {
+                if (oneroomobj2.roompuzzle_ans.toUpperCase() == roomtenanswerattempt.toUpperCase()) {
+                    roomcontentans += "<br></br>" + oneroomobj2.roompuzzle_ans_message;
+                    for (var oneroomobj of maincontent) { // get person message
+                        if (oneroomobj.person_name == person && oneroomobj.person_end_message) {
+                            roomcontentans += "<br></br>" + person + ": <br>" + oneroomobj.person_end_message;
+                        }         
+                    } // end get person message
                 } else {
-                    roomcontentans += "<br></br>" + oneroomobj.roompuzzle_ans_message_wrong;
+                    roomcontentans += "<br></br>" + oneroomobj2.roompuzzle_ans_message_wrong;
                 }
-            }
-            if (oneroomobj.person_name == person && oneroomobj.person_end_message) {
-                roomcontentans += "<br></br>" + person + ": <br>" + oneroomobj.person_end_message;
-            }         
+            }       
         }
         document.getElementById('divten').style.display='none'
         document.getElementById('mainmansiondiv').style.display = "none"
