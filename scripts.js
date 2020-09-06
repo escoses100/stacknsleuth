@@ -31,9 +31,9 @@ function openroom(room) {
             roomcontent += oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle + "<br><br>"
             roomcontent += "<span id='" + room + "anspace'>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "," + oneroomobj.roompuzzle_opt1.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "," + oneroomobj.roompuzzle_opt2.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
-            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-right' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt3_var + "," + oneroomobj.roompuzzle_opt3.replace(/ /g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt3 + "</span>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-left' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt1_var + "," + oneroomobj.roompuzzle_opt1.replace(/[ ,.]/g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt1 + "</span>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-center' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt2_var + "," + oneroomobj.roompuzzle_opt2.replace(/[ ,.]/g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt2 + "</span>"
+            roomcontent += "<br>" + "<span class='bgimg w3-sepia-max w3-right' onclick=checkans('" + room + "," + oneroomobj.roompuzzle_opt3_var + "," + oneroomobj.roompuzzle_opt3.replace(/[ ,.]/g, '&nbsp;') + "')>" + oneroomobj.roompuzzle_opt3 + "</span>"
             roomcontent += "</span>"
         }
     }
