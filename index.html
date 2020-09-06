@@ -153,6 +153,8 @@ body, html {
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures()">Ciphers And Statues</button>
             <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb()">Tomb or Treasure</button>
+            <br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadrituals()">Rituals and Riddles</button>
                 <script>
                 function loadsculptures() {
                         maincontent = sculptureciphers
@@ -162,6 +164,12 @@ body, html {
                                     }
                 function loadtomb() {
                         maincontent = tombortreasure
+                        // load info section
+                        document.getElementById('startgamebutton') 
+                            .innerHTML=" Start Game: " + tombortreasure[0].intro
+                                    }
+                function loadrituals() {
+                        maincontent = examplestorydata
                         // load info section
                         document.getElementById('startgamebutton') 
                             .innerHTML=" Start Game: " + tombortreasure[0].intro
