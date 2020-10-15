@@ -19,10 +19,11 @@ function openroom(room) {
             roomcontent += oneroomobj.roomtitle + " - " + oneroomobj.roomdescription
             roomcontent += "<br><br>" + oneroomobj.roompuzzle
             roomcontent += "<br><br>" + "<br>Enter Your Answer (Only letters or numbers, but no spaces)<br><input id='roomtenanswer' class='bgimg w3-sepia-max w3-center w3-black' ></input>"
-            roomcontent += "<br><br>" + "<br>And select an option with your answer<br><span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('" + roompeople[0] + "')>Answer with " + roompeople[0] + "</span>"
+            roomcontent += "<br><br>" + "<br>And select an option with your answer<br>"
+            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('" + roompeople[0] + "')>Answer with " + roompeople[0] + "</span>"}
             roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('" + roompeople[1] + "')>Answer with " + roompeople[1] + "</span>"
             roomcontent += "<br><br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('" + roompeople[2] + "')>Answer with " + roompeople[2] + "</span>"
-            roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('" + roompeople[3] + "')>Answer with " + roompeople[3] + "</span>"
+            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('" + roompeople[3] + "')>Answer with " + roompeople[3] + "</span>"}
             document.getElementById(room).innerHTML = roomcontent
             break;
         }

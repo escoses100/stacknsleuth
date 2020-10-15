@@ -2,6 +2,7 @@
 var explorecount = 0
 
 var maincontent = [{
+    "stacknumber":"12",
     "intro": "Ritual And Riddles",
     "introstatement": "You typically avoid supernatural jobs... however, you committed to this investigation in a moment of weakness while at a festival in a nearby town.  Strange noises and inexplicable events have occurred recently at the remote and abandoned mansion in front of you.  You can’t get in the front door, so you decide to break the latch and climb through a window.",
     "introchallenge": "The town folk are convinced you can find a way to free the spirit haunting the old house..."
