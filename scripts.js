@@ -1,8 +1,11 @@
+// global variable
+var roompeople = []
+
 function openroom(room) {
     document.getElementById(room).innerHTML = ""
     var roomcontent = ""
     var roomcontentname = ""
-    var roompeople = []
+    roompeople = []
     for (var oneroomobj of maincontent) {
         if (oneroomobj.person == 'roomonebox') {roompeople[0] = oneroomobj.person_name}
         if (oneroomobj.person == 'roomtwobox') {roompeople[1] = oneroomobj.person_name}
@@ -20,10 +23,10 @@ function openroom(room) {
             roomcontent += "<br><br>" + oneroomobj.roompuzzle
             roomcontent += "<br><br>" + "<br>Enter Your Answer (Only letters or numbers, but no spaces)<br><input id='roomtenanswer' class='bgimg w3-sepia-max w3-center w3-black' ></input>"
             roomcontent += "<br><br>" + "<br>And select an option with your answer<br>"
-            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('" + roompeople[0] + "')>Answer with " + roompeople[0] + "</span>"}
-            roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('" + roompeople[1] + "')>Answer with " + roompeople[1] + "</span>"
-            roomcontent += "<br><br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('" + roompeople[2] + "')>Answer with " + roompeople[2] + "</span>"
-            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('" + roompeople[3] + "')>Answer with " + roompeople[3] + "</span>"}
+            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('0')>Answer with " + roompeople[0] + "</span>"}
+            roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('1')>Answer with " + roompeople[1] + "</span>"
+            roomcontent += "<br><br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-left' onclick=makesureanswer('2')>Answer with " + roompeople[2] + "</span>"
+            if (maincontent[0].stackselection == "12") { roomcontent += "<span class='bgimg w3-sepia-max w3-button w3-right' onclick=makesureanswer('3')>Answer with " + roompeople[3] + "</span>"}
             document.getElementById(room).innerHTML = roomcontent
             break;
         }
@@ -74,9 +77,14 @@ function checkans(roomandopt) {
 }
 
 function makesureanswer(person) {
+    var person_name_string = ''
+    if (person == '0') {person_name_string = roompeople[0]}
+    if (person == '1') {person_name_string = roompeople[1]}
+    if (person == '2') {person_name_string = roompeople[2]}
+    if (person == '3') {person_name_string = roompeople[3]}
     document.getElementById('makesurediv').style.display = 'block'
     document.getElementById('makesurediv').innerHTML = 'Are you sure you want to answer:<br><br>'
-    document.getElementById('makesurediv').innerHTML += person + '<br>and<br>'
+    document.getElementById('makesurediv').innerHTML += person_name_string + '<br>and<br>'
     document.getElementById('makesurediv').innerHTML += document.getElementById('roomtenanswer').value.toLowerCase()
     document.getElementById('makesurediv').innerHTML += "<br><br>" + "<span class='bgimg w3-sepia-max w3-button w3-center' onclick=checkroomten('" + person + "')>Yes</span>"
     document.getElementById('makesurediv').innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='bgimg w3-sepia-max w3-button w3-center' onclick=clearmakesure()>No</span>"
@@ -90,21 +98,26 @@ function clearmakesure() {
 }
 
 function checkroomten(person) {
+        var person_name_string = ''
+        if (person == '0') {person_name_string = roompeople[0]}
+        if (person == '1') {person_name_string = roompeople[1]}
+        if (person == '2') {person_name_string = roompeople[2]}
+        if (person == '3') {person_name_string = roompeople[3]}
         document.getElementById('makesurediv').innerHTML = ''
         document.getElementById('makesurediv').style.display = 'none'
         room = 'roomtenbox'
         roomtenanswerstring = (document.getElementById('roomtenanswer').value).toLowerCase()
         roomtenanswerattempt = roomtenanswerstring.replace(/\s+/g, '')
         explorecount = explorecount+1
-        console.log(room + ' ' + roomtenanswerattempt + ' ' + person)
+        console.log(room + ' ' + roomtenanswerattempt + ' ' + person_name_string)
         roomcontentans = ""
         for (var oneroomobj2 of maincontent) {
             if (oneroomobj2.room == room) {
                 if (oneroomobj2.roompuzzle_ans.toUpperCase() == roomtenanswerattempt.toUpperCase()) {
                     roomcontentans += "<br></br>" + oneroomobj2.roompuzzle_ans_message;
                     for (var oneroomobj of maincontent) { // get person message
-                        if (oneroomobj.person_name == person && oneroomobj.person_end_message) {
-                            roomcontentans += "<br></br>" + person + ": <br>" + oneroomobj.person_end_message;
+                        if (oneroomobj.person_name == person_name_string && oneroomobj.person_end_message) {
+                            roomcontentans += "<br></br>" + person_name_string + ": <br>" + oneroomobj.person_end_message;
                         }         
                     } // end get person message
                 } else {
