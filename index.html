@@ -23,6 +23,12 @@ body, html {
   background-position: center;
   background-size: cover;
 }
+.gbgimg {
+  background-image: url('./images/galaxybg.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
 .oneimg {
   background-image: url('./images/one.png');
   min-height: 100%;
@@ -91,6 +97,30 @@ body, html {
 }
 .twelveimg {
   background-image: url('./images/twelve.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gsiximg {
+  background-image: url('./images/gsix.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gsevenimg {
+  background-image: url('./images/gseven.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gtenimg {
+  background-image: url('./images/gten.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gelevenimg {
+  background-image: url('./images/geleven.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
@@ -292,6 +322,10 @@ function startgame() {
     document.getElementById('entrydiv').style.display='none'
     document.getElementById('gamestartdiv').style.display='block'
     document.getElementById('gameintrodiv').innerHTML = maincontent[0].introstatement + "<br><br>" + maincontent[0].introchallenge
+        if (maincontent[0].roomsetting == "galaxy") { // differnt splash div
+            document.getElementById('splashdiv').classList.remove('bgimg')
+            document.getElementById('splashdiv').classList.add('gbgimg')
+        }// end splash div check
 }
 function startinvestigation() { // show the main div and hide any divs based on the size of the game
     if (maincontent[0].stacknumber == "12") {
@@ -311,6 +345,18 @@ function startinvestigation() { // show the main div and hide any divs based on 
         explorecount = 6
     }
     if (maincontent[0].stacknumber == "4") {
+        if (maincontent[0].roomsetting == "galaxy") {
+            document.getElementById('mainmansiondiv').classList.remove('bgimg')
+            document.getElementById('mainmansiondiv').classList.add('gbgimg')
+            document.getElementById('roomsixspan').classList.remove('siximg')
+            document.getElementById('roomsixspan').classList.add('gsiximg')
+            document.getElementById('roomsevenspan').classList.remove('sevenimg')
+            document.getElementById('roomsevenspan').classList.add('gsevenimg')
+            document.getElementById('roomtenspan').classList.remove('tenimg')
+            document.getElementById('roomtenspan').classList.add('gtenimg')
+            document.getElementById('roomelevenspan').classList.remove('elevenimg')
+            document.getElementById('roomelevenspan').classList.add('gelevenimg')
+        }
         document.getElementById('splashdiv').style.display='none'
         document.getElementById('mainmansiondiv').style.display='block'
         document.getElementById('roomonespan').style.display='none'
@@ -587,6 +633,14 @@ function startinvestigation() { // show the main div and hide any divs based on 
                         <br> 
                         <div id="overalleditordiv" style="display:none">
                         <hr>
+                        <br>
+                        <span id="settingselect">
+                        Select Room Setting
+                        <select id="storydata_roomsetting">
+                            <option value="mansion">mansion</option>
+                            <option value="galaxy">galaxy</option>
+                        </select>
+                        </span>
                         <br>
                         <br>
                         Game Title
@@ -1551,6 +1605,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                 examplestorydata[0].intro = document.getElementById('storydata_intro').value
                                 examplestorydata[0].introstatement = document.getElementById('storydata_introstatement').value
                                 examplestorydata[0].introchallenge = document.getElementById('storydata_introchallenge').value
+                                examplestorydata[0].roomsetting = document.getElementById('storydata_roomsetting').value
                         
                                 for (var oneroomname of roomnamedata) {
                                     for (const [i, oneroomchunk] of examplestorydata.entries()) {
@@ -1658,8 +1713,10 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                         document.getElementById('storydata_intro').value = splitlinesfrs[0].intro
                                         document.getElementById('storydata_introstatement').value = splitlinesfrs[0].introstatement
                                         document.getElementById('storydata_introchallenge').value = splitlinesfrs[0].introchallenge
-                                        if (!splitlinesfrs[0].stacknumber) {splitlinesfrs[0].stacknumber = "12"}
+                                        if (!splitlinesfrs[0].stacknumber) {splitlinesfrs[0].stacknumber = "12"} // legacy files
                                         document.getElementById('storystackselection').value = splitlinesfrs[0].stacknumber
+                                        if (!splitlinesfrs[0].roomsetting) {splitlinesfrs[0].roomsetting = "mansion"} // legacy files
+                                        document.getElementById('storydata_roomsetting').value = splitlinesfrs[0].roomsetting
                                         // adjust the editor
                                                 if (document.getElementById('storystackselection').value == "12") {
                                                     examplestorydata = splitlinesfrs // this is more of a placeholder - i get it is silly.
@@ -1667,9 +1724,11 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                                     document.getElementById('storystackselectionspan').innerHTML = document.getElementById('storystackselection').value + " rooms selected.  Reload the entire page if you want to start over with a different room size or reload a file."
                                                     document.getElementById('storystackselection').style.display='none'
                                                     document.getElementById('storyfilespan').style.display='none'
+                                                    document.getElementById('settingselect').style.display='none'
                                                 }
                                                 if (document.getElementById('storystackselection').value == "6") {
                                                     examplestorydata = splitlinesfrs // this is more of a placeholder - i get it is silly.
+                                                    document.getElementById('settingselect').style.display='none'
                                                     document.getElementById('persononefivespanedit').style.display='none'
                                                     document.getElementById('personfoureightspanedit').style.display='none'
                                                     document.getElementById('roomonespanedit').style.display='none'
@@ -1790,6 +1849,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                         document.getElementById('storystackselectionspan').innerHTML = document.getElementById('storystackselection').value + " rooms selected.  Reload the entire page if you want to start over with a different room size or reload a file."
                                         document.getElementById('storystackselection').style.display='none'
                                         document.getElementById('storyfilespan').style.display='none'
+                                        document.getElementById('settingselect').style.display='none'
                                     }
                                     if (document.getElementById('storystackselection').value == "6") {
                                         examplestorydata = mathmanor // example is math at the manor
@@ -1806,6 +1866,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                         document.getElementById('storystackselectionspan').innerHTML = document.getElementById('storystackselection').value + " rooms selected.  Reload the entire page if you want to start over with a different room size or reload a file."
                                         document.getElementById('storystackselection').style.display='none'
                                         document.getElementById('storyfilespan').style.display='none'
+                                        document.getElementById('settingselect').style.display='none'
                                     }
                                     if (document.getElementById('storystackselection').value == "4") {
                                         examplestorydata = submergedsheckels // example is submerged sheckles 
@@ -1834,6 +1895,8 @@ function startinvestigation() { // show the main div and hide any divs based on 
                         document.getElementById('storydata_intro').value = examplestorydata[0].intro
                         document.getElementById('storydata_introstatement').value = examplestorydata[0].introstatement
                         document.getElementById('storydata_introchallenge').value = examplestorydata[0].introchallenge
+                        if (!examplestorydata[0].roomsetting) {examplestorydata[0].roomsetting = "mansion"} // legacy files
+                        document.getElementById('storydata_roomsetting').value = examplestorydata[0].roomsetting
                         // load the rooms
                         for (var oneroomname of roomnamedata) {
                             for (const [i, oneroomchunk] of examplestorydata.entries()) {
