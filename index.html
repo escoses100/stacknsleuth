@@ -174,9 +174,6 @@ body, html {
             <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsubmergedsheckels()">Submerged Sheckels: 4 Rooms</button>
             <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadconstellationfringe(document.getElementById('constellationfringepass').value)">Constellation's Fringe: 4 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
-            <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadmathmanor()">Math at the Manor: 6 Rooms</button>
             <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures()">Ciphers And Statues: 12 Rooms</button>
@@ -184,10 +181,21 @@ body, html {
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb()">Tomb or Treasure: 12 Rooms</button>
             <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadrituals()">Rituals and Riddles: 12 Rooms</button>
+
+            <hr class="hrline">
+            <!--Fan Fiction Levels-->
+            Fan Fiction Levels:
             <br>
+            <span class="w3-tiny w3-margin-top"> Supernatural </span><br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent()">Violent Delights: 12 Rooms</button>
+            <br>
+            <span class="w3-tiny w3-margin-top"> Simpsons </span><br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbillionaire()">The Billionaire: 12 Rooms</button>
             <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent()">Violent Delights: 12 Rooms</button>
+            <span class="w3-tiny w3-margin-top"> Star Wars </span><br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadconstellationfringe(document.getElementById('constellationfringepass').value)">Constellation's Fringe: 4 Rooms</button>
+            <input type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
+            <br>
                 <script>
                 function loadsculptures() {
                         maincontent = sculptureciphers
@@ -239,14 +247,14 @@ body, html {
                             .innerHTML=submergedsheckels[0].intro
                         } // end load submerged
                 function loadconstellationfringe(pass) {
-                        if (pass == 'mando') {
+                        if (pass.toUpperCase() == 'MANDO') {
                             maincontent = constellationfringe
                             // start the game
                             startgame()
                             document.getElementById('loadedgametitle') 
                                 .innerHTML=constellationfringe[0].intro
                             }
-                        if (pass != 'mando') {
+                        if (pass.toUpperCase() != 'MANDO') {
                                 alert('wrong password')
                             }
                         } // end load constellationfringe                      
