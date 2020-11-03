@@ -101,6 +101,18 @@ body, html {
   background-position: center;
   background-size: 100% 100%;
 }
+.gtwoimg {
+  background-image: url('./images/gtwo.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.gthreeimg {
+  background-image: url('./images/gthree.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
 .gsiximg {
   background-image: url('./images/gsix.png');
   min-height: 100%;
@@ -176,40 +188,56 @@ body, html {
             <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadmathmanor()">Math at the Manor: 6 Rooms</button>
             <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures()">Ciphers And Statues: 12 Rooms</button>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb()">Tomb or Treasure: 12 Rooms</button>
-            <br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadrituals()">Rituals and Riddles: 12 Rooms</button>
+            <br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures(document.getElementById('sculpturespass').value)">Ciphers And Statues: 12 Rooms</button>
+            <input type='text' size='5' placeholder='pass' id='sculpturespass'></input>
+            <br>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb(document.getElementById('tombpass').value)">Tomb or Treasure: 12 Rooms</button>
+            <input type='text' size='5' placeholder='pass' id='tombpass'></input>
+            <br>
+            
 
             <hr class="hrline">
             <!--Fan Fiction Levels-->
             Fan Fiction Levels:
             <br>
             <span class="w3-tiny w3-margin-top"> Supernatural </span><br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent()">Violent Delights: 12 Rooms</button>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent(document.getElementById('violentpass').value)">Violent Delights: 12 Rooms</button>
+            <input type='text' size='5' placeholder='pass' id='violentpass'></input>
             <br>
             <span class="w3-tiny w3-margin-top"> Simpsons </span><br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbillionaire()">The Billionaire: 12 Rooms</button>
+            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbillionaire(document.getElementById('billionairepass').value)">The Billionaire: 12 Rooms</button>
+            <input type='text' size='5' placeholder='pass' id='billionairepass'></input>
             <br>
             <span class="w3-tiny w3-margin-top"> Star Wars </span><br>
             <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadconstellationfringe(document.getElementById('constellationfringepass').value)">Constellation's Fringe: 4 Rooms</button>
             <input type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
             <br>
                 <script>
-                function loadsculptures() {
+                function loadsculptures(pass) {
+                    if (pass.toUpperCase() == 'CODE') {
                         maincontent = sculptureciphers
                         // start the game
                         startgame()
                         document.getElementById('loadedgametitle') 
                             .innerHTML=sculptureciphers[0].intro
+                        }
+                    if (pass.toUpperCase() != 'CODE') {
+                            alert('wrong password')
+                        }
                         } // end load sculptures
-                function loadtomb() {
+                function loadtomb(pass) {
+                    if (pass.toUpperCase() == 'CRYPT') {
                         maincontent = tombortreasure
                         // start the game
                         startgame()
                         document.getElementById('loadedgametitle') 
                             .innerHTML=tombortreasure[0].intro
+                    }
+                    if (pass.toUpperCase() != 'CRYPT') {
+                            alert('wrong password')
+                        }
                         } // end load tomb
                 function loadrituals() {
                         maincontent = examplestorydata
@@ -218,19 +246,29 @@ body, html {
                         document.getElementById('loadedgametitle') 
                             .innerHTML=examplestorydata[0].intro
                         } // end load rituals 
-                function loadbillionaire() {
+                function loadbillionaire(pass) {
+                    if (pass.toUpperCase() == 'BART') {
                         maincontent = thebillionaire
                         // start the game
                         startgame()
                         document.getElementById('loadedgametitle') 
                             .innerHTML=thebillionaire[0].intro
+                        }
+                        if (pass.toUpperCase() != 'BART') {
+                                alert('wrong password')
+                            }
                         } // end load billionaire
-                function loadviolent() {
+                function loadviolent(pass) {
+                    if (pass.toUpperCase() == 'DEAN') {
                         maincontent = violentdelights
                         // start the game
                         startgame()
                         document.getElementById('loadedgametitle') 
                             .innerHTML=violentdelights[0].intro
+                    }
+                    if (pass.toUpperCase() != 'DEAN') {
+                        alert('wrong password')
+                    }
                         } // end load violent
                 function loadmathmanor() {
                         maincontent = mathmanor
@@ -279,6 +317,9 @@ body, html {
          <br>
          <br>
          <a href="https://boardgamegeek.com/boardgame/315438/stacknsleuth">Visit the game site on Boardgamegeek</a>
+         <br>
+         <br>
+         <a href="https://www.instagram.com/stacknsleuth/">Visit the game site on Instagram</a>
          <hr>
          <br>
 
@@ -357,6 +398,22 @@ function startinvestigation() { // show the main div and hide any divs based on 
         explorecount = 0
     }
     if (maincontent[0].stacknumber == "6") {
+        if (maincontent[0].roomsetting == "galaxy") {
+            document.getElementById('mainmansiondiv').classList.remove('bgimg')
+            document.getElementById('mainmansiondiv').classList.add('gbgimg')
+            document.getElementById('roomtwospan').classList.remove('twoimg')
+            document.getElementById('roomtwospan').classList.add('gtwoimg')
+            document.getElementById('roomthreespan').classList.remove('threeimg')
+            document.getElementById('roomthreespan').classList.add('gthreeimg')
+            document.getElementById('roomsixspan').classList.remove('siximg')
+            document.getElementById('roomsixspan').classList.add('gsiximg')
+            document.getElementById('roomsevenspan').classList.remove('sevenimg')
+            document.getElementById('roomsevenspan').classList.add('gsevenimg')
+            document.getElementById('roomtenspan').classList.remove('tenimg')
+            document.getElementById('roomtenspan').classList.add('gtenimg')
+            document.getElementById('roomelevenspan').classList.remove('elevenimg')
+            document.getElementById('roomelevenspan').classList.add('gelevenimg')
+        }
         document.getElementById('splashdiv').style.display='none'
         document.getElementById('mainmansiondiv').style.display='block'
         document.getElementById('roomonespan').style.display='none'
@@ -1751,7 +1808,6 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                                 }
                                                 if (document.getElementById('storystackselection').value == "6") {
                                                     examplestorydata = splitlinesfrs // this is more of a placeholder - i get it is silly.
-                                                    document.getElementById('settingselect').style.display='none'
                                                     document.getElementById('persononefivespanedit').style.display='none'
                                                     document.getElementById('personfoureightspanedit').style.display='none'
                                                     document.getElementById('roomonespanedit').style.display='none'
@@ -1889,7 +1945,6 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                         document.getElementById('storystackselectionspan').innerHTML = document.getElementById('storystackselection').value + " rooms selected.  Reload the entire page if you want to start over with a different room size or reload a file."
                                         document.getElementById('storystackselection').style.display='none'
                                         document.getElementById('storyfilespan').style.display='none'
-                                        document.getElementById('settingselect').style.display='none'
                                     }
                                     if (document.getElementById('storystackselection').value == "4") {
                                         examplestorydata = submergedsheckels // example is submerged sheckles 
