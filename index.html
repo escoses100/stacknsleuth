@@ -29,6 +29,12 @@ body, html {
   background-position: center;
   background-size: cover;
 }
+.ibgimg {
+  background-image: url('./images/ibackground.jpeg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
 .oneimg {
   background-image: url('./images/one.png');
   min-height: 100%;
@@ -133,6 +139,42 @@ body, html {
 }
 .gelevenimg {
   background-image: url('./images/geleven.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.itwoimg {
+  background-image: url('./images/itwo.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.ithreeimg {
+  background-image: url('./images/ithree.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.isiximg {
+  background-image: url('./images/isix.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.isevenimg {
+  background-image: url('./images/iseven.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.itenimg {
+  background-image: url('./images/iten.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.ielevenimg {
+  background-image: url('./images/ieleven.png');
   min-height: 100%;
   background-position: center;
   background-size: 100% 100%;
@@ -386,10 +428,14 @@ function startgame() {
     document.getElementById('entrydiv').style.display='none'
     document.getElementById('gamestartdiv').style.display='block'
     document.getElementById('gameintrodiv').innerHTML = maincontent[0].introstatement + "<br><br>" + maincontent[0].introchallenge
-        if (maincontent[0].roomsetting == "galaxy") { // differnt splash div
+        if (maincontent[0].roomsetting == "galaxy") { // differnt splash div galaxy
             document.getElementById('splashdiv').classList.remove('bgimg')
             document.getElementById('splashdiv').classList.add('gbgimg')
-        }// end splash div check
+        }// end splash div check galaxy
+        if (maincontent[0].roomsetting == "temple") { // differnt splash div galaxy
+            document.getElementById('splashdiv').classList.remove('bgimg')
+            document.getElementById('splashdiv').classList.add('ibgimg')
+        }// end splash div check galaxy
 }
 function startinvestigation() { // show the main div and hide any divs based on the size of the game
     if (maincontent[0].stacknumber == "12") {
@@ -414,6 +460,22 @@ function startinvestigation() { // show the main div and hide any divs based on 
             document.getElementById('roomelevenspan').classList.remove('elevenimg')
             document.getElementById('roomelevenspan').classList.add('gelevenimg')
         }
+        if (maincontent[0].roomsetting == "temple") {
+            document.getElementById('mainmansiondiv').classList.remove('bgimg')
+            document.getElementById('mainmansiondiv').classList.add('ibgimg')
+            document.getElementById('roomtwospan').classList.remove('twoimg')
+            document.getElementById('roomtwospan').classList.add('itwoimg')
+            document.getElementById('roomthreespan').classList.remove('threeimg')
+            document.getElementById('roomthreespan').classList.add('ithreeimg')
+            document.getElementById('roomsixspan').classList.remove('siximg')
+            document.getElementById('roomsixspan').classList.add('isiximg')
+            document.getElementById('roomsevenspan').classList.remove('sevenimg')
+            document.getElementById('roomsevenspan').classList.add('isevenimg')
+            document.getElementById('roomtenspan').classList.remove('tenimg')
+            document.getElementById('roomtenspan').classList.add('itenimg')
+            document.getElementById('roomelevenspan').classList.remove('elevenimg')
+            document.getElementById('roomelevenspan').classList.add('ielevenimg')
+        }
         document.getElementById('splashdiv').style.display='none'
         document.getElementById('mainmansiondiv').style.display='block'
         document.getElementById('roomonespan').style.display='none'
@@ -436,6 +498,18 @@ function startinvestigation() { // show the main div and hide any divs based on 
             document.getElementById('roomtenspan').classList.add('gtenimg')
             document.getElementById('roomelevenspan').classList.remove('elevenimg')
             document.getElementById('roomelevenspan').classList.add('gelevenimg')
+        }
+        if (maincontent[0].roomsetting == "temple") {
+            document.getElementById('mainmansiondiv').classList.remove('bgimg')
+            document.getElementById('mainmansiondiv').classList.add('ibgimg')
+            document.getElementById('roomsixspan').classList.remove('siximg')
+            document.getElementById('roomsixspan').classList.add('isiximg')
+            document.getElementById('roomsevenspan').classList.remove('sevenimg')
+            document.getElementById('roomsevenspan').classList.add('isevenimg')
+            document.getElementById('roomtenspan').classList.remove('tenimg')
+            document.getElementById('roomtenspan').classList.add('itenimg')
+            document.getElementById('roomelevenspan').classList.remove('elevenimg')
+            document.getElementById('roomelevenspan').classList.add('ielevenimg')
         }
         document.getElementById('splashdiv').style.display='none'
         document.getElementById('mainmansiondiv').style.display='block'
@@ -719,6 +793,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                         <select id="storydata_roomsetting">
                             <option value="mansion">mansion</option>
                             <option value="galaxy">galaxy</option>
+                            <option value="temple">temple</option>
                         </select>
                         </span>
                         <br>
