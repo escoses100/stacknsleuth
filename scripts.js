@@ -73,7 +73,7 @@ function checkans(roomandopt) {
         }
     }
     document.getElementById(roomname + 'anspace').innerHTML = roomcontentans // set the answer as page
-    document.getElementById('room' + roomnamenum + 'span').classList.add('w3-grayscale-max')// set the picture for that room to grey
+    document.getElementById('room' + roomnamenum + 'span').classList.add('w3-sepia-max')// set the picture for that room to grey
 }
 
 function makesureanswer(person) {
