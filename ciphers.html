@@ -1,0 +1,294 @@
+<html>
+    <head>
+        <style>
+            .flex-container {
+                display: flex;
+                flex-direction: column;
+            }
+            .flex-child {
+                flex: 1;
+            }  
+            .flex-child:first-child {
+                margin-right: 5px;
+            } 
+            .badge {
+            height: 525px;
+            width: 525px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 50%; /* may require vendor prefixes */
+            background: rgb(255, 255, 255);
+            border: 10px solid rgb(0, 0, 0);
+            font-family:Copperplate;
+            font-size: 20px;
+            font-weight: bold;
+            word-wrap: break-word;
+            word-break: break-all;
+            }
+            .coasterspan {
+            margin-left: auto;
+            margin-right: auto;
+            display:block;
+            width:85%;
+            }
+            .coasterspanunder {
+            margin-left: auto;
+            margin-right: auto;
+            display:block;
+            width:85%;
+            font-family:Copperplate;
+            font-size: 30px;
+            font-weight: bold;
+            }
+            hr.coasterlinetop {
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width:80%;
+            }
+            hr.coasterlinebottom {
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width:80%;
+            }
+        </style>
+        <script type="text/javascript" src="cipherfunctions.js"></script>
+        <script type="text/javascript" src="bacon.js"></script>
+    </head>
+    <body>
+        <br>
+        CiphernSleuth
+        <br>
+        <hr>
+        <br>
+        Rail Fence:
+        <br>
+        Input (max 30 characters, a-z only, not case sensitive, no spaces):
+        <br>
+        <input type="text" id="railcipherinput" size="30" maxlength="30">
+        <br>
+        <br>
+        <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="runrailcipher()">Run Rail Fence Cipher</button>
+        <br>
+        <br>
+        <textarea cols="30" rows="4" id="zigzagoutput"></textarea>
+        <br>
+        <textarea cols="30" id="zigzagencrypted"></textarea>
+        <br>
+        <br>
+        <hr>
+        <br>
+        Cipher Wheel (Substitution):
+        <br>
+        Input (max 30 characters, a-z only, not case sensitive, no spaces):
+        <br>
+        <input type="text" id="wheelcipherinput" size="30" maxlength="30">
+        <br>
+        <br>
+        <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="runwheelcipher()">Run wheel Cipher</button>
+        <br>
+        <br>
+        <textarea cols="30" id="wheeloutput"></textarea>
+        <br>
+        <br>
+        <hr>
+        <br>
+        Cipher Square (Substitution):
+        <br>
+        Input (max 30 characters, a-z only, not case sensitive, no spaces):
+        <br>
+        <input type="text" id="squarecipherinput" size="30" maxlength="30">
+        <br>
+        <br>
+        <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="runsquarecipher()">Run Square Cipher</button>
+        <br>
+        <br>
+        <textarea cols="60" id="squareoutput"></textarea>
+        <br>
+        <br>
+        <hr>
+        <br>
+        Baconian:
+        <br>
+        Input (max 60 characters, a-z only, not case sensitive, no spaces):
+        <br>
+        <input type="text" id="baconcipherinput" size="60" maxlength="60">
+        <br>
+        <br>
+        <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="runbaconcipher()">Run Bacon Cipher</button>
+        <br>
+        <br>
+        <textarea cols="30" rows="4" id="baconoutput"></textarea>
+        <br>
+        <br>
+        <hr>
+        <hr>
+        <div class="flex-container">
+
+            <div class="flex-child magenta">
+                Encrypted Text Here:
+                <br>
+                <textarea cols="30" rows="4" id="encryptedtextbox"></textarea>
+                <br>
+                <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="addcoaster()">Add to Coaster</button>
+                 
+                <br>
+            </div>
+            
+            <div class="flex-child green">
+                <br>
+                <br>
+                Show/Hide Symbols:
+                <br>
+                <button id="btrianglecheck" name="btriangle" onclick="showhidesymbol(this.name)">hide</button> Baconian Cipher Symbol &#x25B5; 
+                <br>
+                <button id="ccirclecheck" name="ccircle" onclick="showhidesymbol(this.name)">hide</button> Circle Cipher Symbol &xcirc;  
+                <br>
+                <button id="csquarecheck" name="csquare" onclick="showhidesymbol(this.name)">hide</button> Square Cipher Symbol &#x25A2;
+                <br>
+                <button id="cxmarkcheck" name="cxmark" onclick="showhidesymbol(this.name)">hide</button>  Rail Fence Symbol &#10006;
+                <br>
+            </div>
+            <script>
+                function showhidesymbol(symbolname) { 
+                        if (document.getElementById(symbolname + 'check').innerHTML == "hide") {
+                            document.getElementById(symbolname + 'check').innerHTML = "show"
+                            document.getElementById(symbolname).style.display = "none";
+                        } else if (document.getElementById(symbolname + 'check').innerHTML == "show") {
+                            document.getElementById(symbolname + 'check').innerHTML = "hide"
+                            document.getElementById(symbolname).style.display = "inline";
+                        }
+                }
+            </script>
+            
+          </div>
+        <br>
+        <div id="coasterdiv" class="badge">
+            <hr class="coasterlinetop">
+            <span class="coasterspan" id="coasterspan">Encrypted Goes Inside This Circle.. .. ..</span>
+            <hr class="coasterlinebottom">
+            <span class="coasterspanunder" id="undercoasterspan"> 
+                <span id="btriangle">&#x25B5;</span>
+                <span id="ccircle">&xcirc;</span>
+                <span id="csquare">&#x25A2;</span> 
+                <span id="cxmark">&#10006;</span>
+            </span>     
+        </div>
+        <br>
+        <br>
+
+        <script>
+            // coaster add
+            function addcoaster() {
+                document.getElementById('coasterspan').innerHTML = document.getElementById('encryptedtextbox').value
+            }
+            // end coaster add
+            // rail fence cipher 
+            function runrailcipher() {
+                var finaloutput = ""
+                var checkletters = /^[a-zA-Z]*$/;
+                // get input
+                inputcheck = document.getElementById('railcipherinput').value.toLowerCase()
+                if (inputcheck.match(checkletters))
+                        { // all letters - so cipher is ok
+                // run ciphers an show step by step output
+                    // zigzag
+                        var zigzagencrypted = zigzagencrypt(inputcheck);
+                        document.getElementById('zigzagencrypted').value = zigzagencrypted
+                        }
+                        else
+                        { // not all letters
+                            document.getElementById('zigzagencrypted').value = "Can only be Letters [a-z], no spaces"
+                            document.getElementById('zigzagoutput').value = ""
+                        }     
+
+            }
+            
+            // end rail fence cipher 
+
+            // bacon cipher - uses the library
+            function runbaconcipher() {
+                var checkletters = /^[a-zA-Z]*$/;
+                var inputcheck = document.getElementById('baconcipherinput').value.toLowerCase()
+                if (inputcheck.match(checkletters))
+                        { // all letters - so cipher is ok
+                            document.getElementById('baconoutput').value = bacon.encode(inputcheck, {'alphabet': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'});
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('baconoutput').value = "Can only be Letters [a-z], no spaces"
+                        }
+                
+            } // end bacon cipher
+
+            // start cipher wheel
+            function runwheelcipher() {
+                var wheelkeybase = "waterzbcoldjqxspykhugmvfin"
+                var alphabetbase = "abcdefghijklmnopqrstuvwxyz"
+                var checkletters = /^[a-zA-Z]*$/;
+                var wheelinput = document.getElementById('wheelcipherinput').value.toLowerCase()
+                if (wheelinput.match(checkletters))
+                        { // all letters - so cipher is ok
+                            var wheelinputarray = wheelinput.split("") // turn into an array per character
+                            // make a key pair out of the cipher key 
+                            var wheelkeyarray = wheelkeybase.split("")
+                            var alphabetarray = alphabetbase.split("")
+                            var totalkeyarray = []
+                            for (var [indexkey,onekey] of wheelkeyarray.entries()) {
+                                for (var [indexbet,onebet] of alphabetarray.entries()){
+                                    if (indexkey == indexbet) {
+                                        totalkeyarray.push([onekey,onebet])
+                                    }
+                                }
+                            }// end make cipher key
+                            var wheelencrypted = new Array(30).fill(' ') // 30 space array
+                            for (var [index,onewheel] of wheelinputarray.entries()) {
+                                for (var onekey of totalkeyarray) {
+                                    if (onewheel == onekey[1]) {
+                                        wheelencrypted[index] = onekey[0]
+                                    }
+                                }// loop through wheelkey
+                            } // loop through wheelarray
+                            
+                            document.getElementById('wheeloutput').value = wheelencrypted.join("")
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('wheeloutput').value = "Can only be Letters [a-z], no spaces"
+                        }
+
+            }// end cipherwheel
+
+            // square cipher
+        // [[a,fs],[b,fo],[c,fu],[d,fr],[e,fc],[f,io],[g,iu],[h,ir],[i,ic],[j,ie],[k,ns],[l,no],[m,nu],[n,nr],[o,nc],[p,ao],[q,au],[r,ar],[s,ac],[t,ae],[u,lu],[v,lr],[w,lc],[x,eo],[y,eu],[z,er]]
+        function runsquarecipher() {
+                var checkletters = /^[a-zA-Z]*$/;
+                var squareinput = document.getElementById('squarecipherinput').value.toLowerCase()
+                if (squareinput.match(checkletters))
+                        { // all letters - so cipher is ok
+                            var squareinputarray = squareinput.split("") // turn into an array per character
+                            // make a key pair out of the cipher key 
+                            var squaretotalarray = [['a','fs'],['b','fo'],['c','fu'],['d','fr'],['e','fc'],['f','io'],['g','iu'],['h','ir'],['i','ic'],['j','ie'],['k','ns'],['l','no'],['m','nu'],['n','nr'],['o','nc'],['p','ao'],['q','au'],['r','ar'],['s','ac'],['t','ae'],['u','lu'],['v','lr'],['w','lc'],['x','eo'],['y','eu'],['z','er']]
+                            var squareencrypted = new Array(30).fill(' ') // 30 space array
+                            for (var [index,onesquare] of squareinputarray.entries()) {
+                                for (var onekey of squaretotalarray) {
+                                    if (onesquare == onekey[0]) {
+                                        squareencrypted[index] = onekey[1]
+                                    }
+                                }// loop through wheelkey
+                            } // loop through wheelarray
+                            
+                            document.getElementById('squareoutput').value = squareencrypted.join("")
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('squareoutput').value = "Can only be Letters [a-z], no spaces"
+                        }
+
+            }// end cipherwheel    
+        
+        // end square cipber
+
+        </script>
+    </body>
+</html>
