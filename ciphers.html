@@ -51,6 +51,167 @@
             border-radius: 5px;
             width:80%;
             }
+            .moslspan {
+                display: inline-block;
+                height: 30px;
+                width: 30px;  
+            }
+            .mosla {
+            background-image: url('./images/mosl_a.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslb {
+            background-image: url('./images/mosl_b.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslc {
+            background-image: url('./images/mosl_c.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosld {
+            background-image: url('./images/mosl_d.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosle {
+            background-image: url('./images/mosl_e.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslf {
+            background-image: url('./images/mosl_f.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslg {
+            background-image: url('./images/mosl_g.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslh {
+            background-image: url('./images/mosl_h.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosli {
+            background-image: url('./images/mosl_i.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslj {
+            background-image: url('./images/mosl_j.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslk {
+            background-image: url('./images/mosl_k.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosll {
+            background-image: url('./images/mosl_l.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslm {
+            background-image: url('./images/mosl_m.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosln {
+            background-image: url('./images/mosl_n.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslo {
+            background-image: url('./images/mosl_o.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslp {
+            background-image: url('./images/mosl_p.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslq {
+            background-image: url('./images/mosl_q.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslr {
+            background-image: url('./images/mosl_r.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosls {
+            background-image: url('./images/mosl_s.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslt {
+            background-image: url('./images/mosl_t.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslu {
+            background-image: url('./images/mosl_u.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslv {
+            background-image: url('./images/mosl_v.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslw {
+            background-image: url('./images/mosl_w.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslx {
+            background-image: url('./images/mosl_x.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosly {
+            background-image: url('./images/mosl_y.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslz {
+            background-image: url('./images/mosl_z.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
         </style>
         <script type="text/javascript" src="cipherfunctions.js"></script>
         <script type="text/javascript" src="bacon.js"></script>
@@ -148,6 +309,8 @@
                 <br>
                 <button id="cxmarkcheck" name="cxmark" onclick="showhidesymbol(this.name)">hide</button>  Rail Fence Symbol &#10006;
                 <br>
+                <br>
+                <button id="btrianglecheck" name="mosl" onclick="moslcoaster()">MOSL</button> convert to MOSL; 
             </div>
             <script>
                 function showhidesymbol(symbolname) { 
@@ -175,6 +338,7 @@
             </span>     
         </div>
         <br>
+
         <br>
 
         <script>
@@ -285,9 +449,41 @@
                             document.getElementById('squareoutput').value = "Can only be Letters [a-z], no spaces"
                         }
 
-            }// end cipherwheel    
+            }// end ciphersquare    
         
         // end square cipber
+
+        // html picture cipher from coasterbox
+
+        function moslcoaster() {
+                
+            var checkletters = /^[a-zA-Z ]*$/;
+                var moslinput = document.getElementById('encryptedtextbox').value.toLowerCase()
+                if (moslinput.match(checkletters))
+                        { // all letters - so cipher is ok
+                            var moslinputarray = moslinput.split("") // turn into an array per character
+                            // make a key pair out of the cipher key 
+                            var moslarray = [[' ',''],['a','mosla'],['b','moslb'],['c','moslc'],['d','mosld'],['e','mosle'],['f','moslf'],['g','moslg'],['h','moslh'],['i','mosli'],['j','moslj'],['k','moslk'],['l','mosll'],['m','moslm'],['n','mosln'],['o','moslo'],['p','moslp'],['q','moslq'],['r','moslr'],['s','mosls'],['t','moslt'],['u','moslu'],['v','moslv'],['w','moslw'],['x','moslx'],['y','mosly'],['z','moslz']]
+                            var moslencrypted = new Array(moslinputarray.length).fill(' ') // array the length of the input
+                            for (var [index,onemosl] of moslinputarray.entries()) {
+                                for (var onekey of moslarray) {
+                                    if (onemosl == onekey[0]) {
+                                        moslencrypted[index] = "<span class='moslspan " + onekey[1] + "'></span>"
+                                    }
+                                }// loop through moslkey
+                            } // loop through inputarray
+                            
+                            document.getElementById('coasterspan').innerHTML = moslencrypted.join("")
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('coasterspan').innerHTML = "Can only be Letters [a-z] or spaces"
+                        }
+
+
+            //    document.getElementById('coasterspan').innerHTML = 
+            
+        }// end html picture cipher from coasterbox
 
         </script>
     </body>
