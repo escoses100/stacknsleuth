@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="w3.css">
+        <style>
+            html * {
+            font-family: American Typewriter, serif
+            }
+            .ciphertable {
+                margin-left:auto;
+                margin-right:auto;
+                text-align:center;
+                border-collapse: collapse;
+                color: #ffffff;
+            }
+            .flex-container {
+                display: flex;
+                flex-direction: column;
+            }
+            .flex-child {
+                flex: 1;
+            }  
+            .flex-child:first-child {
+                margin-right: 5px;
+            } 
+            .badge {
+            height: 525px;
+            width: 525px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 50%; /* may require vendor prefixes */
+            background: rgb(255, 255, 255);
+            border: 10px solid rgb(0, 0, 0);
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: 550;
+            word-wrap: break-word;
+            word-break: break-all;
+            }
+            .coasterspan {
+            margin-left: auto;
+            margin-right: auto;
+            display:block;
+            width:85%;
+            }
+            .coasterspanunder {
+            margin-left: auto;
+            margin-right: auto;
+            display:block;
+            width:85%;
+            font-family:Copperplate;
+            font-size: 30px;
+            font-weight: bold;
+            }
+            hr.coasterlinetop {
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width:80%;
+            }
+            hr.coasterlinebottom {
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width:80%;
+            }
+            .moslspan {
+                display: inline-block;
+                height: 30px;
+                width: 30px;  
+            }
+            .mosla {
+            background-image: url('./images/mosl_a.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslb {
+            background-image: url('./images/mosl_b.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslc {
+            background-image: url('./images/mosl_c.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosld {
+            background-image: url('./images/mosl_d.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosle {
+            background-image: url('./images/mosl_e.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslf {
+            background-image: url('./images/mosl_f.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslg {
+            background-image: url('./images/mosl_g.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslh {
+            background-image: url('./images/mosl_h.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosli {
+            background-image: url('./images/mosl_i.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslj {
+            background-image: url('./images/mosl_j.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslk {
+            background-image: url('./images/mosl_k.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosll {
+            background-image: url('./images/mosl_l.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslm {
+            background-image: url('./images/mosl_m.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosln {
+            background-image: url('./images/mosl_n.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslo {
+            background-image: url('./images/mosl_o.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslp {
+            background-image: url('./images/mosl_p.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslq {
+            background-image: url('./images/mosl_q.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslr {
+            background-image: url('./images/mosl_r.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosls {
+            background-image: url('./images/mosl_s.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslt {
+            background-image: url('./images/mosl_t.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslu {
+            background-image: url('./images/mosl_u.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslv {
+            background-image: url('./images/mosl_v.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslw {
+            background-image: url('./images/mosl_w.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslx {
+            background-image: url('./images/mosl_x.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .mosly {
+            background-image: url('./images/mosl_y.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+            .moslz {
+            background-image: url('./images/mosl_z.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: 100% 100%;
+            }
+        </style>
+        <script type="text/javascript" src="cipherfunctions.js"></script>
+        <script type="text/javascript" src="bacon.js"></script>
+    </head>
+    <body>
+        <div id="splashdiv" class="w3-margin bgimg w3-center w3-black">
+        <br>
+        Coaster Cipher Key
+        <br>
+        <br>
+        <table class="ciphertable" border="2">
+            <tr><td></td><td>M</td><td>A</td><td>N</td><td>O</td><td>R</td></tr>
+            <tr><td>R</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
+            <tr><td>A</td><td></td><td>F</td><td>G</td><td>H</td><td>I</td></tr>
+            <tr><td>V</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td></tr>
+            <tr><td>E</td><td></td><td>O</td><td>P</td><td>Q</td><td>R</td></tr>
+            <tr><td>N</td><td>S</td><td>T</td><td>U</td><td>V</td><td></td></tr>
+            <tr><td>S</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td></td></tr>
+        </table>
+        <hr>
+        <br>
+        Input (max characters 500, a-z only, not case sensitive):
+        <br>
+        <textarea cols="60" id="squarecipherinput" size="500" maxlength="500"></textarea>
+        <br>
+        <br>
+        <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="runsquarecipher()">Encrypt Input</button>
+        <br>
+        <br>
+        Encrypted Text Here:
+        <br>
+        <textarea cols="60" id="squareoutput"></textarea>
+        <br>
+        <hr>
+        <div class="flex-container">
+
+            <div class="flex-child magenta">
+                <br>
+                <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="addcoaster()">Add to Coaster</button>
+                <br>
+            </div>
+            
+            <div class="flex-child green">
+            </div>
+            <script>
+                function showhidesymbol(symbolname) { 
+                        if (document.getElementById(symbolname + 'check').innerHTML == "hide") {
+                            document.getElementById(symbolname + 'check').innerHTML = "show"
+                            document.getElementById(symbolname).style.display = "none";
+                        } else if (document.getElementById(symbolname + 'check').innerHTML == "show") {
+                            document.getElementById(symbolname + 'check').innerHTML = "hide"
+                            document.getElementById(symbolname).style.display = "inline";
+                        }
+                }
+            </script>
+            
+          </div>
+          <br>
+          <br>
+        </div> <!-- end div for black -->
+        <br>
+        <div style="display:block;margin-left:10px;margin-right: auto">
+        <div id="coasterdiv" class="badge w3-margin bgimg w3-center">
+            <!-- <hr class="coasterlinetop"> -->
+            <span class="coasterspan" id="coasterspan">ENCRYPTED TEXT APPEARS HERE</span>
+            <!-- <hr class="coasterlinebottom"> -->   
+        </div>
+        </div>
+        <br>
+
+        <br>
+
+        <script>
+            // coaster add
+            function addcoaster() {
+                document.getElementById('coasterspan').innerHTML = document.getElementById('squareoutput').value.toUpperCase()
+            }
+            // end coaster add
+
+            // raven cipher
+        function runsquarecipher() {
+                var checkletters = /^[a-zA-Z ]*$/;
+                var squareinput = document.getElementById('squarecipherinput').value.toLowerCase()
+                if (squareinput.match(checkletters))
+                        { // all letters - so cipher is ok
+                            var squareinputarray = squareinput.split("") // turn into an array per character
+                            // make a key pair out of the cipher key 
+                            var squaretotalarray = [['a','rm'],['b','ra'],['c','rn'],['d','ro'],['e','rr'],['f','aa'],['g','an'],['h','ao'],['i','ar'],['j','vm'],['k','va'],['l','vn'],['m','vo'],['n','vr'],['o','ea'],['p','en'],['q','eo'],['r','er'],['s','nm'],['t','na'],['u','nn'],['v','no'],['w','sm'],['x','sa'],['y','sn'],['z','so']]
+                            var squareencrypted = new Array(60).fill(' ') // 30 space array
+                            for (var [index,onesquare] of squareinputarray.entries()) {
+                                for (var onekey of squaretotalarray) {
+                                    if (onesquare == onekey[0]) {
+                                        squareencrypted[index] = onekey[1]
+                                    }
+                                }// loop through wheelkey
+                            } // loop through wheelarray
+                            
+                            document.getElementById('squareoutput').value = squareencrypted.join("")
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('squareoutput').value = "Can only be Letters [a-z]"
+                        }
+
+            }// end ciphersquare    
+        
+        // end square cipber
+
+        // html picture cipher from coasterbox
+
+        function moslcoaster() {
+                
+            var checkletters = /^[a-zA-Z ]*$/;
+                var moslinput = document.getElementById('encryptedtextbox').value.toLowerCase()
+                if (moslinput.match(checkletters))
+                        { // all letters - so cipher is ok
+                            var moslinputarray = moslinput.split("") // turn into an array per character
+                            // make a key pair out of the cipher key 
+                            var moslarray = [[' ',''],['a','mosla'],['b','moslb'],['c','moslc'],['d','mosld'],['e','mosle'],['f','moslf'],['g','moslg'],['h','moslh'],['i','mosli'],['j','moslj'],['k','moslk'],['l','mosll'],['m','moslm'],['n','mosln'],['o','moslo'],['p','moslp'],['q','moslq'],['r','moslr'],['s','mosls'],['t','moslt'],['u','moslu'],['v','moslv'],['w','moslw'],['x','moslx'],['y','mosly'],['z','moslz']]
+                            var moslencrypted = new Array(moslinputarray.length).fill(' ') // array the length of the input
+                            for (var [index,onemosl] of moslinputarray.entries()) {
+                                for (var onekey of moslarray) {
+                                    if (onemosl == onekey[0]) {
+                                        moslencrypted[index] = "<span class='moslspan " + onekey[1] + "'></span>"
+                                    }
+                                }// loop through moslkey
+                            } // loop through inputarray
+                            
+                            document.getElementById('coasterspan').innerHTML = moslencrypted.join("")
+                        }
+                    else
+                        { // not all letters
+                            document.getElementById('coasterspan').innerHTML = "Can only be Letters [a-z] or spaces"
+                        }
+
+
+            //    document.getElementById('coasterspan').innerHTML = 
+            
+        }// end html picture cipher from coasterbox
+
+        </script>
+    </body>
+</html>
