@@ -292,10 +292,67 @@
         </div>
         </div>
         <br>
-
+        <div class="w3-margin">
         <br>
-
+          Update Coaster Font:
+        <select onchange="fontupdate(this.value)">
+            <option value="25px">25px</option>
+            <option value="12px">12px</option>
+            <option value="14px">14px</option>
+            <option value="16px">16px</option>
+            <option value="18px">18px</option>
+            <option value="20px">20px</option>
+            <option value="22px">22px</option>
+            <option value="26px">26px</option>
+            <option value="28px">28px</option>
+            <option value="30px">30px</option>
+           </select>
+           <br>
+           <br>
+             Font Style: 
+           <select onchange="styleupdate(this.value)">
+            <option value="normal">normal</option>
+            <option value="italic">italic</option>
+           </select>
+           <br>
+           <br>
+             Font Family: 
+           <select onchange="familyupdate(this.value)">
+            <option value="American Typewriter">American Typewriter</option>
+            <option value="Copperplate">Copperplate</option>
+            <option value="Arial">Arial</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Trebuchet MS">Trebuchet MS</option>
+            <option value="Impact">Impact</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Didot">Didot</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Andalé Mono">Andalé Mono</option>
+            <option value="Courier">Courier</option>
+            <option value="Lucida Console">Lucida Console</option>
+            <option value="Monaco">Monaco</option>
+            <option value="Bradley Hand">Bradley Hand</option>
+            <option value="Brush Script MT">Brush Script MT</option>
+            <option value="Luminari">Luminari</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+           </select>
+           <br>
+           <br>
+        </div>
         <script>
+            // font updates
+            function fontupdate(fontvalue) {
+              document.getElementById("coasterdiv").style.fontSize = fontvalue;
+            }
+            function styleupdate(fontvalue) {
+              document.getElementById("coasterdiv").style.fontStyle = fontvalue;
+            }
+            function familyupdate(fontvalue) {
+              document.getElementById("coasterspan").style.fontFamily = fontvalue;
+            }
+
             // coaster add
             function addcoaster() {
                 document.getElementById('coasterspan').innerHTML = document.getElementById('squareoutput').value.toUpperCase()
