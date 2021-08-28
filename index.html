@@ -267,7 +267,15 @@ body, html {
                 // check autoclick function to auto load urls
                 function checkautoclick() {
                     if(document.URL.indexOf("#loadsculptures") >= 0){loadsculptures('CODE')}
-
+                    if(document.URL.indexOf("#loadtomb") >= 0){loadtomb('CRYPT')}
+                    if(document.URL.indexOf("#loadrituals") >= 0){loadrituals()}
+                    if(document.URL.indexOf("#loadbillionaire") >= 0){loadbillionare('BART')}
+                    if(document.URL.indexOf("#loadviolent") >= 0){loadviolent('DEAN')}
+                    if(document.URL.indexOf("#loadmathmanor") >= 0){loadmathmanor()}
+                    if(document.URL.indexOf("#loadsubmergedsheckels") >= 0){loadsubmergedsheckels()}
+                    if(document.URL.indexOf("#loadlostmanzanita") >= 0){loadlostmanzanita()}
+                    if(document.URL.indexOf("#loadconstellationfringe") >= 0){loadconstellationfringe('MANDO')}
+                    if(document.URL.indexOf("#loadbard") >= 0){loadbard('STAGE')} 
                 }
                 function loadsculptures(pass) {
                     pass = 'CODE' // auto set pass - not using pass for now
