@@ -227,22 +227,22 @@ body, html {
             Load Published Levels:
             <br>
             <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadlostmanzanita()">Lost Treasure of Manzanita: 4 Rooms</button>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsubmergedsheckels()">Submerged Sheckels: 4 Rooms</button>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbard(document.getElementById('bardpass').value)">Bravery and the Bard: 4 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='bardpass'></input>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadmathmanor()">Math at the Manor: 6 Rooms</button>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadrituals()">Rituals and Riddles: 12 Rooms</button>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures(document.getElementById('sculpturespass').value)">Ciphers And Statues: 12 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='sculpturespass'></input>
-            <br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb(document.getElementById('tombpass').value)">Tomb or Treasure: 12 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='tombpass'></input>
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadlostmanzanita()">Lost Treasure of Manzanita: 4 Rooms</button>
+            
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsubmergedsheckels()">Submerged Sheckels: 4 Rooms</button>
+            
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbard(document.getElementById('bardpass').value)">Bravery and the Bard: 4 Rooms</button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='bardpass'></input>
+            
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadmathmanor()">Math at the Manor: 6 Rooms</button>
+            
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadrituals()">Rituals and Riddles: 12 Rooms</button>
+            
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadsculptures(document.getElementById('sculpturespass').value)">Ciphers And Statues: 12 Rooms</button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='sculpturespass'></input>
+          
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadtomb(document.getElementById('tombpass').value)">Tomb or Treasure: 12 Rooms</button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='tombpass'></input>
             <br>
             
 
@@ -251,19 +251,21 @@ body, html {
             Fan Fiction Levels:
             <br>
             <span class="w3-tiny w3-margin-top"> Supernatural </span><br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent(document.getElementById('violentpass').value)">Violent Delights: 12 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='violentpass'></input>
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadviolent(document.getElementById('violentpass').value)">Violent Delights: 12 Rooms</button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='violentpass'></input>
             <br>
             <span class="w3-tiny w3-margin-top"> Simpsons </span><br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbillionaire(document.getElementById('billionairepass').value)">The Billionaire: 12 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='billionairepass'></input>
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadbillionaire(document.getElementById('billionairepass').value)">The Billionaire: 12 Rooms</button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='billionairepass'></input>
             <br>
             <span class="w3-tiny w3-margin-top"> Star Wars </span><br>
-            <button type="button" class="w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadconstellationfringe(document.getElementById('constellationfringepass').value)">Constellation's Fringe: 4 Rooms</button>
-            <input type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
+            <button type="button" class="w3-block w3-btn w3-small w3-grey w3-border w3-border-dark-grey w3-text-black w3-round-large" onclick="loadconstellationfringe(document.getElementById('constellationfringepass').value)">Constellation's Fringe: 4 Rooms
+            </button>
+            <input class='w3-hide' type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
             <br>
                 <script>
                 function loadsculptures(pass) {
+                    pass = 'CODE' // auto set pass - not using pass for now
                     if (pass.toUpperCase() == 'CODE') {
                         maincontent = sculptureciphers
                         // start the game
@@ -276,6 +278,7 @@ body, html {
                         }
                         } // end load sculptures
                 function loadtomb(pass) {
+                    pass = 'CRYPT' // auto set pass - not using pass for now
                     if (pass.toUpperCase() == 'CRYPT') {
                         maincontent = tombortreasure
                         // start the game
@@ -295,6 +298,7 @@ body, html {
                             .innerHTML=examplestorydata[0].intro
                         } // end load rituals 
                 function loadbillionaire(pass) {
+                    pass = 'BART' // auto set pass - not using pass for now
                     if (pass.toUpperCase() == 'BART') {
                         maincontent = thebillionaire
                         // start the game
@@ -307,6 +311,7 @@ body, html {
                             }
                         } // end load billionaire
                 function loadviolent(pass) {
+                    pass = 'DEAN' // auto set pass - not using pass for now
                     if (pass.toUpperCase() == 'DEAN') {
                         maincontent = violentdelights
                         // start the game
@@ -340,6 +345,7 @@ body, html {
                             .innerHTML=lostmanzanita[0].intro
                         } // end load lostmanzanita
                 function loadconstellationfringe(pass) {
+                        pass = 'MANDO' // auto set pass - not using pass for now
                         if (pass.toUpperCase() == 'MANDO') {
                             maincontent = constellationfringe
                             // start the game
@@ -352,6 +358,7 @@ body, html {
                             }
                         } // end load constellationfringe   
                 function loadbard(pass) {
+                        pass = 'STAGE' // auto set pass - not using pass for now
                         if (pass.toUpperCase() == 'STAGE') {
                             maincontent = braverybard
                             // start the game
