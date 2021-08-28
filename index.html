@@ -213,7 +213,7 @@ body, html {
   border: 3px solid #8AC007;
 }
 </style>
-<body class="w3-black">
+<body class="w3-black" onload="checkautoclick()">
 <div id="splashdiv" class="w3-margin bgimg w3-center w3-black">
     - Stacknsleuth.com - 
     <div id="loadedgametitle"></div>
@@ -264,6 +264,11 @@ body, html {
             <input class='w3-hide' type='text' size='5' placeholder='pass' id='constellationfringepass'></input>
             <br>
                 <script>
+                // check autoclick function to auto load urls
+                function checkautoclick() {
+                    if(document.URL.indexOf("#loadsculptures") >= 0){loadsculptures('CODE')}
+
+                }
                 function loadsculptures(pass) {
                     pass = 'CODE' // auto set pass - not using pass for now
                     if (pass.toUpperCase() == 'CODE') {
