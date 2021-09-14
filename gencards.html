@@ -1,0 +1,789 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <script type="text/javascript" src="./jspdf.umd.js"></script>
+        <script type="text/javascript" src="./image_uri.js"></script>
+        <script type="text/javascript" src="./content.js"></script>
+        <script type="text/javascript" src="./scenarios.js"></script>
+        <script type="module" src="./myoldrem-normal.js"></script>
+        <script>
+// set the data as cardscontent
+var cardscontent = constellationfringe
+// filler array
+var array500 = Array(500).fill('')
+// string splitting and parsing function 
+function makechunks(chunkstring) {
+    // fix all cap issues
+    var capsregex = /\b[A-Z]{2,}\b/g;
+    chunkstring = chunkstring.replace(capsregex, function(match) {
+        return match.toLowerCase();
+        });
+    // get spaces between html tags and other stuff before removing.
+    chunkstring = chunkstring.replace(/</g, " <");
+    chunkstring = chunkstring.replace(/>/g, "> ");
+    // remove html tags
+    var htmlregex = /(<([^>]+)>)/ig;
+    chunkstring = chunkstring.replace(htmlregex, "");
+    // break up into chunks
+    const chunks = chunkstring.match(/.{1,30}(?= |$)/g); // break up with words
+    //console.log(chunks)
+    return chunks
+}
+function checkroomanswer(roomoption,roomanswer,roomyes,roomno) {
+    if (roomoption[0] == roomanswer) {
+        return [makechunks(roomoption[1]).concat(array500),makechunks(roomyes).concat(array500)]
+    }
+    if (roomoption[0] != roomanswer) {
+        return [makechunks(roomoption[1]).concat(array500),makechunks(roomno).concat(array500)]
+    }
+}
+
+
+window.jsPDF = window.jspdf.jsPDF;
+function createcards6() {
+
+    // set room pictures
+    var cd_room2 = ma_two
+    var cd_room3 = ma_three
+    var cd_room6 = ma_six
+    var cd_room7 = ma_seven
+    var cd_room10 = ma_ten
+    var cd_room11 = ma_eleven
+
+    // get person strings
+    var person1_5strings = []
+    var person2_6strings = []
+    var person3_7strings = []
+    var person4_8strings = []
+    for (const [i, oneroomchunk] of cardscontent.entries()) {
+            // room 1
+            if (oneroomchunk.person == 'roomonebox') {
+                person1_5strings[0] = cardscontent[i].person_name
+                person1_5strings[1] = cardscontent[i].person_entry
+                person1_5strings[2] = cardscontent[i].person_description
+                person1_5strings[3] = cardscontent[i].person_info1
+                person1_5strings[4] = cardscontent[i].person_info2
+            }
+            // room 2
+            if (oneroomchunk.person == 'roomtwobox') {
+                person2_6strings[0] = cardscontent[i].person_name
+                person2_6strings[1] = cardscontent[i].person_entry
+                person2_6strings[2] = cardscontent[i].person_description
+                person2_6strings[3] = cardscontent[i].person_info1
+                person2_6strings[4] = cardscontent[i].person_info2
+            } 
+            // room 3
+            if (oneroomchunk.person == 'roomthreebox') {
+                person3_7strings[0] = cardscontent[i].person_name
+                person3_7strings[1] = cardscontent[i].person_entry
+                person3_7strings[2] = cardscontent[i].person_description
+                person3_7strings[3] = cardscontent[i].person_info1
+                person3_7strings[4] = cardscontent[i].person_info2
+            } 
+            // room 4
+            if (oneroomchunk.person == 'roomfourbox') {
+                person4_8strings[0] = cardscontent[i].person_name
+                person4_8strings[1] = cardscontent[i].person_entry
+                person4_8strings[2] = cardscontent[i].person_description
+                person4_8strings[3] = cardscontent[i].person_info1
+                person4_8strings[4] = cardscontent[i].person_info2
+            } 
+            // room 5
+            if (oneroomchunk.person == 'roomfivebox') {
+                person1_5strings[5] = cardscontent[i].person_name
+                person1_5strings[6] = cardscontent[i].person_entry
+                person1_5strings[7] = cardscontent[i].person_info1
+                person1_5strings[8] = cardscontent[i].person_info2
+                person1_5strings[9] = cardscontent[i].person_end_message
+            }
+            if (oneroomchunk.person == 'roomsixbox') {
+                person2_6strings[5] = cardscontent[i].person_name
+                person2_6strings[6] = cardscontent[i].person_entry
+                person2_6strings[7] = cardscontent[i].person_info1
+                person2_6strings[8] = cardscontent[i].person_info2
+                person2_6strings[9] = cardscontent[i].person_end_message
+            }
+            if (oneroomchunk.person == 'roomsevenbox') {
+                person3_7strings[5] = cardscontent[i].person_name
+                person3_7strings[6] = cardscontent[i].person_entry
+                person3_7strings[7] = cardscontent[i].person_info1
+                person3_7strings[8] = cardscontent[i].person_info2
+                person3_7strings[9] = cardscontent[i].person_end_message
+            }
+            if (oneroomchunk.person == 'roomeightbox') {
+                person4_8strings[5] = cardscontent[i].person_name
+                person4_8strings[6] = cardscontent[i].person_entry
+                person4_8strings[7] = cardscontent[i].person_info1
+                person4_8strings[8] = cardscontent[i].person_info2
+                person4_8strings[9] = cardscontent[i].person_end_message
+            }
+
+        }
+    // end get person strings
+    // create person arrays
+    var encounterfirstarray1_5 = makechunks(person1_5strings[1] + person1_5strings[2] + person1_5strings[3] + person1_5strings[4]).concat(array500);
+    var encounterfirstarray2_6 = makechunks(person2_6strings[1] + person2_6strings[2] + person2_6strings[3] + person2_6strings[4]).concat(array500);
+    var encounterfirstarray3_7 = makechunks(person3_7strings[1] + person3_7strings[2] + person3_7strings[3] + person3_7strings[4]).concat(array500);
+    var encounterfirstarray4_8 = makechunks(person4_8strings[1] + person4_8strings[2] + person4_8strings[3] + person4_8strings[4]).concat(array500);
+
+    var encountersecondarray1_5 = makechunks(person1_5strings[5] + person1_5strings[6] + person1_5strings[7] + person1_5strings[8]).concat(array500);
+    var encountersecondarray2_6 = makechunks(person2_6strings[5] + person2_6strings[6] + person2_6strings[7] + person2_6strings[8]).concat(array500);
+    var encountersecondarray3_7 = makechunks(person3_7strings[5] + person3_7strings[6] + person3_7strings[7] + person3_7strings[8]).concat(array500);
+    var encountersecondarray4_8 = makechunks(person4_8strings[5] + person4_8strings[6] + person4_8strings[7] + person4_8strings[8]).concat(array500);
+
+    var encounterendarray1_5 = makechunks(person1_5strings[9]).concat(array500);
+    var encounterendarray2_6 = makechunks(person2_6strings[9]).concat(array500);
+    var encounterendarray3_7 = makechunks(person3_7strings[9]).concat(array500);
+    var encounterendarray4_8 = makechunks(person4_8strings[9]).concat(array500);
+    // end create person arrays
+    
+    // get room 10 strings
+    var room10strings = []
+    for (const [i, oneroomchunk] of cardscontent.entries()) {
+        if (oneroomchunk.room == 'roomtenbox') {
+            room10strings[0] = cardscontent[i].roomtitle
+            room10strings[1] = cardscontent[i].roomdescription
+            room10strings[2] = cardscontent[i].roompuzzle
+            room10strings[3] = cardscontent[i].roompuzzle_ans
+            room10strings[4] = cardscontent[i].roompuzzle_ans_message
+            room10strings[5] = cardscontent[i].roompuzzle_ans_message_wrong
+        }
+    } // end get room 10 strings
+    // chunked string arrays for room 10 
+    var rm10descpuzzlearray = makechunks(room10strings[1] + room10strings[2]).concat(array500);
+    var rm10answerarray = makechunks(room10strings[4]).concat(array500);
+    var rm10wrongarray = makechunks(room10strings[5]).concat(array500);
+    // end chunked room strings for room 10
+
+    // get room 2 strings
+    var room2strings = []
+    for (const [i, oneroomchunk] of cardscontent.entries()) {
+        if (oneroomchunk.room == 'roomtwobox') {
+            room2strings[0] = cardscontent[i].roomtitle
+            room2strings[1] = cardscontent[i].roomdescription
+            room2strings[2] = cardscontent[i].roompuzzle
+            room2strings[3] = ['1',cardscontent[i].roompuzzle_opt1]
+            room2strings[4] = ['2',cardscontent[i].roompuzzle_opt2]
+            room2strings[5] = ['3',cardscontent[i].roompuzzle_opt3]
+            room2strings[6] = cardscontent[i].roompuzzle_ans
+            room2strings[7] = cardscontent[i].roompuzzle_ans_message
+            room2strings[8] = cardscontent[i].roompuzzle_ans_message_wrong
+        }
+    } // end get room 2 strings
+    // chunked string arrays for room 2 
+    var rm2descpuzzlearray = makechunks(room2strings[1] + room2strings[2]).concat(array500);
+    var rm2ans1array = checkroomanswer(room2strings[3],room2strings[6],room2strings[7],room2strings[8]);
+    var rm2ans2array = checkroomanswer(room2strings[4],room2strings[6],room2strings[7],room2strings[8]);
+    var rm2ans3array = checkroomanswer(room2strings[5],room2strings[6],room2strings[7],room2strings[8]);
+    // end chunked room strings for room 2 - option is [0] and answer is [1]
+
+    // get room 3 strings
+        var room3strings = []
+    for (const [i, oneroomchunk] of cardscontent.entries()) {
+        if (oneroomchunk.room == 'roomthreebox') {
+            room3strings[0] = cardscontent[i].roomtitle
+            room3strings[1] = cardscontent[i].roomdescription
+            room3strings[2] = cardscontent[i].roompuzzle
+            room3strings[3] = ['1',cardscontent[i].roompuzzle_opt1]
+            room3strings[4] = ['2',cardscontent[i].roompuzzle_opt2]
+            room3strings[5] = ['3',cardscontent[i].roompuzzle_opt3]
+            room3strings[6] = cardscontent[i].roompuzzle_ans
+            room3strings[7] = cardscontent[i].roompuzzle_ans_message
+            room3strings[8] = cardscontent[i].roompuzzle_ans_message_wrong
+        }
+    } // end get room 3 strings
+    // chunked string arrays for room 3 
+    var rm3descpuzzlearray = makechunks(room3strings[1] + room3strings[2]).concat(array500);
+    var rm3ans1array = checkroomanswer(room3strings[3],room3strings[6],room3strings[7],room3strings[8]);
+    var rm3ans2array = checkroomanswer(room3strings[4],room3strings[6],room3strings[7],room3strings[8]);
+    var rm3ans3array = checkroomanswer(room3strings[5],room3strings[6],room3strings[7],room3strings[8]);
+    // end chunked room strings for room 3 - option is [0] and answer is [1]
+
+    // get room 5 strings
+    var room5strings = []
+    for (const [i, oneroomchunk] of cardscontent.entries()) {
+        if (oneroomchunk.room == 'roomfivebox') {
+            room5strings[0] = cardscontent[i].roomtitle
+            room5strings[1] = cardscontent[i].roomdescription
+            room5strings[2] = cardscontent[i].roompuzzle
+            room5strings[3] = ['1',cardscontent[i].roompuzzle_opt1]
+            room5strings[4] = ['2',cardscontent[i].roompuzzle_opt2]
+            room5strings[5] = ['3',cardscontent[i].roompuzzle_opt3]
+            room5strings[6] = cardscontent[i].roompuzzle_ans
+            room5strings[7] = cardscontent[i].roompuzzle_ans_message
+            room5strings[8] = cardscontent[i].roompuzzle_ans_message_wrong
+        }
+    } // end get room 3 strings
+    // chunked string arrays for room 3 
+    var rm5descpuzzlearray = makechunks(room5strings[1] + room5strings[2]).concat(array500);
+    var rm5ans1array = checkroomanswer(room5strings[3],room5strings[6],room5strings[7],room5strings[8]);
+    var rm5ans2array = checkroomanswer(room5strings[4],room5strings[6],room5strings[7],room5strings[8]);
+    var rm5ans3array = checkroomanswer(room5strings[5],room5strings[6],room5strings[7],room5strings[8]);
+    // end chunked room strings for room 3 - option is [0] and answer is [1]
+
+var doc = new jsPDF();
+
+// set font
+doc.addFont('myoldrem', 'My Old Rem', 'normal');
+doc.setFont('myoldrem', 'normal');
+
+// intro page
+
+doc.roundedRect(5, 5, 65, 94, 3, 3); // card top left - main intro
+doc.setFontSize(8);
+doc.text("00", 6, 10); // top left page number
+doc.setFontSize(10);
+doc.text(14, 10, "Instructions"); // Instructions one
+doc.line(5, 12, 70, 12);
+doc.setFontSize(12);
+var introstcharray = makechunks(cardscontent[0].introstatement + cardscontent[0].introchallenge).concat(array500);
+doc.text("Instructions text", 6, 24);
+doc.text("Instructions text", 6, 28);
+doc.text("Instructions text", 6, 32);
+doc.text("Instructions text", 6, 36);
+doc.text("Instructions text", 6, 40);
+doc.text("Instructions text", 6, 44);
+doc.text("Instructions text", 6, 48);
+doc.text("Instructions text", 6, 52);
+doc.text("Instructions text", 6, 56);
+doc.text("Instructions text", 6, 60);
+doc.text("Instructions text", 6, 64);
+doc.text("Instructions text", 6, 68);
+doc.text("Instructions text", 6, 72);
+doc.text("Instructions text", 6, 76);
+doc.text("Instructions text", 6, 80);
+doc.text("Instructions text", 6, 84);
+doc.text("Instructions text", 6, 88);
+doc.text("Instructions text", 6, 92);
+doc.text("Instructions text", 6, 96);
+
+
+doc.roundedRect(72, 5, 65, 94, 3, 3); // card top middle - instructions two
+doc.setFontSize(8);
+doc.text("00", 74, 10); // top middle page number
+doc.setFontSize(10);
+doc.text(80, 10, "Instructions");
+doc.line(72, 12, 137, 12);
+doc.setFontSize(12);
+doc.text("Instructions text", 74, 24);
+doc.text("Instructions text", 74, 28);
+doc.text("Instructions text", 74, 32);
+doc.text("Instructions text", 74, 36);
+doc.text("Instructions text", 74, 40);
+doc.text("Instructions text", 74, 44);
+doc.text("Instructions text", 74, 48);
+doc.text("Instructions text", 74, 52);
+doc.text("Instructions text", 74, 56);
+doc.text("Instructions text", 74, 60);
+doc.text("Instructions text", 74, 64);
+doc.text("Instructions text", 74, 68);
+doc.text("Instructions text", 74, 72);
+doc.text("Instructions text", 74, 76);
+doc.text("Instructions text", 74, 80);
+doc.text("Instructions text", 74, 84);
+doc.text("Instructions text", 74, 88);
+doc.text("Instructions text", 74, 92);
+doc.text("Instructions text", 74, 96);
+
+doc.roundedRect(139, 5, 65, 94, 3, 3); // card top right - instructions
+doc.setFontSize(8);
+doc.text("00", 142, 10); // top right page number
+doc.setFontSize(10);
+doc.text(148, 10, "Instructions");
+doc.line(139, 12, 204, 12);
+doc.setFontSize(12);
+doc.text("Instructions text", 142, 24);
+doc.text("Instructions text", 142, 28);
+doc.text("Instructions text", 142, 32);
+doc.text("Instructions text", 142, 36);
+doc.text("Instructions text", 142, 40);
+doc.text("Instructions text", 142, 44);
+doc.text("Instructions text", 142, 48);
+doc.text("Instructions text", 142, 52);
+doc.text("Instructions text", 142, 56);
+doc.text("Instructions text", 142, 60);
+doc.text("Instructions text", 142, 64);
+doc.text("Instructions text", 142, 68);
+doc.text("Instructions text", 142, 72);
+doc.text("Instructions text", 142, 76);
+doc.text("Instructions text", 142, 80);
+doc.text("Instructions text", 142, 84);
+doc.text("Instructions text", 142, 88);
+doc.text("Instructions text", 142, 92);
+doc.text("Instructions text", 142, 96);
+
+doc.roundedRect(5, 101, 65, 94, 3, 3); // card middle left - main intro
+doc.setFontSize(14);
+doc.setFontSize(12);
+doc.text(14, 110, cardscontent[0].intro); // main intro
+doc.setFontSize(12);
+var introstcharray = makechunks(cardscontent[0].introstatement + cardscontent[0].introchallenge).concat(array500);
+// console.log(introstcharray.length)
+doc.text(introstcharray[0], 6, 116);
+doc.text(introstcharray[1], 6, 120);
+doc.text(introstcharray[2], 6, 124);
+doc.text(introstcharray[3], 6, 128);
+doc.text(introstcharray[4], 6, 132);
+doc.text(introstcharray[5], 6, 136);
+doc.text(introstcharray[6], 6, 140);
+doc.text(introstcharray[7], 6, 144);
+doc.text(introstcharray[8], 6, 148);
+doc.text(introstcharray[9], 6, 152);
+doc.text(introstcharray[10], 6, 156);
+doc.text(introstcharray[11], 6, 160);
+doc.text(introstcharray[12], 6, 164);
+doc.text(introstcharray[13], 6, 168);
+doc.text(introstcharray[14], 6, 172);
+doc.text(introstcharray[15], 6, 176);
+doc.text(introstcharray[16], 6, 180);
+doc.text(introstcharray[17], 6, 184);
+if (introstcharray[18] == '') { doc.text('Begin Investigating...', 6, 188); }
+if (introstcharray[18] != '') { doc.text(introstcharray[18], 6, 188); }
+
+doc.roundedRect(72, 101, 65, 94, 3, 3); // card middle middle - intro cont
+doc.setFontSize(12);
+doc.text(80, 110, cardscontent[0].intro);
+doc.setFontSize(12);
+doc.text(introstcharray[19], 74, 116);
+doc.text(introstcharray[20], 74, 120);
+doc.text(introstcharray[21], 74, 124);
+doc.text(introstcharray[22], 74, 128);
+doc.text(introstcharray[23], 74, 132);
+doc.text(introstcharray[24], 74, 136);
+doc.text(introstcharray[25], 74, 140);
+doc.text(introstcharray[26], 74, 144);
+doc.text(introstcharray[27], 74, 148);
+doc.text(introstcharray[28], 74, 152);
+doc.text(introstcharray[29], 74, 156);
+doc.text(introstcharray[30], 74, 160);
+doc.text(introstcharray[31], 74, 164);
+doc.text(introstcharray[32], 74, 168);
+doc.text(introstcharray[33], 74, 172);
+doc.text(introstcharray[34], 74, 176);
+doc.text(introstcharray[35], 74, 180);
+doc.text(introstcharray[36], 74, 184);
+if (introstcharray[37] == '') { doc.text('Begin Investigating...', 74, 188); }
+if (introstcharray[37] != '') { doc.text(introstcharray[37], 74, 188); }
+
+doc.roundedRect(139, 101, 65, 94, 3, 3); // card middle right - room 10 person answ
+doc.setFontSize(12);
+doc.text(144, 110, cardscontent[0].intro);
+doc.setFontSize(12);
+doc.text(introstcharray[38], 142, 116);
+doc.text(introstcharray[39], 142, 120);
+doc.text(introstcharray[40], 142, 124);
+doc.text(introstcharray[41], 142, 128);
+doc.text(introstcharray[42], 142, 132);
+doc.text(introstcharray[43], 142, 136);
+doc.text(introstcharray[44], 142, 140);
+doc.text(introstcharray[45], 142, 144);
+doc.text(introstcharray[46], 142, 148);
+doc.text(introstcharray[47], 142, 152);
+doc.text(introstcharray[48], 142, 156);
+doc.text(introstcharray[49], 142, 160);
+doc.text(introstcharray[50], 142, 164);
+doc.text(introstcharray[51], 142, 168);
+doc.text(introstcharray[52], 142, 172);
+doc.text(introstcharray[53], 142, 176);
+doc.text(introstcharray[54], 142, 180);
+doc.text(introstcharray[55], 142, 184);
+if (introstcharray[56] == '') { doc.text('Begin Investigating...', 142, 188); }
+if (introstcharray[56] != '') { doc.text(introstcharray[56], 142, 188); }
+
+doc.roundedRect(5, 197, 65, 94, 3, 3); // card bottom left - room 10 description cont.
+doc.setFontSize(12);
+doc.text(14, 206, 'For notes...');
+
+
+doc.roundedRect(72, 197, 65, 94, 3, 3); // card bottom middle - room 10 wrong answer
+doc.setFontSize(12);
+doc.text(80, 206, 'For notes...');
+
+
+doc.roundedRect(139, 197, 65, 94, 3, 3); // card bottom right - person answer 
+doc.setFontSize(12);
+doc.text(144, 206, 'For notes...');
+
+
+doc.addPage(); // add room 2
+
+doc.roundedRect(5, 5, 65, 94, 3, 3); // card top left - room 2 picture
+doc.setFontSize(16);
+doc.text(20, 14, room2strings[0]);
+doc.setFontSize(12);
+doc.addImage(cd_room2, "PNG", 10, 25, 55, 70);
+
+doc.roundedRect(72, 5, 65, 94, 3, 3); // card top middle - room 2 answer 1
+doc.setFontSize(12);
+doc.text(80, 10, room2strings[0]);
+doc.setFontSize(12);
+doc.text(80, 26, rm2ans1array[0][0]);
+doc.text(80, 32, rm2ans1array[0][1]);
+
+
+doc.roundedRect(139, 5, 65, 94, 3, 3); // card top right - room 2 answer 1 cover
+doc.setFontSize(12);
+doc.text(144, 10, room2strings[0]);
+doc.setFontSize(12);
+doc.text(144, 16, rm2ans1array[0][0]);
+doc.text(144, 22, rm2ans1array[0][1]);
+doc.text(rm2ans1array[1][0], 142, 32);
+doc.text(rm2ans1array[1][1], 142, 36);
+doc.text(rm2ans1array[1][2], 142, 40);
+doc.text(rm2ans1array[1][3], 142, 44);
+doc.text(rm2ans1array[1][4], 142, 48);
+doc.text(rm2ans1array[1][5], 142, 52);
+doc.text(rm2ans1array[1][6], 142, 56);
+doc.text(rm2ans1array[1][7], 142, 60);
+doc.text(rm2ans1array[1][8], 142, 64);
+doc.text(rm2ans1array[1][9], 142, 68);
+doc.text(rm2ans1array[1][10], 142, 72);
+doc.text(rm2ans1array[1][11], 142, 76);
+doc.text(rm2ans1array[1][12], 142, 80);
+doc.text(rm2ans1array[1][13], 142, 84);
+doc.text(rm2ans1array[1][14], 142, 88);
+doc.text(rm2ans1array[1][15], 142, 92);
+doc.text(rm2ans1array[1][16], 142, 96);
+
+doc.roundedRect(5, 101, 65, 94, 3, 3); // card middle left - room 2 intro
+doc.setFontSize(14);
+doc.text(14, 110, room2strings[0] + ' Intro');
+doc.setFontSize(12);
+doc.text(rm2descpuzzlearray[0], 6, 116);
+doc.text(rm2descpuzzlearray[1], 6, 120);
+doc.text(rm2descpuzzlearray[2], 6, 124);
+doc.text(rm2descpuzzlearray[3], 6, 128);
+doc.text(rm2descpuzzlearray[4], 6, 132);
+doc.text(rm2descpuzzlearray[5], 6, 136);
+doc.text(rm2descpuzzlearray[6], 6, 140);
+doc.text(rm2descpuzzlearray[7], 6, 144);
+doc.text(rm2descpuzzlearray[8], 6, 148);
+doc.text(rm2descpuzzlearray[9], 6, 152);
+doc.text(rm2descpuzzlearray[10], 6, 156);
+doc.text(rm2descpuzzlearray[11], 6, 160);
+doc.text(rm2descpuzzlearray[12], 6, 164);
+doc.text(rm2descpuzzlearray[13], 6, 168);
+doc.text(rm2descpuzzlearray[14], 6, 172);
+doc.text(rm2descpuzzlearray[15], 6, 176);
+doc.text(rm2descpuzzlearray[16], 6, 180);
+doc.text(rm2descpuzzlearray[17], 6, 184);
+doc.text(rm2descpuzzlearray[18], 6, 188);
+doc.text(rm2descpuzzlearray[19], 6, 192);
+
+doc.roundedRect(72, 101, 65, 94, 3, 3); // card middle middle - room 2 answer 2 
+doc.setFontSize(12);
+doc.text(80, 106, room2strings[0]);
+doc.setFontSize(12);
+doc.text(80, 122, rm2ans2array[0][0]);
+doc.text(80, 128, rm2ans2array[0][1]);
+
+
+doc.roundedRect(139, 101, 65, 94, 3, 3); // card middle right - room 2 answ 2 cover
+doc.setFontSize(12);
+doc.text(144, 106, room2strings[0]);
+doc.setFontSize(12);
+doc.text(144, 112, rm2ans2array[0][0]);
+doc.text(144, 118, rm2ans2array[0][1]);
+doc.text(rm2ans2array[1][0], 142, 128);
+doc.text(rm2ans2array[1][1], 142, 132);
+doc.text(rm2ans2array[1][2], 142, 136);
+doc.text(rm2ans2array[1][3], 142, 140);
+doc.text(rm2ans2array[1][4], 142, 144);
+doc.text(rm2ans2array[1][5], 142, 148);
+doc.text(rm2ans2array[1][6], 142, 152);
+doc.text(rm2ans2array[1][7], 142, 156);
+doc.text(rm2ans2array[1][8], 142, 160);
+doc.text(rm2ans2array[1][9], 142, 164);
+doc.text(rm2ans2array[1][10], 142, 168);
+doc.text(rm2ans2array[1][11], 142, 172);
+doc.text(rm2ans2array[1][12], 142, 176);
+doc.text(rm2ans2array[1][13], 142, 180);
+doc.text(rm2ans2array[1][14], 142, 184);
+doc.text(rm2ans2array[1][15], 142, 188);
+doc.text(rm2ans2array[1][16], 142, 192);
+
+doc.roundedRect(5, 197, 65, 94, 3, 3); // card bottom left - room 2 encounter 
+doc.setFontSize(14);
+doc.text(14, 206, room2strings[0]);
+doc.setFontSize(12);
+doc.text(person2_6strings[0], 6, 212);
+doc.text(encounterfirstarray2_6[0], 6, 216);
+doc.text(encounterfirstarray2_6[1], 6, 220);
+doc.text(encounterfirstarray2_6[2], 6, 224);
+doc.text(encounterfirstarray2_6[3], 6, 228);
+doc.text(encounterfirstarray2_6[4], 6, 232);
+doc.text(encounterfirstarray2_6[5], 6, 236);
+doc.text(encounterfirstarray2_6[6], 6, 240);
+doc.text(encounterfirstarray2_6[7], 6, 244);
+doc.text(encounterfirstarray2_6[8], 6, 248);
+doc.text(encounterfirstarray2_6[9], 6, 252);
+doc.text(encounterfirstarray2_6[10], 6, 256);
+doc.text(encounterfirstarray2_6[11], 6, 260);
+doc.text(encounterfirstarray2_6[12], 6, 264);
+doc.text(encounterfirstarray2_6[13], 6, 268);
+doc.text(encounterfirstarray2_6[14], 6, 272);
+doc.text(encounterfirstarray2_6[15], 6, 276);
+doc.text(encounterfirstarray2_6[16], 6, 280);
+doc.text(encounterfirstarray2_6[17], 6, 284);
+doc.text(encounterfirstarray2_6[18], 6, 288);
+
+doc.roundedRect(72, 197, 65, 94, 3, 3); // card bottom middle room 2 answer 3 
+doc.setFontSize(12);
+doc.text(80, 202, room2strings[0]);
+doc.setFontSize(12);
+doc.text(80, 218, rm2ans3array[0][0]);
+doc.text(80, 224, rm2ans3array[0][1]);
+
+
+doc.roundedRect(139, 197, 65, 94, 3, 3); // card bottom right - room 2 answer cover
+doc.setFontSize(12);
+doc.text(144, 202, room2strings[0]);
+doc.setFontSize(12);
+doc.text(144, 208, rm2ans3array[0][0]);
+doc.text(144, 214, rm2ans3array[0][1]);
+doc.text(rm2ans3array[1][0], 142, 224);
+doc.text(rm2ans3array[1][1], 142, 228);
+doc.text(rm2ans3array[1][2], 142, 232);
+doc.text(rm2ans3array[1][3], 142, 236);
+doc.text(rm2ans3array[1][4], 142, 240);
+doc.text(rm2ans3array[1][5], 142, 244);
+doc.text(rm2ans3array[1][6], 142, 248);
+doc.text(rm2ans3array[1][7], 142, 252);
+doc.text(rm2ans3array[1][8], 142, 256);
+doc.text(rm2ans3array[1][9], 142, 260);
+doc.text(rm2ans3array[1][10], 142, 264);
+doc.text(rm2ans3array[1][11], 142, 268);
+doc.text(rm2ans3array[1][12], 142, 272);
+doc.text(rm2ans3array[1][13], 142, 276);
+doc.text(rm2ans3array[1][14], 142, 280);
+doc.text(rm2ans3array[1][15], 142, 284);
+doc.text(rm2ans3array[1][16], 142, 288);
+
+doc.addPage(); // add main hall page
+
+doc.roundedRect(5, 5, 65, 94, 3, 3); // card top left - main intro
+doc.setFontSize(16);
+doc.text(14, 14, room10strings[0]);
+doc.setFontSize(12);
+doc.text("Explore this space last.", 8, 20);
+doc.addImage(cd_room10, "PNG", 8, 25, 55, 70);
+
+
+doc.roundedRect(72, 5, 65, 94, 3, 3); // card top middle - main intro
+doc.setFontSize(12);
+doc.text(80, 10, room10strings[0]);
+doc.setFontSize(12);
+doc.text(rm10descpuzzlearray[0], 74, 14);
+doc.text(rm10descpuzzlearray[1], 74, 18);
+doc.text(rm10descpuzzlearray[2], 74, 22);
+doc.text(rm10descpuzzlearray[3], 74, 26);
+doc.text(rm10descpuzzlearray[4], 74, 30);
+doc.text(rm10descpuzzlearray[5], 74, 34);
+doc.text(rm10descpuzzlearray[6], 74, 38);
+doc.text(rm10descpuzzlearray[7], 74, 42);
+doc.text(rm10descpuzzlearray[8], 74, 46);
+doc.text(rm10descpuzzlearray[9], 74, 50);
+doc.text(rm10descpuzzlearray[10], 74, 54);
+doc.text(rm10descpuzzlearray[11], 74, 58);
+doc.text(rm10descpuzzlearray[12], 74, 62);
+doc.text(rm10descpuzzlearray[13], 74, 66);
+doc.text(rm10descpuzzlearray[14], 74, 70);
+doc.text(rm10descpuzzlearray[15], 74, 74);
+doc.text(rm10descpuzzlearray[16], 74, 78);
+doc.text(rm10descpuzzlearray[17], 74, 82);
+doc.text(rm10descpuzzlearray[18], 74, 86);
+doc.text(rm10descpuzzlearray[19], 74, 90);
+doc.text(rm10descpuzzlearray[20], 74, 94);
+
+doc.roundedRect(139, 5, 65, 94, 3, 3); // card top right - room 10
+doc.setFontSize(12);
+doc.text(144, 10, room10strings[0] + ' Cont.');
+doc.setFontSize(12);
+doc.text(rm10descpuzzlearray[21], 142, 14);
+doc.text(rm10descpuzzlearray[22], 142, 18);
+doc.text(rm10descpuzzlearray[23], 142, 22);
+doc.text(rm10descpuzzlearray[24], 142, 26);
+doc.text(rm10descpuzzlearray[25], 142, 30);
+doc.text(rm10descpuzzlearray[26], 142, 34);
+doc.text(rm10descpuzzlearray[27], 142, 38);
+doc.text(rm10descpuzzlearray[28], 142, 42);
+doc.text(rm10descpuzzlearray[29], 142, 46);
+doc.text(rm10descpuzzlearray[30], 142, 50);
+doc.text(rm10descpuzzlearray[31], 142, 54);
+doc.text(rm10descpuzzlearray[32], 142, 58);
+doc.text(rm10descpuzzlearray[33], 142, 62);
+doc.text(rm10descpuzzlearray[34], 142, 66);
+doc.text(rm10descpuzzlearray[35], 142, 70);
+doc.text(rm10descpuzzlearray[36], 142, 74);
+doc.text(rm10descpuzzlearray[37], 142, 78);
+doc.text(rm10descpuzzlearray[38], 142, 82);
+doc.text(rm10descpuzzlearray[39], 142, 86);
+doc.text(rm10descpuzzlearray[40], 142, 90);
+doc.text(rm10descpuzzlearray[41], 142, 94);
+
+doc.roundedRect(5, 101, 65, 94, 3, 3); // card middle left - room solve instructions
+doc.setFontSize(12);
+doc.text(14, 106, room10strings[0]);
+doc.setFontSize(12);
+doc.text("1. Identify the main solution", 8, 120);
+doc.text('and', 14, 124);
+doc.text("2. Select and option:", 8, 128);
+doc.text('', 8, 132);
+doc.text(person2_6strings[0], 14, 136);
+doc.text('or', 18, 140);
+doc.text(person3_7strings[0], 14, 144);
+doc.text("", 8, 148);
+doc.text("", 8, 152);
+doc.text("Then view the solution...", 8, 156);
+doc.text("If you are incorrect", 8, 164);
+doc.text("read the incorrect card", 8, 170);
+doc.text("and also select the card", 8, 176);
+doc.text("for the option you chose.", 8, 180);
+
+doc.roundedRect(72, 101, 65, 94, 3, 3); // card middle middle - solve instructions
+doc.setFontSize(12);
+doc.text(80, 106, room10strings[0] + ' Solution');
+doc.setFontSize(12);
+doc.text("Upside-down to check answer.", 76, 112);
+doc.text(rm10answerarray[0], 74, 120);
+doc.text(rm10answerarray[1], 74, 124);
+doc.text(rm10answerarray[2], 74, 128);
+doc.text(rm10answerarray[3], 74, 132);
+doc.text(rm10answerarray[4], 74, 136);
+doc.text(rm10answerarray[5], 74, 140);
+doc.text(rm10answerarray[6], 74, 144);
+doc.text(rm10answerarray[7], 74, 148);
+doc.text(rm10answerarray[8], 74, 152);
+doc.text('answer: ' + room10strings[3], 130, 154, null, 180); // answer here upside down
+doc.text(rm10answerarray[9], 74, 160);
+doc.text(rm10answerarray[10], 74, 164);
+doc.text(rm10answerarray[11], 74, 168);
+doc.text(rm10answerarray[12], 74, 172);
+doc.text(rm10answerarray[13], 74, 176);
+doc.text(rm10answerarray[14], 74, 180);
+doc.text(rm10answerarray[15], 74, 184);
+doc.text(rm10answerarray[16], 74, 188);
+doc.text(rm10answerarray[17], 74, 192);
+
+
+doc.roundedRect(139, 101, 65, 94, 3, 3); // card middle right - room 10 first answer page
+doc.setFontSize(12);
+doc.setFontSize(12);
+doc.text(144, 106, room10strings[0] + ' Solution');
+doc.setFontSize(12);
+doc.text("Page 2.", 142, 112);
+doc.text(rm10answerarray[18], 142, 120);
+doc.text(rm10answerarray[19], 142, 124);
+doc.text(rm10answerarray[20], 142, 128);
+doc.text(rm10answerarray[21], 142, 132);
+doc.text(rm10answerarray[22], 142, 136);
+doc.text(rm10answerarray[23], 142, 140);
+doc.text(rm10answerarray[24], 142, 144);
+doc.text(rm10answerarray[25], 142, 148);
+doc.text(rm10answerarray[26], 142, 152);
+doc.text(rm10answerarray[27], 142, 156);
+doc.text(rm10answerarray[28], 142, 160);
+doc.text(rm10answerarray[29], 142, 164);
+doc.text(rm10answerarray[30], 142, 168);
+doc.text(rm10answerarray[31], 142, 172);
+doc.text(rm10answerarray[32], 142, 176);
+doc.text(rm10answerarray[33], 142, 180);
+doc.text(rm10answerarray[34], 142, 184);
+doc.text(rm10answerarray[35], 142, 188);
+doc.text(rm10answerarray[36], 142, 192);
+
+
+doc.roundedRect(5, 197, 65, 94, 3, 3); // card bottom left - room 10 incorrect.
+doc.setFontSize(12);
+doc.text(14, 204, room10strings[0] + ' Incorrect');
+doc.setFontSize(12);
+doc.text(rm10wrongarray[0], 6, 212);
+doc.text(rm10wrongarray[1], 6, 216);
+doc.text(rm10wrongarray[2], 6, 220);
+doc.text(rm10wrongarray[3], 6, 224);
+doc.text(rm10wrongarray[4], 6, 228);
+doc.text(rm10wrongarray[5], 6, 232);
+doc.text(rm10wrongarray[6], 6, 236);
+doc.text(rm10wrongarray[7], 6, 240);
+doc.text(rm10wrongarray[8], 6, 244);
+doc.text(rm10wrongarray[9], 6, 248);
+doc.text(rm10wrongarray[10], 6, 252);
+doc.text(rm10wrongarray[11], 6, 256);
+doc.text(rm10wrongarray[12], 6, 260);
+doc.text(rm10wrongarray[13], 6, 264);
+doc.text(rm10wrongarray[14], 6, 268);
+doc.text(rm10wrongarray[15], 6, 272);
+doc.text(rm10wrongarray[16], 6, 276);
+doc.text(rm10wrongarray[17], 6, 280);
+doc.text(rm10wrongarray[18], 6, 284);
+doc.text(rm10wrongarray[19], 6, 288);
+
+doc.roundedRect(72, 197, 65, 94, 3, 3); // card bottom middle - room 10 option 2_6
+doc.setFontSize(12);
+doc.text(80, 202, room10strings[0] + ' Option');
+doc.setFontSize(12);
+doc.text(74, 208, person2_6strings[0]);
+doc.text(encounterendarray2_6[0], 74, 216);
+doc.text(encounterendarray2_6[1], 74, 220);
+doc.text(encounterendarray2_6[2], 74, 224);
+doc.text(encounterendarray2_6[3], 74, 228);
+doc.text(encounterendarray2_6[4], 74, 232);
+doc.text(encounterendarray2_6[5], 74, 236);
+doc.text(encounterendarray2_6[6], 74, 240);
+doc.text(encounterendarray2_6[7], 74, 244);
+doc.text(encounterendarray2_6[8], 74, 248);
+doc.text(encounterendarray2_6[9], 74, 252);
+doc.text(encounterendarray2_6[10], 74, 256);
+doc.text(encounterendarray2_6[11], 74, 260);
+doc.text(encounterendarray2_6[12], 74, 264);
+doc.text(encounterendarray2_6[13], 74, 268);
+doc.text(encounterendarray2_6[14], 74, 272);
+doc.text(encounterendarray2_6[15], 74, 276);
+doc.text(encounterendarray2_6[16], 74, 280);
+doc.text(encounterendarray2_6[17], 74, 284);
+doc.text(encounterendarray2_6[18], 74, 288);
+
+doc.roundedRect(139, 197, 65, 94, 3, 3); // card bottom right - person answer 2_6 - 
+doc.setFontSize(12);
+doc.text(144, 202, room10strings[0] + ' Option');
+doc.setFontSize(12);
+doc.text(144, 208, person3_7strings[0]);
+doc.text(encounterendarray3_7[0], 142, 216);
+doc.text(encounterendarray3_7[1], 142, 220);
+doc.text(encounterendarray3_7[2], 142, 224);
+doc.text(encounterendarray3_7[3], 142, 228);
+doc.text(encounterendarray3_7[4], 142, 232);
+doc.text(encounterendarray3_7[5], 142, 236);
+doc.text(encounterendarray3_7[6], 142, 240);
+doc.text(encounterendarray3_7[7], 142, 244);
+doc.text(encounterendarray3_7[8], 142, 248);
+doc.text(encounterendarray3_7[9], 142, 252);
+doc.text(encounterendarray3_7[10], 142, 256);
+doc.text(encounterendarray3_7[11], 142, 260);
+doc.text(encounterendarray3_7[12], 142, 264);
+doc.text(encounterendarray3_7[13], 142, 268);
+doc.text(encounterendarray3_7[14], 142, 272);
+doc.text(encounterendarray3_7[15], 142, 276);
+doc.text(encounterendarray3_7[16], 142, 280);
+doc.text(encounterendarray3_7[17], 142, 284);
+doc.text(encounterendarray3_7[18], 142, 288);
+
+// end main hall page
+
+                // create the page
+                doc.save('TestCards.pdf');
+                }
+        </script>
+        <link rel="stylesheet" href="w3.css"><style></style>
+    </head>
+    <body>
+
+        <h2><a href="#">Stacknsleuth Card Generator</a></h2>
+        <div>
+            <a href="javascript:createcards6()" class="w3-button w3-black">Create 6 Room Cards</a></p>
+        </div>
+        <div id="resultfordata">
+
+        </div>
+    </body>
+</html>
