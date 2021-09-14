@@ -5,7 +5,7 @@
         <script type="text/javascript" src="./image_uri.js"></script>
         <script type="text/javascript" src="./content.js"></script>
         <script type="text/javascript" src="./scenarios.js"></script>
-        <script type="text/javascript" src="./myoldrem-normal.js"></script>
+        <script type="module" src="./myoldrem-normal.js"></script>
         <script>
 // set the data as cardscontent
 var cardscontent = constellationfringe
@@ -224,8 +224,8 @@ function createcards6() {
 var doc = new jsPDF();
 
 // set font
-doc.addFont('myoldrem', 'My Old Rem', 'normal');
-doc.setFont('myoldrem', 'normal');
+doc.setFont('myoldrem');
+doc.setFontType('normal');
 
 // intro page
 
