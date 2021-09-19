@@ -2054,6 +2054,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                     function createcards() {
 
                                         // set room pictures
+                                    if (cardscontent[0].roomsetting == "mansion") {
                                         var cd_room1 = ma_one
                                         var cd_room2 = ma_two
                                         var cd_room3 = ma_three
@@ -2066,6 +2067,37 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                         var cd_room10 = ma_ten
                                         var cd_room11 = ma_eleven
                                         var cd_room12 = ma_twelve
+                                    } // end set rooms to mansions
+
+                                    if (cardscontent[0].roomsetting == "temple") {
+                                        var cd_room1 = ma_one
+                                        var cd_room2 = te_two
+                                        var cd_room3 = te_three
+                                        var cd_room4 = ma_four
+                                        var cd_room5 = ma_five
+                                        var cd_room6 = te_six
+                                        var cd_room7 = te_seven
+                                        var cd_room8 = ma_eight
+                                        var cd_room9 = ma_nine
+                                        var cd_room10 = te_ten
+                                        var cd_room11 = te_eleven
+                                        var cd_room12 = ma_twelve
+                                    } // end set rooms to temple
+
+                                    if (cardscontent[0].roomsetting == "galaxy") {
+                                        var cd_room1 = ma_one
+                                        var cd_room2 = ga_two
+                                        var cd_room3 = ga_three
+                                        var cd_room4 = ma_four
+                                        var cd_room5 = ma_five
+                                        var cd_room6 = ga_six
+                                        var cd_room7 = ga_seven
+                                        var cd_room8 = ma_eight
+                                        var cd_room9 = ma_nine
+                                        var cd_room10 = ga_ten
+                                        var cd_room11 = ga_eleven
+                                        var cd_room12 = ma_twelve
+                                    } // end set rooms to galaxy
 
                                         // get main intro strings
                                         var introstcharray = makechunks(cardscontent[0].introstatement + cardscontent[0].introchallenge).concat(array500);
@@ -2464,7 +2496,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                     doc.text(80, 10, "Instructions");
                                     doc.line(72, 12, 137, 12);
                                     doc.setFontSize(11);
-                                    doc.text("Instructions text", 74, 24);
+                                    doc.text("Example Six Room Setup:", 74, 24);
                                     doc.text("Instructions text", 74, 28);
                                     doc.text("Instructions text", 74, 32);
                                     doc.text("Instructions text", 74, 36);
@@ -2491,7 +2523,7 @@ function startinvestigation() { // show the main div and hide any divs based on 
                                     doc.text(148, 10, "Instructions");
                                     doc.line(139, 12, 204, 12);
                                     doc.setFontSize(11);
-                                    doc.text("Instructions text", 142, 24);
+                                    doc.text("Example Individual Room Setup:", 142, 24);
                                     doc.text("Instructions text", 142, 28);
                                     doc.text("Instructions text", 142, 32);
                                     doc.text("Instructions text", 142, 36);
