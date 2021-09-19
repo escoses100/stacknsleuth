@@ -1,17 +1,5 @@
-<html>
-    <meta charset="UTF-8">
-    <head>
-        <script type="text/javascript" src="./jspdf.umd.js"></script>
-        <script type="text/javascript" src="./image_uri.js"></script>
-        <script type="text/javascript" src="./content.js"></script>
-        <script type="text/javascript" src="./scenarios.js"></script>
-        <script type="module" src="./myoldrem-normal.js"></script>
-        <script type="module" src="./atwriter-normal.js"></script>
-        <script type="module" src="./OldNewspaperTypes-normal.js"></script>
-        <script>
 // for a local host - python -m SimpleHTTPServer 8000
-// set the data as cardscontent
-var cardscontent = examplestorydata
+
 // filler array
 var array500 = Array(500).fill('')
 // string splitting and parsing function 
@@ -43,7 +31,9 @@ function checkroomanswer(roomoption,roomanswer,roomyes,roomno) {
 
 
 window.jsPDF = window.jspdf.jsPDF;
-function createcards6() {
+function createcardfile(thestoryformdata) {
+
+    var cardscontent = thestoryformdata
 
     // set room pictures
     var cd_room1 = ma_one
@@ -2840,17 +2830,3 @@ doc.text(encounterendarray3_7[18], 142, 288);
                 // create the page
                 doc.save('TestCards.pdf');
                 }
-        </script>
-        <link rel="stylesheet" href="w3.css"><style></style>
-    </head>
-    <body>
-
-        <h2><a href="#">Stacknsleuth Card Generator</a></h2>
-        <div>
-            <a href="javascript:createcards6()" class="w3-button w3-black">Create 6 Room Cards</a></p>
-        </div>
-        <div id="resultfordata">
-
-        </div>
-    </body>
-</html>
