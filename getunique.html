@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Varela+Round);
+            *, *:before, *:after {
+              box-sizing: border-box;
+            }
+            
+            body {
+              background: #383A3F;
+              font-family: "Varela Round", sans-serif;
+            }
+            
+            .card {
+              background: #1F2124;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+              border-radius: 5px;
+              margin: 50px 20px 20px 20px;
+              width: calc(33.3333% - 40px);
+              /* 1/3 minus the margins (20+20) */
+              padding: 20px;
+              text-align: center;
+              color: white;
+              float: left;
+            }
+            @media (max-width: 768px) {
+              .card {
+                margin: 10px 20px;
+                width: calc(100% - 40px);
+              }
+              .card:first-child {
+                margin-top: 20px;
+              }
+            }
+            /* - makes different sized boxes
+            .card:nth-child(2) {
+              margin: 20px 0px;
+              width: 33.3333%;
+              padding: 50px 20px;
+            }
+            @media (max-width: 768px) {
+              .card:nth-child(2) {
+                margin: 10px 20px;
+                width: calc(100% - 40px);
+              }
+            }
+             */ 
+            .card .title {
+              font-size: 25px;
+            }
+            .card .icon {
+              margin: 50px 0;
+            }
+            .card .icon svg {
+              width: 100px;
+              height: 100px;
+            }
+            .card .icon svg path {
+              fill: #F6B352;
+            }
+            .card .features ul {
+              padding: 0;
+              margin: 20px 0 50px 0;
+              list-style-type: none;
+            }
+            .card .features ul li {
+              margin: 10px 0;
+              font-size: 14px;
+            }
+            .card .features ul li span {
+              border-bottom: 2px dotted #F6B352;
+            }
+            .card .btn {
+              display: block;
+              background: #7f7f7f;
+              color: white;
+              padding: 5px 5px;
+              margin: 20px 0;
+              border-radius: 5px;
+              box-shadow: rgba(0, 0, 0, 0.9);
+              transition: all 200ms ease-in-out;
+              text-decoration: none;
+            }
+            .card .btn:hover {
+              background: #F68657;
+            }
+            
+
+            /* Add styles for the pull-down menu */
+            .topnav {
+                background-color: #333;
+                overflow: hidden;
+            }
+
+                /* Style the links inside the navigation bar */
+                .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                }
+            </style>
+    </head>
+  <body>
+    <div class="topnav">
+        <a href="#" onclick="showDiv('Dracula')">Dracula</a>
+        <a href="#" onclick="showDiv('Mummy')">Mummy</a>
+        <a href="#" onclick="showDiv('Bride')">Bride</a>
+        <a href="#" onclick="showDiv('Frank')">Frank</a>
+        <a href="#" onclick="showDiv('Invisible')">Invisible</a>
+        <a href="#" onclick="showDiv('Lagoon')">Lagoon</a>
+        <a href="#" onclick="showDiv('Wolf')">Wolf</a>
+      </div>
+
+    <div class="card" id="Dracula" style="display:none">
+        <div class="title">Dracula</div>
+        <hr>
+        <div id="card-data-dracula" class="features"></div>
+        <hr>
+        <div id="card-count-dracula"></div>
+        <button id="pull-card-btn-dracula" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-dracula" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-dracula" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Mummy" style="display:none">
+        <div class="title">Mummy</div>
+        <hr>
+        <div id="card-data-mummy" class="features"></div>
+        <hr>
+        <div id="card-count-mummy"></div>
+        <button id="pull-card-btn-mummy" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-mummy" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-mummy" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Bride" style="display:none">
+        <div class="title">bride</div>
+        <hr>
+        <div id="card-data-bride" class="features"></div>
+        <hr>
+        <div id="card-count-bride"></div>
+        <button id="pull-card-btn-bride" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-bride" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-bride" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Frank" style="display:none">
+        <div class="title">frank</div>
+        <hr>
+        <div id="card-data-frank" class="features"></div>
+        <hr>
+        <div id="card-count-frank"></div>
+        <button id="pull-card-btn-frank" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-frank" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-frank" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Invisible" style="display:none">
+        <div class="title">invisible</div>
+        <hr>
+        <div id="card-data-invisible" class="features"></div>
+        <hr>
+        <div id="card-count-invisible"></div>
+        <button id="pull-card-btn-invisible" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-invisible" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-invisible" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Lagoon" style="display:none">
+        <div class="title">lagoon</div>
+        <hr>
+        <div id="card-data-lagoon" class="features"></div>
+        <hr>
+        <div id="card-count-lagoon"></div>
+        <button id="pull-card-btn-lagoon" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-lagoon" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-lagoon" value="">
+    </div><!--/card-->
+
+    <div class="card" id="Wolf" style="display:none">
+        <div class="title">wolf</div>
+        <hr>
+        <div id="card-data-wolf" class="features"></div>
+        <hr>
+        <div id="card-count-wolf"></div>
+        <button id="pull-card-btn-wolf" class="btn">Pull a Random Card</button>
+        <button id="add-all-btn-wolf" class="btn">Add all cards back</button>
+        <input type="hidden" id="pulled-cards-wolf" value="">
+    </div><!--/card-->
+
+
+    
+    <script>
+        
+        const cardDataDracula = [
+  "Count Dracula sneaks up on his victim, paralyzing them with his mesmerizing gaze before delivering a deadly bite, 'I'll have you under my spell before you know it!'",
+  "Count Dracula transforms into a giant bat and swoops down from the sky, attacking his victims with razor sharp claws, 'I'll give you a bat-taste of my claws!'",
+  "Count Dracula uses his immense strength to overpower and drain the blood of his victims in a violent frenzy, 'I'll drain you dry!'",
+  "Count Dracula's powers of invisibility allow him to appear out of nowhere, catching his victims off guard and striking with deadly precision, 'You'll never see me coming!'",
+  "Count Dracula commands the storm, summoning bolts of lightning to strike his enemies as he closes in for the kill, 'I'll strike you down with the power of the storm!'",
+  "Count Dracula's mastery of teleportation allows him to appear and disappear at will, leaving his enemies confused and disoriented, 'I'll be here, then I'll be gone, then I'll be here again!'",
+  "Count Dracula controls the minds of his victims, turning them into puppets to do his bidding and attack their loved ones, 'You'll do as I say, or else!'",
+  "Count Dracula shape-shifts into a wolf or a mist, darting in and out of sight, striking with deadly speed and precision, 'You'll never see me coming... or going!'",
+  "Count Dracula's immortality gives him an almost unbeatable advantage in battle, healing from any wound and relentlessly pursuing his prey, 'I'll outlive you all!'",
+  "Count Dracula commands an army of the undead, sending them to attack and overwhelm his enemies, 'You'll have to go through my army of the undead to get to me!'",
+  "Count Dracula's razor-sharp fangs deliver a fatal bite that turns his victims into vampires, adding to his army of the undead, 'You'll join my army or die!'",
+  "Count Dracula's powerful seduction skills lure his victims in, making them easy prey for his deadly bite, 'You won't be able to resist my charm!'",
+  "Count Dracula controls the animals, sending packs of wolves or rats to swarm and attack his enemies, 'You'll be swarmed by my minions!'",
+  "Count Dracula commands the elements, summoning powerful winds and blasts of fire to incinerate his foes, 'You'll be burned by my fury!'"
+    ];
+
+
+const cardDataMummy = [
+  "The mummy emerges from the sands, its ancient curse bringing it back to life to seek revenge on those who disturbed its tomb, 'You shouldn't have dug me up!'",
+  "The mummy's bandages come to life, wrapping themselves around its victims and suffocating them, 'I'll wrap you up tight!'",
+  "The mummy's curse causes those who look upon it to be struck down with a deadly illness, 'You'll be dead in a wrapture!'",
+  "The mummy's power to control sand allows it to bury its victims alive or create sandstorms to blind and disorient them, 'I'll bury you alive!'",
+  "The mummy's curse causes the dead to rise and fight alongside it, adding to its army of the undead, 'I'll make the dead walk again!'",
+  "The mummy's ability to regenerate its body makes it nearly impossible to defeat as it can heal from any wound, 'I'll never die!'",
+  "The mummy's curse causes those who dare to steal from its tomb to be plagued with bad luck and relegation, 'You'll be doomed for eternity!'",
+  "The mummy's ability to control the elements gives it power over fire and lightning, allowing it to incinerate its foes, 'I'll burn you to ashes!'",
+  "The mummy's curse causes the victim's internal organs to stop working and slowly kills them, 'You'll be mummified alive!'",
+  "The mummy's ability to summon and control spirits of the dead gives it an army of ghostly warriors to fight at its side, 'I'll make the dead do my bidding!'",
+  "The mummy's curse causes the victim's mind to be consumed by madness, driving them to harm themselves and others, 'You'll go mad with fear!'",
+  "The mummy's ability to teleport short distances allows it to suddenly appear in front of its victims and strike without warning, 'I'll be where you least expect me!'",
+  "The mummy's curse causes the victim's body to age rapidly, withering away to dust before their very eyes, 'You'll turn to dust!'",
+  "The mummy's ability to phase through solid objects allows it to move through walls and attack its victims from unexpected angles, 'I'll come out of nowhere!'",
+"The mummy's curse causes the victim's blood to turn to sand, slowly killing them from the inside out, 'I'll make your blood run like sand'",
+"The mummy's ability to summon and control the elements of sand gives it power over the desert and its inhabitants, 'I'll make the desert fear me!'",
+"The mummy's curse causes the victim's body to become mummified while they're still alive, 'You'll be mummified before you die!'",
+"The mummy's power over the dead allows it to reanimate corpses and use them as soldiers in its army, 'I'll make an army of the dead'",
+];
+
+const cardDataBride = [
+  "The Bride of Frankenstein's monster unleashes an army of the undead, reanimating corpses to do her bidding, 'Rise my minions!'",
+  "The Bride of Frankenstein's monster electrocutes her victims with the power of her bolts, leaving them paralyzed, 'I'll fry you to a crisp!'",
+  "The Bride of Frankenstein's monster uses her superhuman strength to crush and overpower her enemies, 'I'll crush you like a bug!'",
+  "The Bride of Frankenstein's monster unleashes hordes of rats to swarm and attack her victims, 'I'll make them eat you alive!'",
+  "The Bride of Frankenstein's monster's control over lightning allows her to summon bolts to strike her foes with deadly precision, 'I'll zap you to oblivion!'",
+  "The Bride of Frankenstein's monster's immortality makes her a nearly unbeatable opponent, as she can heal from any wound, 'I'll never die!'",
+  "The Bride of Frankenstein's monster's ability to communicate with the dead gives her an army of ghostly allies, 'I've got friends in low places!'",
+  "The Bride of Frankenstein's monster's control over electricity allows her to short out and disable her enemies' equipment, 'I'll make them powerless!'",
+  "The Bride of Frankenstein's monster's superhuman agility and speed allows her to outmaneuver and outrun her enemies, 'You can't catch me!'",
+  "The Bride of Frankenstein's monster's razor-sharp claws and teeth make her a formidable hand-to-hand combatant, 'I'll tear you apart!'",
+  "The Bride of Frankenstein's monster's ability to control the elements of wind and storm allows her to summon powerful gales and tempests to assail her foes, 'I'll blow you away!'",
+"The Bride of Frankenstein's monster's mastery of alchemy allows her to create deadly toxins and acids to poison her enemies, 'I'll poison you with my science!'",
+"The Bride of Frankenstein's monster's control over the dark arts allows her to summon and command demons to do her bidding, 'I'll make the devil do my bidding!'",
+"The Bride of Frankenstein's monster's ability to phase through solid objects allows her to move through walls and attack her enemies from unexpected angles, 'I'll be where you least expect me!'",
+"The Bride of Frankenstein's monster's control over ice and cold allows her to freeze her foes and create blizzards to disorient them, 'I'll freeze you in your tracks!'",
+"The Bride of Frankenstein's monster's ability to manipulate shadows allows her to become invisible and strike from the darkness, 'I'll be the shadow in your nightmares!'",
+"The Bride of Frankenstein's monster's mastery of necromancy allows her to raise the dead, 'I'll make the dead walk again!'",
+"The Bride of Frankenstein's monster's ability to control the earth and stone allows her to create earthquakes and landslides to bury her enemies, 'I'll bury you alive!'",
+"The Bride of Frankenstein's monster's ability to control water allows her to create floods and tsunamis to drown her enemies, 'I'll drown you in my wrath!'",
+"The Bride of Frankenstein's monster's ability to control plants allows her to create deadly thorns and vines to ensnare her enemies, 'I'll make you feel the thorns of my wrath!'"
+    ];
+
+const cardDataFrank = [
+  "Frankenstein's monster comes to life, his body pieced together from the remains of corpses, 'I'm alive and ready to party!'",
+  "Frankenstein's monster's superhuman strength allows him to overpower and crush his enemies, 'I'll crush you like a bug!'",
+  "Frankenstein's monster's ability to control electricity allows him to revive the dead and electrocute his foes, 'I'll shock you into submission!'",
+  "Frankenstein's monster's immortality allows him to heal from any wound and continue fighting, 'I'll never die!'",
+  "Frankenstein's monster's superhuman endurance allows him to shrug off injuries and keep fighting, 'I'll keep coming back for more!'",
+  "Frankenstein's monster's ability to control fire allows him to incinerate his enemies, 'I'll burn you to ashes!'",
+  "Frankenstein's monster's ability to manipulate metal allows him to shape it to his will and use it as a weapon, 'I'll make you a weapon out of anything!'",
+  "Frankenstein's monster's ability to communicate with the dead gives him an army of ghostly allies, 'I've got friends in low places!'",
+  "Frankenstein's monster's superhuman agility and speed allows him to outmaneuver and outrun his enemies, 'You can't catch me!'",
+  "Frankenstein's monster's razor-sharp claws and teeth make him a formidable hand-to-hand combatant, 'I'll tear you apart!'",
+  "Frankenstein's monster's ability to control the elements of wind and storm allows him to summon powerful gales and tempests to assail his foes, 'I'll blow you away!'",
+  "Frankenstein's monster's mastery of alchemy allows him to create deadly toxins and acids to poison his enemies, 'I'll poison you with my science!'",
+"Frankenstein's monster's ability to phase through solid objects allows him to move through walls and attack his enemies from unexpected angles, 'I'll be where you least expect me!'",
+"Frankenstein's monster's control over ice and cold allows him to freeze his foes and create blizzards to disorient them, 'I'll freeze you in your tracks!'",
+"Frankenstein's monster's ability to manipulate shadows allows him to become invisible and strike from the darkness, 'I'll be the shadow in your nightmares!'",
+"Frankenstein's monster's mastery of necromancy allows him to raise the dead, 'I'll make the dead walk again!'",
+"Frankenstein's monster's ability to control the earth and stone allows him to create earthquakes and landslides to bury his enemies, 'I'll bury you alive!'",
+"Frankenstein's monster's ability to control water allows him to create floods and tsunamis to drown his enemies, 'I'll drown you in my wrath!'",
+"Frankenstein's monster's ability to control plants allows him to create deadly thorns and vines to ensnare his enemies, 'I'll make you feel the thorns of my wrath!'",
+"Frankenstein's monster's ability to control the sky and lightning allows him to summon thunderstorms and lightning bolts to strike his enemies, 'I'll strike you down with my wrath!'",
+"Frankenstein's monster's ability to control the mind allows him to control his enemies and make them do his bidding, 'I'll make you do my bidding!'"
+    ];
+
+
+
+const cardDataInvisible = [
+  "The Invisible Man uses his powers of invisibility to launch a surprise attack on his enemies, 'You can't hit what you can't see!'",
+  "The Invisible Man uses his enhanced strength to overpower and subdue his enemies, 'You can run, but you can't hide from my strength!'",
+  "The Invisible Man uses his stealth and guile to infiltrate and sabotage his enemies' operations, 'I'm like a ghost in the machine!'",
+  "The Invisible Man uses his invisibility to stage a stealthy attack on his enemies' base, 'I'll take them by surprise!'",
+  "The Invisible Man uses his powers of invisibility to launch a devastating sneak attack on his foes, 'They'll never know what hit them!'",
+  "The Invisible Man uses his knowledge of science and technology to create advanced gadgets and weapons to aid him in his attacks, 'I'm a man of science and a man of war!'",
+  "The Invisible Man uses his ability to control light and sound waves to create powerful illusions and distractions to disorient his enemies, 'I'll make you see things that aren't there!'",
+  "The Invisible Man uses his invisibility to infiltrate and sabotage enemy infrastructure and communication networks, 'I'll bring them to their knees from the inside!'",
+  "The Invisible Man uses his stealth and guile to evade capture and launch surprise attacks on his enemies, 'I'll be in and out before they know what's happening!'",
+  "The Invisible Man uses his powers of invisibility to infiltrate and sabotage key enemy operations, 'I'll take them down from the inside out!'",
+  "The Invisible Man uses his stealth and guile to infiltrate and sabotage enemy operations from within, 'I'll be their worst nightmare!'",
+ ];
+
+const cardDataLagoon = [
+  "The Creature from the Black Lagoon emerges from the depths to attack unsuspecting swimmers, 'Time for a swim with the fish!'",
+  "The Creature from the Black Lagoon uses its webbed hands to grab and drag its victims into the water, 'Don't mind if I do, dinner time!'",
+  "The Creature from the Black Lagoon's razor-sharp claws and teeth make it a formidable hand-to-hand combatant, 'I hope you're not a vegetarian!'",
+  "The Creature from the Black Lagoon's superhuman strength allows it to overpower and crush its enemies, 'You're no match for the king of the lagoon!'",
+  "The Creature from the Black Lagoon's ability to breathe underwater allows it to pursue its victims even in the depths, 'I'll find you, no matter how deep you go!'",
+  "The Creature from the Black Lagoon's amphibious nature allows it to move seamlessly between land and water to attack its victims, 'I'm a creature of many talents!'",
+  "The Creature from the Black Lagoon's ability to camouflage itself in the murky waters of the lagoon allows it to launch surprise attacks, 'You'll never see me coming!'",
+  "The Creature from the Black Lagoon's agility and speed in water make it a formidable opponent for swimmers and divers, 'You can't outswim me!'",
+  "The Creature from the Black Lagoon's ability to swim at high speeds makes it difficult to escape from once it has targeted its prey, 'I'll catch you if it's the last thing I do!'",
+  "The Creature from the Black Lagoon's ability to communicate with other aquatic creatures allows it to coordinate attacks with them, 'I've got friends in the water!'",
+  "The Creature from the Black Lagoon's ability to survive in extreme underwater conditions makes it a nearly unbeatable opponent, 'I'm the king of the lagoon, nothing can stop me!'",
+  "The Creature from the Black Lagoon's ability to survive on land for short periods of time allows it to pursue its victims out of the water, 'I'll come out of the water, but I'll never leave my kingdom!'"
+];
+
+
+const cardDataWolf = [
+  "The Wolfman howls as he pounces on his victims with superhuman strength, 'Looks like it's time for a snack!'",
+  "The Wolfman's razor-sharp claws and teeth make him a formidable hand-to-hand combatant, 'I hope you're not a vegetarian!'",
+  "The Wolfman's superhuman senses allow him to track and hunt his prey with ease, 'I can smell you from here!'",
+  "The Wolfman's ability to transform at will gives him an advantage in combat, 'Time to unleash the beast!'",
+  "The Wolfman's enhanced agility and speed allow him to outmaneuver and outrun his enemies, 'You can't run from the Wolfman!'",
+  "The Wolfman's regenerative powers allow him to shrug off injuries and keep fighting, 'I heal faster than Wolverine!'",
+  "The Wolfman's strength and endurance make him a formidable opponent, 'You're no match for the Wolfman!'",
+  "The Wolfman's ability to control and command other wolves makes him a formidable pack leader, 'I am the Alpha!'",
+  "The Wolfman's enhanced senses allow him to see in the dark and track his prey, 'I see you, prey!'",
+  "The Wolfman's increased endurance allows him to keep up the chase for hours, 'I'll run you down like the hound of the Baskervilles!'",
+  "The Wolfman's razor-sharp claws and teeth make short work of his enemies, 'You're no match for the Wolfman's bite!'",
+  "The Wolfman's ability to call forth a pack of wolves at will make him a formidable opponent, 'Time to call in the pack!'",
+  "The Wolfman's superhuman senses allow him to track and hunt his prey with ease, even in the darkest of night, 'I can smell your fear!'",
+"The Wolfman's enhanced sense of smell and hearing allow him to track his prey over long distances, 'I'll find you, no matter where you hide!'",
+"The Wolfman's supernatural powers make him immune to traditional weapons, 'Silver bullets? I laugh at your puny weapons!'",
+"The Wolfman's ability to transform at will gives him an advantage in combat, he can change his size and shape to adapt to the situation, 'I'll be whatever it takes to win!'",
+"The Wolfman's enhanced senses allow him to detect his enemies even when they're hiding, 'You can run but you can't hide from the Wolfman!'",
+"The Wolfman's ability to move silently and quickly makes him a formidable predator, 'You'll never see me coming!'",
+"The Wolfman's superhuman strength and endurance make him a formidable opponent, 'You're no match for the Wolfman's brute force!'",
+    ];
+
+
+
+// show hide divs
+function showDiv(divName) {
+    // Get the div element
+    var div = document.getElementById(divName);
+        //console.log(div.style.display)
+        // Check if the div is currently visible
+        if(div.style.display === "none") {
+      // Show the div
+      div.style.display = "block";
+    } else {
+      // Hide the div
+      div.style.display = "none";
+    }
+  }
+
+
+
+// scripts for dracula
+        const cardDataDivdracula = document.getElementById("card-data-dracula");
+        const cardCountDivdracula = document.getElementById("card-count-dracula");
+        const pullCardBtndracula = document.getElementById("pull-card-btn-dracula");
+        const addAllBtndracula = document.getElementById("add-all-btn-dracula");
+        const pulledCardsdracula = document.getElementById("pulled-cards-dracula");
+        let remainingCardsdracula = cardDataDracula.slice();
+
+        pullCardBtndracula.addEventListener("click", displayRandomCarddracula);
+        addAllBtndracula.addEventListener("click", addAllCardsdracula);
+
+        function displayRandomCarddracula() {
+        // Check if all cards have been pulled
+        if (remainingCardsdracula.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexdracula = Math.floor(Math.random() * remainingCardsdracula.length);
+        const randomCarddracula = remainingCardsdracula[randomIndexdracula];
+
+        // Display the card in the card data div
+        cardDataDivdracula.innerHTML = randomCarddracula;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardsdracula.value += `${randomCarddracula},`;
+        remainingCardsdracula.splice(randomIndexdracula, 1);
+
+        // Update the card count
+        cardCountDivdracula.innerHTML = `Cards remaining: ${remainingCardsdracula.length}`;
+        }
+
+        function addAllCardsdracula() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardsdracula.value = "";
+        remainingCardsdracula = cardDataDracula.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivdracula.innerHTML = "";
+        cardCountDivdracula.innerHTML = `Cards remaining: ${remainingCardsdracula.length}`;
+        }
+
+    // end scripts for dracula
+
+    // scripts for mummy
+    const cardDataDivmummy = document.getElementById("card-data-mummy");
+        const cardCountDivmummy = document.getElementById("card-count-mummy");
+        const pullCardBtnmummy = document.getElementById("pull-card-btn-mummy");
+        const addAllBtnmummy = document.getElementById("add-all-btn-mummy");
+        const pulledCardsmummy = document.getElementById("pulled-cards-mummy");
+        let remainingCardsmummy = cardDataMummy.slice();
+
+        pullCardBtnmummy.addEventListener("click", displayRandomCardmummy);
+        addAllBtnmummy.addEventListener("click", addAllCardsmummy);
+
+        function displayRandomCardmummy() {
+        // Check if all cards have been pulled
+        if (remainingCardsmummy.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexmummy = Math.floor(Math.random() * remainingCardsmummy.length);
+        const randomCardmummy = remainingCardsmummy[randomIndexmummy];
+
+        // Display the card in the card data div
+        cardDataDivmummy.innerHTML = randomCardmummy;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardsmummy.value += `${randomCardmummy},`;
+        remainingCardsmummy.splice(randomIndexmummy, 1);
+
+        // Update the card count
+        cardCountDivmummy.innerHTML = `Cards remaining: ${remainingCardsmummy.length}`;
+        }
+
+        function addAllCardsmummy() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardsmummy.value = "";
+        remainingCardsmummy = cardDataMummy.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivmummy.innerHTML = "";
+        cardCountDivmummy.innerHTML = `Cards remaining: ${remainingCardsmummy.length}`;
+        }
+
+     // end scripts for mummy
+
+     // scripts for bride
+     const cardDataDivbride = document.getElementById("card-data-bride");
+        const cardCountDivbride = document.getElementById("card-count-bride");
+        const pullCardBtnbride = document.getElementById("pull-card-btn-bride");
+        const addAllBtnbride = document.getElementById("add-all-btn-bride");
+        const pulledCardsbride = document.getElementById("pulled-cards-bride");
+        let remainingCardsbride = cardDataBride.slice();
+
+        pullCardBtnbride.addEventListener("click", displayRandomCardbride);
+        addAllBtnbride.addEventListener("click", addAllCardsbride);
+
+        function displayRandomCardbride() {
+        // Check if all cards have been pulled
+        if (remainingCardsbride.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexbride = Math.floor(Math.random() * remainingCardsbride.length);
+        const randomCardbride = remainingCardsbride[randomIndexbride];
+
+        // Display the card in the card data div
+        cardDataDivbride.innerHTML = randomCardbride;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardsbride.value += `${randomCardbride},`;
+        remainingCardsbride.splice(randomIndexbride, 1);
+
+        // Update the card count
+        cardCountDivbride.innerHTML = `Cards remaining: ${remainingCardsbride.length}`;
+        }
+
+        function addAllCardsbride() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardsbride.value = "";
+        remainingCardsbride = cardDataBride.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivbride.innerHTML = "";
+        cardCountDivbride.innerHTML = `Cards remaining: ${remainingCardsbride.length}`;
+        }
+
+    // end scripts for bride
+
+    // scripts for frank
+    const cardDataDivfrank = document.getElementById("card-data-frank");
+        const cardCountDivfrank = document.getElementById("card-count-frank");
+        const pullCardBtnfrank = document.getElementById("pull-card-btn-frank");
+        const addAllBtnfrank = document.getElementById("add-all-btn-frank");
+        const pulledCardsfrank = document.getElementById("pulled-cards-frank");
+        let remainingCardsfrank = cardDataFrank.slice();
+
+        pullCardBtnfrank.addEventListener("click", displayRandomCardfrank);
+        addAllBtnfrank.addEventListener("click", addAllCardsfrank);
+
+        function displayRandomCardfrank() {
+        // Check if all cards have been pulled
+        if (remainingCardsfrank.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexfrank = Math.floor(Math.random() * remainingCardsfrank.length);
+        const randomCardfrank = remainingCardsfrank[randomIndexfrank];
+
+        // Display the card in the card data div
+        cardDataDivfrank.innerHTML = randomCardfrank;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardsfrank.value += `${randomCardfrank},`;
+        remainingCardsfrank.splice(randomIndexfrank, 1);
+
+        // Update the card count
+        cardCountDivfrank.innerHTML = `Cards remaining: ${remainingCardsfrank.length}`;
+        }
+
+        function addAllCardsfrank() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardsfrank.value = "";
+        remainingCardsfrank = cardDataFrank.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivfrank.innerHTML = "";
+        cardCountDivfrank.innerHTML = `Cards remaining: ${remainingCardsfrank.length}`;
+        }
+
+    // end scripts for frank
+
+    // scripts for invisible
+    const cardDataDivinvisible = document.getElementById("card-data-invisible");
+        const cardCountDivinvisible = document.getElementById("card-count-invisible");
+        const pullCardBtninvisible = document.getElementById("pull-card-btn-invisible");
+        const addAllBtninvisible = document.getElementById("add-all-btn-invisible");
+        const pulledCardsinvisible = document.getElementById("pulled-cards-invisible");
+        let remainingCardsinvisible = cardDataInvisible.slice();
+
+        pullCardBtninvisible.addEventListener("click", displayRandomCardinvisible);
+        addAllBtninvisible.addEventListener("click", addAllCardsinvisible);
+
+        function displayRandomCardinvisible() {
+        // Check if all cards have been pulled
+        if (remainingCardsinvisible.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexinvisible = Math.floor(Math.random() * remainingCardsinvisible.length);
+        const randomCardinvisible = remainingCardsinvisible[randomIndexinvisible];
+
+        // Display the card in the card data div
+        cardDataDivinvisible.innerHTML = randomCardinvisible;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardsinvisible.value += `${randomCardinvisible},`;
+        remainingCardsinvisible.splice(randomIndexinvisible, 1);
+
+        // Update the card count
+        cardCountDivinvisible.innerHTML = `Cards remaining: ${remainingCardsinvisible.length}`;
+        }
+
+        function addAllCardsinvisible() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardsinvisible.value = "";
+        remainingCardsinvisible = cardDataInvisible.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivinvisible.innerHTML = "";
+        cardCountDivinvisible.innerHTML = `Cards remaining: ${remainingCardsinvisible.length}`;
+        }
+
+    // end scripts for invisible
+
+    // scripts for lagoon
+    const cardDataDivlagoon = document.getElementById("card-data-lagoon");
+        const cardCountDivlagoon = document.getElementById("card-count-lagoon");
+        const pullCardBtnlagoon = document.getElementById("pull-card-btn-lagoon");
+        const addAllBtnlagoon = document.getElementById("add-all-btn-lagoon");
+        const pulledCardslagoon = document.getElementById("pulled-cards-lagoon");
+        let remainingCardslagoon = cardDataLagoon.slice();
+
+        pullCardBtnlagoon.addEventListener("click", displayRandomCardlagoon);
+        addAllBtnlagoon.addEventListener("click", addAllCardslagoon);
+
+        function displayRandomCardlagoon() {
+        // Check if all cards have been pulled
+        if (remainingCardslagoon.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexlagoon = Math.floor(Math.random() * remainingCardslagoon.length);
+        const randomCardlagoon = remainingCardslagoon[randomIndexlagoon];
+
+        // Display the card in the card data div
+        cardDataDivlagoon.innerHTML = randomCardlagoon;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardslagoon.value += `${randomCardlagoon},`;
+        remainingCardslagoon.splice(randomIndexlagoon, 1);
+
+        // Update the card count
+        cardCountDivlagoon.innerHTML = `Cards remaining: ${remainingCardslagoon.length}`;
+        }
+
+        function addAllCardslagoon() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardslagoon.value = "";
+        remainingCardslagoon = cardDataLagoon.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivlagoon.innerHTML = "";
+        cardCountDivlagoon.innerHTML = `Cards remaining: ${remainingCardslagoon.length}`;
+        }
+
+    // end scripts for lagoon
+
+    // scripts for wolf
+    const cardDataDivwolf = document.getElementById("card-data-wolf");
+        const cardCountDivwolf = document.getElementById("card-count-wolf");
+        const pullCardBtnwolf = document.getElementById("pull-card-btn-wolf");
+        const addAllBtnwolf = document.getElementById("add-all-btn-wolf");
+        const pulledCardswolf = document.getElementById("pulled-cards-wolf");
+        let remainingCardswolf = cardDataWolf.slice();
+
+        pullCardBtnwolf.addEventListener("click", displayRandomCardwolf);
+        addAllBtnwolf.addEventListener("click", addAllCardswolf);
+
+        function displayRandomCardwolf() {
+        // Check if all cards have been pulled
+        if (remainingCardswolf.length === 0) {
+            alert("All cards have been pulled. Please add all cards back to continue.");
+            return;
+        }
+
+        // Select a random card
+        const randomIndexwolf = Math.floor(Math.random() * remainingCardswolf.length);
+        const randomCardwolf = remainingCardswolf[randomIndexwolf];
+
+        // Display the card in the card data div
+        cardDataDivwolf.innerHTML = randomCardwolf;
+
+        // Update the pulled cards list and remaining cards
+        pulledCardswolf.value += `${randomCardwolf},`;
+        remainingCardswolf.splice(randomIndexwolf, 1);
+
+        // Update the card count
+        cardCountDivwolf.innerHTML = `Cards remaining: ${remainingCardswolf.length}`;
+        }
+
+        function addAllCardswolf() {
+        // Clear the pulled cards list and reset remaining cards
+        pulledCardswolf.value = "";
+        remainingCardswolf = cardDataWolf.slice();
+
+        // Clear the card data div and update the card count
+        cardDataDivwolf.innerHTML = "";
+        cardCountDivwolf.innerHTML = `Cards remaining: ${remainingCardswolf.length}`;
+        }
+
+    // end scripts for wolf
+
+    </script>
+  </body>
+</html>
