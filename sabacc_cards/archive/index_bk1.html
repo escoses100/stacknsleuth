@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Game</title>
+  <script src="./js/cards.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .deck {
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .discard-pile {
+      margin-bottom: 20px;
+    }
+    .player-area {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .player {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .player-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .card {
+      width: 50px;
+      height: 80px;
+      cursor: pointer;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="deck" onclick="drawCard()" style="background-image: url('./images/deckback.png'); width: 50px; height: 80px;"></div>
+    <div class="discard-pile">
+      <p>Discard Pile:</p>
+      <div class="card"></div>
+    </div>
+    <button onclick="addPlayer()">Add Player</button>
+    <div class="player-area"></div>
+  </div>
+  <script>
+
+    let players = [];
+    let deck = [...cardsData.cards];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function addPlayer() {
+      const playerArea = document.querySelector('.player-area');
+      const playerIndex = players.length;
+      players.push([]);
+
+      const playerDiv = document.createElement('div');
+      playerDiv.classList.add('player');
+      playerDiv.innerHTML = `
+        <p>Player ${playerIndex + 1}</p>
+        <div class="player-cards" id="player-${playerIndex}-cards"></div>
+      `;
+
+      playerArea.appendChild(playerDiv);
+    }
+
+    function drawCard() {
+      if (deck.length === 0) {
+        alert("No more cards in the deck!");
+        return;
+      }
+
+      const currentPlayerIndex = players.length - 1;
+      if (currentPlayerIndex < 0) {
+        alert("Add a player first!");
+        return;
+      }
+
+      shuffle(deck);
+      const drawnCard = deck.pop();
+      players[currentPlayerIndex].push(drawnCard);
+      placeCard(currentPlayerIndex, drawnCard);
+    }
+
+    function placeCard(playerIndex, card) {
+    const playerCards = document.querySelector(`#player-${playerIndex}-cards`);
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.style.backgroundImage = `url(${card.image})`;
+    cardDiv.onclick = () => {
+        discardCard(card);
+        playerCards.removeChild(cardDiv);
+        const cardIndex = players[playerIndex].indexOf(card);
+        players[playerIndex].splice(cardIndex, 1);
+    };
+    playerCards.appendChild(cardDiv);
+    }
+
+
+    function discardCard(card) {
+      const discardPile = document.querySelector('.discard-pile .card');
+      discardPile.style.backgroundImage = `url(${card.image})`;
+    }
+
+    // Shuffle the deck on page load
+    shuffle(deck);
+  </script>
+</body>
+</html>
+

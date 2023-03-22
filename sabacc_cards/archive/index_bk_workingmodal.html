@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Game</title>
+  <script src="./js/cards.js"></script>
+  <style>
+    body {
+      background-color: #d8d8d8;
+      color: #333333; /* Changed to dark grey text */
+      font-family: 'Arial', sans-serif;
+    }
+  
+    button {
+      background-color: #4e4e4e;
+      color: #ffffff;
+      border: 2px solid #b22222; /* Changed border color to dark red */
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 3px;
+    }
+  
+    button:hover {
+      background-color: #6e6e6e;
+      border-color: #b22222; /* Keep border color dark red on hover */
+    }
+  
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  
+    .modal-content {
+      background-color: #f0f0f0; /* Changed to a really light grey */
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #b22222; /* Changed border color to dark red */
+      width: 80%;
+      border-radius: 3px;
+    }
+  
+    .card {
+      width: 52px;
+      height: 80px; /* Increase the height value */
+      background-size: cover;
+      border-radius: 5px;
+    }
+
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .deck-discard-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .deck {
+      margin-bottom: 20px;
+      cursor: pointer;
+      background-size: cover;
+      width: 52px;
+      height: 80px;
+    }
+    .discard-pile {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .player-area {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .player {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #add8e6; /* Changed border color to light blue */
+      border-radius: 5px;
+    }
+    .player-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-right: 10px; /* Add padding to the right */
+        padding-bottom: 10px; /* Add padding to the bottom */
+      }
+
+
+    .page-wrapper {
+      border: 8px solid #000000;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 1200px; /* Adjust this value according to your preference */
+      margin: 20px auto;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="page-wrapper">
+  <div class="container">
+    <div class="deck-discard-container">
+      <div class="deck">
+        <p>Deck:</p>
+        <div class="deck" onclick="showPlayerSelection()" style="background-image: url('./images/deckback.png');"></div>
+      </div>
+      <div class="discard-pile">
+        <p>Discard Pile:</p>
+        <div class="card" onclick="drawFromDiscardPile()" style="background-image:;"></div>
+      </div>
+    </div><!-- discard container end-->
+    
+
+    <button onclick="addPlayer()">Add Player</button>
+    <div class="player-area"></div>
+  </div>
+  <hr>
+  <button onclick="discardFromDeck()">Discard from Deck</button>
+  <br>
+  <button onclick="openAssignModal()">Manually Assign Card to Player</button>
+  <br>
+  <br>
+  <select id="player-id-dropdown">
+    <option value="" disabled selected>Select Player ID</option>
+  </select>
+  <button onclick="openModal()">Show Modal</button>  
+  <br>
+  <br>
+  <button onclick="checkDecks()">Check Table</button>
+  <div id="deck-info"></div>
+  <script>
+    let players = [];
+    let deck = [...cardsData.cards];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function addPlayer() {
+      const playerArea = document.querySelector('.player-area');
+      const playerIndex = players.length;
+      const playerId = generateUniqueId();
+
+      players.push({ id: playerId, cards: [] });
+
+      const playerDiv = document.createElement('div');
+      playerDiv.classList.add('player');
+      playerDiv.innerHTML = `
+        <p>Player ${playerIndex + 1} (<span>${playerId}</span>)</p>
+        <div class="player-cards" id="player-${playerIndex}-cards"></div>
+      `;
+
+      playerArea.appendChild(playerDiv);
+
+      // Update dropdown
+      const playerIdDropdown = document.getElementById("player-id-dropdown");
+      const option = document.createElement("option");
+      option.text = `Player ${playerIndex + 1} (${playerId})`;
+      option.value = playerId; // Set the value as a string instead of a number
+      playerIdDropdown.add(option);
+    }
+
+
+
+
+    function showPlayerSelection() {
+      const currentPlayerIndex = players.length - 1;
+      if (currentPlayerIndex < 0) {
+        alert("Add a player first!");
+        return;
+      }
+
+      const selectedPlayerIndex = prompt("Enter the player number to draw a card:", "");
+      if (selectedPlayerIndex === null || selectedPlayerIndex === "") {
+        return;
+      }
+
+      if (selectedPlayerIndex < 1 || selectedPlayerIndex > players.length) {
+        alert("Invalid player number!");
+        return;
+      }
+
+      drawCard(selectedPlayerIndex - 1);
+    }
+
+    function drawCard(playerIndex) {
+      if (deck.length === 0) {
+        alert("No more cards in the deck!");
+        return;
+      }
+
+      shuffle(deck);
+      const drawnCard = deck.pop();
+      players[playerIndex].cards.push(drawnCard); // Update this line
+      placeCard(playerIndex, drawnCard);
+    }
+
+
+    function placeCard(playerIndex, card) {
+      const playerCards = document.querySelector(`#player-${playerIndex}-cards`);
+      const cardDiv = document.createElement('div');
+      cardDiv.classList.add('card');
+      cardDiv.style.backgroundImage = `url(${card.image})`;
+      cardDiv.onclick = () => {
+        discardCard(card);
+        playerCards.removeChild(cardDiv);
+        const cardIndex = players[playerIndex].cards.indexOf(card); // Update this line
+        players[playerIndex].cards.splice(cardIndex, 1); // Update this line
+      };
+      playerCards.appendChild(cardDiv);
+    }
+
+
+    let discardPile = [];
+
+    function discardCard(card) {
+      const discardPileCard = document.querySelector('.discard-pile .card');
+      discardPile.push(card);
+      discardPileCard.style.backgroundImage = `url(${card.image})`;
+    }
+
+    function drawFromDiscardPile() {
+      if (discardPile.length === 0) {
+        alert("No more cards in the discard pile!");
+        return;
+      }
+
+      const currentPlayerIndex = players.length - 1;
+      if (currentPlayerIndex < 0) {
+        alert("Add a player first!");
+        return;
+      }
+
+      const selectedPlayerIndex = prompt("Enter the player number to draw from the discard pile:", "");
+      if (selectedPlayerIndex === null || selectedPlayerIndex === "") {
+        return;
+      }
+
+      if (selectedPlayerIndex < 1 || selectedPlayerIndex > players.length) {
+        alert("Invalid player number!");
+        return;
+      }
+
+      const card = discardPile.pop(); // Not sure about pop
+      players[selectedPlayerIndex - 1].cards.push(card); // Update this line
+      placeCard(selectedPlayerIndex - 1, card);
+
+      const discardPileCard = document.querySelector('.discard-pile .card');
+      //id the next discardpile card by the last in the list
+      let discardNext = discardPile.length > 0 ? (discardPile.length-1) : 0;
+      discardPileCard.style.backgroundImage = discardPile.length > 0 ? `url(${discardPile[discardNext].image})` : "none";
+    }
+
+
+
+
+    shuffle(deck);
+    //document.querySelector('.discard-pile .card').style.backgroundImage = `url(${deck[0].image})`;
+  
+    // extra functions
+    function checkDecks() {
+      const deckInfo = document.querySelector("#deck-info");
+      const deckSize = deck.length;
+      const discardPileSize = discardPile.length;
+
+      let playerValues = [];
+      players.forEach((player, index) => {
+        const totalValue = player.cards.reduce((sum, card) => sum + parseInt(card.value), 0);
+        playerValues.push(`Player ${index + 1} (${player.id}): ${totalValue}`);
+      });
+
+      deckInfo.innerHTML = `
+        <p>Cards in deck: ${deckSize}</p>
+        <p>Cards in discard pile: ${discardPileSize}</p>
+        <p>Total values of players' hands:</p>
+        <ul>
+          ${playerValues.map(value => `<li>${value}</li>`).join('')}
+        </ul>
+      `;
+    }
+
+
+    function discardFromDeck() {
+      if (deck.length === 0) {
+        alert("No more cards in the deck!");
+        return;
+      }
+
+      shuffle(deck);
+      const drawnCard = deck.pop();
+      discardPile.push(drawnCard);
+      const discardPileCard = document.querySelector('.discard-pile .card');
+      discardPileCard.style.backgroundImage = `url(${drawnCard.image})`;
+    }
+
+    function generateUniqueId() {
+      return Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000);
+    }
+
+    function openModal() {
+  const modal = document.getElementById("modal");
+  const playerIdDropdown = document.getElementById("player-id-dropdown");
+  const playerId = playerIdDropdown.value;
+
+  const playerIndex = players.findIndex(player => player.id == playerId); // Use '==' instead of '==='
+
+  if (playerIndex === -1) {
+    alert("Player not found!");
+    return;
+  }
+
+  modal.style.display = "block";
+
+  const modalDeck = document.getElementById("modal-deck");
+  modalDeck.style.backgroundImage = `url('./images/deckback.png')`;
+
+  const modalDiscardPile = document.getElementById("modal-discard-pile").querySelector(".card");
+  modalDiscardPile.style.backgroundImage = discardPile.length > 0 ? `url(${discardPile[discardPile.length - 1].image})` : "none";
+
+  const modalPlayerId = document.getElementById("modal-player-id");
+  modalPlayerId.textContent = playerId;
+
+  const modalPlayerCards = document.getElementById("modal-player-cards");
+  modalPlayerCards.innerHTML = "";
+
+  players[playerIndex].cards.forEach(card => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.style.backgroundImage = `url(${card.image})`;
+    modalPlayerCards.appendChild(cardDiv);
+  });
+
+  let otherPlayersContainer = document.getElementById("other-players-container");
+  if (!otherPlayersContainer) {
+    otherPlayersContainer = document.createElement("div");
+    otherPlayersContainer.id = "other-players-container";
+    otherPlayersContainer.classList.add("other-players-container");
+    modalPlayerCards.insertAdjacentElement("afterend", otherPlayersContainer);
+  } else {
+    otherPlayersContainer.innerHTML = "";
+  }
+
+  players.forEach((player, index) => {
+    if (index !== playerIndex) {
+      const playerDiv = document.createElement("div");
+      playerDiv.classList.add("player");
+
+      const playerTitle = document.createElement("p");
+      playerTitle.textContent = `Player ${index + 1} (${player.id})`;
+      playerDiv.appendChild(playerTitle);
+
+      const playerCards = document.createElement("div");
+      playerCards.classList.add("player-cards");
+
+      player.cards.forEach(() => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
+        cardDiv.style.backgroundImage = `url('./images/deckback.png')`;
+        playerCards.appendChild(cardDiv);
+      });
+
+      playerDiv.appendChild(playerCards);
+      otherPlayersContainer.appendChild(playerDiv);
+    }
+  });
+
+  modalPlayerCards.insertAdjacentElement("afterend", otherPlayersContainer);
+}
+
+
+
+function openAssignModal() {
+  const assignModal = document.getElementById("assignModal");
+  const assignPlayerIdDropdown = document.getElementById("assign-player-id-dropdown");
+  const assignDeck = document.getElementById("assign-deck");
+
+  assignPlayerIdDropdown.innerHTML = "";
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  defaultOption.textContent = "Select Player ID";
+  assignPlayerIdDropdown.add(defaultOption);
+
+  players.forEach((player, index) => {
+    const option = document.createElement("option");
+    option.text = `Player ${index + 1} (${player.id})`;
+    option.value = player.id;
+    assignPlayerIdDropdown.add(option);
+  });
+
+  assignDeck.innerHTML = "";
+
+  deck.forEach(card => {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.style.backgroundImage = `url(${card.image})`;
+    cardDiv.addEventListener("click", () => {
+      const playerId = assignPlayerIdDropdown.value;
+
+      if (!playerId) {
+        alert("Select a player first!");
+        return;
+      }
+
+      const playerIndex = players.findIndex(player => player.id == playerId);
+
+      if (playerIndex === -1) {
+        alert("Player not found!");
+        return;
+      }
+
+      const cardIndex = deck.indexOf(card);
+      deck.splice(cardIndex, 1);
+      players[playerIndex].cards.push(card);
+      placeCard(playerIndex, card);
+
+      assignDeck.removeChild(cardDiv);
+    });
+    assignDeck.appendChild(cardDiv);
+  });
+
+  assignModal.style.display = "block";
+}
+
+
+  
+  </script>
+
+<div id="modal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+  <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;">
+    <h2>Player's Cards (<span id="modal-player-id"></span>)</h2>
+    <div id="modal-deck" class="deck" style="margin-bottom: 20px;"></div>
+    <div id="modal-discard-pile" class="discard-pile">
+      <p>Discard Pile:</p>
+      <div class="card"></div>
+    </div>
+    <div id="modal-player-cards" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+    <button style="display: block; margin-top: 20px;" onclick="document.getElementById('modal').style.display='none'">Close</button>
+  </div>
+</div>
+
+<div id="assignModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+  <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;">
+    <h2>Assign Card to Player</h2>
+    <label for="assign-player-id-dropdown">Select Player:</label>
+    <select id="assign-player-id-dropdown">
+      <option value="" disabled selected>Select Player ID</option>
+    </select>
+    <div id="assign-deck" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;"></div>
+    <button style="display: block; margin-top: 20px;" onclick="document.getElementById('assignModal').style.display='none'">Close</button>
+  </div>
+</div>
+
+
+
+</div><!-- page wrapper-->
+</body>
+</html>
+

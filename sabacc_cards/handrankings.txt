@@ -1,0 +1,11 @@
+handrankings [Name, definition]
+1. [Pure Sabacc, two sylops]
+2. [Full Sabacc, a sylop and four tens]
+3. [Fleet, a sylop and four of a kind (2 positive and 2 negative) equaling zero]
+4. [Yee-Haa, a sylop and a pair (one positive and one negative) totalling zero]
+5. [Rhylet, positive of three of a kind and a negative pair or vice versa totalling zero]
+6. [Squadron, Four of a kind, (two positive, two negative) totaling zero]
+7. [Gee Whiz, 1 2 3 and 4 and -10 or -1 -2 -3 -4 and 10 totalling zero]
+8. [Straight Khyron , a sequential run of four cards totaling zero, may includ a sylop ]
+9. 
+
