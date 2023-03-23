@@ -154,6 +154,35 @@
       /* Add padding to the bottom */
     }
 
+/* Flexbox properties for the container */
+#main-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* space between the two divs */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 500px) {
+  #main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+@keyframes rotateDice {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#dice-1, #dice-2 {
+  animation: rotateDice 0.3s linear;
+}
+
 
     .page-wrapper {
       border: 8px solid #000000;
@@ -173,6 +202,15 @@
   </div>
   <div class="page-wrapper">
     <div class="container">
+      <div class="main-container">
+      <div id="dice-wrapper" style="display: inline-block; border: 5px solid black; border-radius: 5px; padding: 10px; margin-right: auto;">
+        <div id="dice-container" style="display: flex; justify-content: space-around; align-items: center;">
+          <img id="dice-1" src="" alt="Dice 1" style="width: 40px; height: 40px;">
+          <img id="dice-2" src="" alt="Dice 2" style="width: 40px; height: 40px;">
+        </div>
+        <button id="roll-button" onclick="rollDice()" style="display: block; margin-top: 10px;">Roll Spike Dice</button>
+      </div>
+      
       <div class="deck-discard-container">
         <div class="deck">
           <p>Deck:</p>
@@ -184,15 +222,23 @@
           <div class="card" onclick="drawFromDiscardPile()" style="background-image:;"></div>
         </div>
       </div><!-- discard container end-->
-
-
+      </div> <!-- main container end-->
+      
+      <br>
       <button onclick="addPlayer()">Add Player</button>
       <div class="player-area"></div>
     </div>
     <hr>
+    <br>
+    <button onclick="dealStartHands()">Deal Start Hands (two cards each)</button>
+    <br>
     <button onclick="discardFromDeck()">Discard Top Card From Deck</button>
     <br>
+    <button onclick="diceRollMatch()">Dice Roll Match (discard and deal back)</button>
+    <br>
     <button onclick="openAssignModal()">Manually Assign Card to Player</button>
+    <br>
+    <button onclick="dealSampleHands()">Deal Random Sample Hands</button>
     <br>
     <br>
     <select class="star-wars-dropdown" id="player-id-dropdown">
@@ -577,6 +623,78 @@ deckInfo.innerHTML = `
 
         assignModal.style.display = "block";
       }
+
+      // dealing functions 
+      function dealSampleHands() {
+        players.forEach((player, playerIndex) => {
+          const numberOfCards = Math.floor(Math.random() * 3) + 3; // Random number between 3 and 5
+          for (let i = 0; i < numberOfCards; i++) {
+            drawCard(playerIndex);
+          }
+        });
+      }
+
+      function dealStartHands() {
+        players.forEach((player, playerIndex) => {
+          for (let i = 0; i < 2; i++) {
+            drawCard(playerIndex);
+          }
+        });
+      }
+
+      function diceRollMatch() {
+  players.forEach((player, playerIndex) => {
+    const numCards = player.cards.length;
+    const playerCardsDiv = document.querySelector(`#player-${playerIndex}-cards`);
+
+    // Discard all cards in the player's hand and remove them from the UI
+    while (playerCardsDiv.firstChild) {
+      const cardDiv = playerCardsDiv.firstChild;
+      const card = player.cards[0];
+
+      if (card) {
+        discardCard(card);
+        playerCardsDiv.removeChild(cardDiv);
+        player.cards.splice(0, 1);
+      } else {
+        break;
+      }
+    }
+
+    // Deal the same number of cards back to the player's hand
+    for (let i = 0; i < numCards; i++) {
+      drawCard(playerIndex);
+    }
+  });
+}
+
+
+function rollDice() {
+  const dice1 = document.getElementById("dice-1");
+  const dice2 = document.getElementById("dice-2");
+
+  dice1.style.animation = "none";
+  dice2.style.animation = "none";
+  setTimeout(() => {
+    dice1.style.animation = "";
+    dice2.style.animation = "";
+  }, 0);
+
+  const randomNumber1 = Math.floor(Math.random() * 6) + 1;
+  const randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+  dice1.src = `./images/dice${randomNumber1}.png`;
+  dice2.src = `./images/dice${randomNumber2}.png`;
+}
+
+
+// Call rollDice function to set initial random dice images
+rollDice();
+
+
+
+
+
     </script>
 
     <div id="modal"
