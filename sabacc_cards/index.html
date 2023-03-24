@@ -250,6 +250,8 @@
     <br>
     <button onclick="dealSampleHands()">Deal Random Sample Hands</button>
     <br>
+    <button onclick="resetAndShuffle()">Reset Hands Decks and Shuffle</button>
+    <br>
     <br>
     <select class="star-wars-dropdown" id="player-id-dropdown">
       <option value="" disabled selected>Select Player</option>
@@ -636,6 +638,7 @@ deckInfo.innerHTML = `
 
       // dealing functions 
       function dealSampleHands() {
+        resetAndShuffle(); // reset the hands and shuffle the deck.
         players.forEach((player, playerIndex) => {
           const numberOfCards = Math.floor(Math.random() * 3) + 3; // Random number between 3 and 5
           for (let i = 0; i < numberOfCards; i++) {
@@ -709,6 +712,29 @@ function cycleWord() {
   currentWordIndex = (currentWordIndex + 1) % words.length;
   document.getElementById("word-text").textContent = words[currentWordIndex];
 }
+
+function resetAndShuffle() {
+  // Remove cards from each player's hand
+  players.forEach((player, index) => {
+    const playerCards = document.querySelector(`#player-${index}-cards`);
+    while (playerCards.firstChild) {
+      playerCards.removeChild(playerCards.firstChild);
+    }
+    player.cards = [];
+  });
+
+  // Reset the deck and discard pile
+  deck = cardsData.cards.map(card => ({ ...card }));
+  discardPile = [];
+
+  // Shuffle the deck
+  shuffle(deck);
+
+  // Update the discard pile UI
+  const discardPileCard = document.querySelector('.discard-pile .card');
+  discardPileCard.style.backgroundImage = "none";
+}
+
 
 
 
