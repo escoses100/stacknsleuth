@@ -192,6 +192,12 @@
       /* Adjust this value according to your preference */
       margin: 20px auto;
     }
+
+    .arrow-button {
+  font-weight: bold;
+  font-size: 1em;
+  padding: 7px;
+}
   </style>
 
 </head>
@@ -203,26 +209,30 @@
   <div class="page-wrapper">
     <div class="container">
       <div class="main-container">
-      <div id="dice-wrapper" style="display: inline-block; border: 5px solid black; border-radius: 5px; padding: 10px; margin-right: auto;">
-        <div id="dice-container" style="display: flex; justify-content: space-around; align-items: center;">
-          <img id="dice-1" src="" alt="Dice 1" style="width: 40px; height: 40px;">
-          <img id="dice-2" src="" alt="Dice 2" style="width: 40px; height: 40px;">
-        </div>
-        <button id="roll-button" onclick="rollDice()" style="display: block; margin-top: 10px;">Roll Spike Dice</button>
-      </div>
-      
-      <div class="deck-discard-container">
-        <div class="deck">
-          <p>Deck:</p>
-          <div class="deck" onclick="showPlayerSelection()" style="background-image: url('./images/deckback.png');">
+        <div id="dice-wrapper" style="display: inline-block; border: 5px solid black; border-radius: 5px; padding: 10px; margin-right: auto;">
+          <div id="dice-container" style="display: flex; justify-content: space-around; align-items: center;">
+            <img id="dice-1" src="" alt="Dice 1" style="width: 40px; height: 40px;">
+            <img id="dice-2" src="" alt="Dice 2" style="width: 40px; height: 40px;">
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <button id="roll-button" onclick="rollDice()" style="display: block; margin-top: 10px;">Roll Spike Dice</button>
+            <br>
+            <button id="cycle-button" class="arrow-button" onclick="cycleWord()"><span id="word-text">round one</span></button>
           </div>
         </div>
-        <div class="discard-pile">
-          <p>Discard Pile:</p>
-          <div class="card" onclick="drawFromDiscardPile()" style="background-image:;"></div>
-        </div>
-      </div><!-- discard container end-->
+        
+        <div class="deck-discard-container">
+          <div class="deck">
+            <p>Deck:</p>
+            <div class="deck" onclick="showPlayerSelection()" style="background-image: url('./images/deckback.png');"></div>
+          </div>
+          <div class="discard-pile">
+            <p>Discard Pile:</p>
+            <div class="card" onclick="drawFromDiscardPile()" style="background-image:;"></div>
+          </div>
+        </div><!-- discard container end-->
       </div> <!-- main container end-->
+      
       
       <br>
       <button onclick="addPlayer()">Add Player</button>
@@ -692,6 +702,13 @@ function rollDice() {
 rollDice();
 
 
+const words = ["round one", "round two", "round three"];
+let currentWordIndex = 0;
+
+function cycleWord() {
+  currentWordIndex = (currentWordIndex + 1) % words.length;
+  document.getElementById("word-text").textContent = words[currentWordIndex];
+}
 
 
 
