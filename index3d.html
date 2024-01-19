@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple WebXR Room with A-Frame</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene vr-mode-ui="enabled: true" embedded arjs="sourceType: webcam;">
+        <!-- Define assets for easier reference -->
+        <a-assets>
+            <img id="wall1" src="./images/galaxybg.jpg">
+            <img id="wall2" src="./images/galaxybg.jpg">
+            <img id="wall3" src="./images/galaxybg.jpg">
+            <img id="wall4" src="./images/galaxybg.jpg">
+        </a-assets>
+
+        <!-- Define the room with images as textures -->
+        <a-plane position="0 1.5 -2" rotation="0 0 0" width="4" height="3" src="#wall1"></a-plane>
+        <a-plane position="2 1.5 0" rotation="0 -90 0" width="4" height="3" src="#wall2"></a-plane>
+        <a-plane position="0 1.5 2" rotation="0 180 0" width="4" height="3" src="#wall3"></a-plane>
+        <a-plane position="-2 1.5 0" rotation="0 90 0" width="4" height="3" src="#wall4"></a-plane>
+
+        <!-- Camera -->
+        <a-camera position="0 1.6 0"></a-camera>
+    </a-scene>
+</body>
+</html>
